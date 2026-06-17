@@ -74,7 +74,7 @@ public sealed class OrderManagementClient : IDisposable
     {
         var services = new ServiceCollection();
         services.AddOrderManagementSdk(config);
-        services.AddSingleton(tokenContext);
+        services.AddSingleton<ITokenContext>(tokenContext);
         return services.BuildServiceProvider().GetRequiredService<IOrderManagementGraphQLClient>();
     }
 
