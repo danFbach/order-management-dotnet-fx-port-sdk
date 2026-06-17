@@ -45,16 +45,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.Orders.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.Orders;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.Orders.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.Orders;
         });
 
     public Task<IOrdersByIds_OrdersByIds?> OrdersByIdsAsync(
@@ -62,16 +55,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.OrdersByIds.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.OrdersByIds;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.OrdersByIds.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.OrdersByIds;
         });
 
     public Task<IMarkOrdersPaid_MarkOrdersPaid?> MarkOrdersPaidAsync(
@@ -79,16 +65,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.MarkOrdersPaid.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.MarkOrdersPaid;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.MarkOrdersPaid.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.MarkOrdersPaid;
         });
 
     public Task<IBulkUpdateOrderTags_BulkUpdateOrderTags?> BulkUpdateOrderTagsAsync(
@@ -96,16 +75,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.BulkUpdateOrderTags.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.BulkUpdateOrderTags;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.BulkUpdateOrderTags.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.BulkUpdateOrderTags;
         });
 
     public Task<IOrderLineItemsByIds_OrderLineItemsByIds?> OrderLineItemsByIdsAsync(
@@ -113,16 +85,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.OrderLineItemsByIds.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.OrderLineItemsByIds;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.OrderLineItemsByIds.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.OrderLineItemsByIds;
         });
 
     // ── Cancellations ─────────────────────────────────────────────────────────
@@ -132,16 +97,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.SellerContractCancellations.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.SellerContractCancellations;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.SellerContractCancellations.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.SellerContractCancellations;
         });
 
     public Task<IContractCancellation_ContractCancellation?> ContractCancellationAsync(
@@ -149,16 +107,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ContractCancellation.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ContractCancellation;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ContractCancellation.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ContractCancellation;
         });
 
     public Task<ICreateOrderCancellation_CreateOrderCancellation?> CreateOrderCancellationAsync(
@@ -166,16 +117,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.CreateOrderCancellation.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.CreateOrderCancellation;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.CreateOrderCancellation.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.CreateOrderCancellation;
         });
 
     public Task<IApproveContractCancellation_ApproveContractCancellation?> ApproveContractCancellationAsync(
@@ -183,16 +127,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ApproveContractCancellation.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ApproveContractCancellation;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ApproveContractCancellation.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ApproveContractCancellation;
         });
 
     public Task<IDeclineContractCancellation_DeclineContractCancellation?> DeclineContractCancellationAsync(
@@ -200,16 +137,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.DeclineContractCancellation.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.DeclineContractCancellation;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.DeclineContractCancellation.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.DeclineContractCancellation;
         });
 
     // ── Returns ───────────────────────────────────────────────────────────────
@@ -219,16 +149,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.OrderReturn.ExecuteAsync(input, scenario, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.OrderReturn;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.OrderReturn.ExecuteAsync(input, scenario, ct));
+            EnsureNoErrors(result);
+            return result.Data?.OrderReturn;
         });
 
     public Task<ISellerOrderReturns_SellerOrderReturns?> SellerOrderReturnsAsync(
@@ -236,16 +159,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.SellerOrderReturns.ExecuteAsync(input, scenario, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.SellerOrderReturns;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.SellerOrderReturns.ExecuteAsync(input, scenario, ct));
+            EnsureNoErrors(result);
+            return result.Data?.SellerOrderReturns;
         });
 
     public Task<IApproveReturn_ApproveReturn?> ApproveReturnAsync(
@@ -253,16 +169,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ApproveReturn.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ApproveReturn;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ApproveReturn.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ApproveReturn;
         });
 
     public Task<IDeclineReturn_DeclineReturn?> DeclineReturnAsync(
@@ -270,16 +179,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.DeclineReturn.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.DeclineReturn;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.DeclineReturn.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.DeclineReturn;
         });
 
     public Task<IProcessReturnRefund_ProcessReturnRefund?> ProcessReturnRefundAsync(
@@ -287,16 +189,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ProcessReturnRefund.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ProcessReturnRefund;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ProcessReturnRefund.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ProcessReturnRefund;
         });
 
     public Task<ICreateInStoreReturn_CreateInStoreReturn?> CreateInStoreReturnAsync(
@@ -304,16 +199,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.CreateInStoreReturn.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.CreateInStoreReturn;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.CreateInStoreReturn.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.CreateInStoreReturn;
         });
 
     public Task<IAttachReturnShipmentLabel_AttachReturnShipmentLabel?> AttachReturnShipmentLabelAsync(
@@ -321,16 +209,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.AttachReturnShipmentLabel.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.AttachReturnShipmentLabel;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.AttachReturnShipmentLabel.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.AttachReturnShipmentLabel;
         });
 
     public Task<IRecordReturnLabelSentOffline_RecordReturnLabelSentOffline?> RecordReturnLabelSentOfflineAsync(
@@ -338,16 +219,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.RecordReturnLabelSentOffline.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.RecordReturnLabelSentOffline;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.RecordReturnLabelSentOffline.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.RecordReturnLabelSentOffline;
         });
 
     public Task<IRecordReturnReceived_RecordReturnReceived?> RecordReturnReceivedAsync(
@@ -355,16 +229,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.RecordReturnReceived.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.RecordReturnReceived;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.RecordReturnReceived.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.RecordReturnReceived;
         });
 
     public Task<ISendReturnMessage_SendReturnMessage?> SendReturnMessageAsync(
@@ -372,16 +239,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.SendReturnMessage.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.SendReturnMessage;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.SendReturnMessage.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.SendReturnMessage;
         });
 
     public Task<ISubmitReturnReferral_SubmitReturnReferral?> SubmitReturnReferralAsync(
@@ -389,16 +249,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.SubmitReturnReferral.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.SubmitReturnReferral;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.SubmitReturnReferral.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.SubmitReturnReferral;
         });
 
     public Task<IProposeKeepItemWithPartialRefund_ProposeKeepItemWithPartialRefund?> ProposeKeepItemWithPartialRefundAsync(
@@ -406,16 +259,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ProposeKeepItemWithPartialRefund.ExecuteAsync(input, scenario, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ProposeKeepItemWithPartialRefund;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ProposeKeepItemWithPartialRefund.ExecuteAsync(input, scenario, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ProposeKeepItemWithPartialRefund;
         });
 
     public Task<IProvideRmaNumber_ProvideRmaNumber?> ProvideRmaNumberAsync(
@@ -423,16 +269,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ProvideRmaNumber.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ProvideRmaNumber;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ProvideRmaNumber.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ProvideRmaNumber;
         });
 
     // ── Return Rules ──────────────────────────────────────────────────────────
@@ -442,16 +281,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ReturnRuleListingGroup.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ReturnRuleListingGroup;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ReturnRuleListingGroup.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ReturnRuleListingGroup;
         });
 
     public Task<ICreateReturnRuleListingGroup_CreateReturnRuleListingGroup?> CreateReturnRuleListingGroupAsync(
@@ -459,16 +291,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.CreateReturnRuleListingGroup.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.CreateReturnRuleListingGroup;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.CreateReturnRuleListingGroup.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.CreateReturnRuleListingGroup;
         });
 
     public Task<IDeleteReturnRuleListingGroup_DeleteReturnRuleListingGroup?> DeleteReturnRuleListingGroupAsync(
@@ -476,16 +301,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.DeleteReturnRuleListingGroup.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.DeleteReturnRuleListingGroup;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.DeleteReturnRuleListingGroup.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.DeleteReturnRuleListingGroup;
         });
 
     public Task<IAddListingsToReturnRuleListingGroup_AddListingsToReturnRuleListingGroup?> AddListingsToReturnRuleListingGroupAsync(
@@ -493,16 +311,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.AddListingsToReturnRuleListingGroup.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.AddListingsToReturnRuleListingGroup;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.AddListingsToReturnRuleListingGroup.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.AddListingsToReturnRuleListingGroup;
         });
 
     public Task<ISellerReturnPreference_SellerReturnPreference?> SellerReturnPreferenceAsync(
@@ -510,16 +321,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.SellerReturnPreference.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.SellerReturnPreference;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.SellerReturnPreference.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.SellerReturnPreference;
         });
 
     public Task<IAppendSellerReturnResponseRule_AppendSellerReturnResponseRule?> AppendSellerReturnResponseRuleAsync(
@@ -527,16 +331,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.AppendSellerReturnResponseRule.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.AppendSellerReturnResponseRule;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.AppendSellerReturnResponseRule.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.AppendSellerReturnResponseRule;
         });
 
     public Task<IAppendSellerReturnToAddressRule_AppendSellerReturnToAddressRule?> AppendSellerReturnToAddressRuleAsync(
@@ -544,16 +341,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.AppendSellerReturnToAddressRule.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.AppendSellerReturnToAddressRule;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.AppendSellerReturnToAddressRule.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.AppendSellerReturnToAddressRule;
         });
 
     public Task<IUpdateSellerReturnResponseRuleCondition_UpdateSellerReturnResponseRuleCondition?> UpdateSellerReturnResponseRuleConditionAsync(
@@ -561,16 +351,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.UpdateSellerReturnResponseRuleCondition.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.UpdateSellerReturnResponseRuleCondition;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.UpdateSellerReturnResponseRuleCondition.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.UpdateSellerReturnResponseRuleCondition;
         });
 
     public Task<IUpdateSellerReturnResponseRulesPriorities_UpdateSellerReturnResponseRulesPriorities?> UpdateSellerReturnResponseRulesPrioritiesAsync(
@@ -578,16 +361,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.UpdateSellerReturnResponseRulesPriorities.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.UpdateSellerReturnResponseRulesPriorities;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.UpdateSellerReturnResponseRulesPriorities.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.UpdateSellerReturnResponseRulesPriorities;
         });
 
     public Task<IUpdateSellerReturnToAddressRuleCondition_UpdateSellerReturnToAddressRuleCondition?> UpdateSellerReturnToAddressRuleConditionAsync(
@@ -595,16 +371,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.UpdateSellerReturnToAddressRuleCondition.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.UpdateSellerReturnToAddressRuleCondition;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.UpdateSellerReturnToAddressRuleCondition.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.UpdateSellerReturnToAddressRuleCondition;
         });
 
     public Task<IUpdateSellerReturnToAddressRulesPriorities_UpdateSellerReturnToAddressRulesPriorities?> UpdateSellerReturnToAddressRulesPrioritiesAsync(
@@ -612,16 +381,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.UpdateSellerReturnToAddressRulesPriorities.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.UpdateSellerReturnToAddressRulesPriorities;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.UpdateSellerReturnToAddressRulesPriorities.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.UpdateSellerReturnToAddressRulesPriorities;
         });
 
     public Task<IUpdateSellerReturnRuleStatus_UpdateSellerReturnRuleStatus?> UpdateSellerReturnRuleStatusAsync(
@@ -629,16 +391,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.UpdateSellerReturnRuleStatus.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.UpdateSellerReturnRuleStatus;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.UpdateSellerReturnRuleStatus.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.UpdateSellerReturnRuleStatus;
         });
 
     public Task<IDeleteSellerReturnRule_DeleteSellerReturnRule?> DeleteSellerReturnRuleAsync(
@@ -646,16 +401,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.DeleteSellerReturnRule.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.DeleteSellerReturnRule;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.DeleteSellerReturnRule.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.DeleteSellerReturnRule;
         });
 
     public Task<IUpdateSellerRmaPreference_UpdateSellerRmaPreference?> UpdateSellerRmaPreferenceAsync(
@@ -663,16 +411,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.UpdateSellerRmaPreference.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.UpdateSellerRmaPreference;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.UpdateSellerRmaPreference.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.UpdateSellerRmaPreference;
         });
 
     // ── Order Inquiries ───────────────────────────────────────────────────────
@@ -682,16 +423,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.OrderInquiry.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.OrderInquiry;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.OrderInquiry.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.OrderInquiry;
         });
 
     public Task<ISellerOrderInquiries_SellerOrderInquiries?> SellerOrderInquiriesAsync(
@@ -699,16 +433,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.SellerOrderInquiries.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.SellerOrderInquiries;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.SellerOrderInquiries.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.SellerOrderInquiries;
         });
 
     public Task<ISendOrderInquiryMessage_SendOrderInquiryMessage?> SendOrderInquiryMessageAsync(
@@ -716,16 +443,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.SendOrderInquiryMessage.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.SendOrderInquiryMessage;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.SendOrderInquiryMessage.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.SendOrderInquiryMessage;
         });
 
     public Task<IProcessOrderInquiryRefund_ProcessOrderInquiryRefund?> ProcessOrderInquiryRefundAsync(
@@ -733,16 +453,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ProcessOrderInquiryRefund.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ProcessOrderInquiryRefund;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ProcessOrderInquiryRefund.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ProcessOrderInquiryRefund;
         });
 
     public Task<ISubmitOrderInquiryReferral_SubmitOrderInquiryReferral?> SubmitOrderInquiryReferralAsync(
@@ -750,16 +463,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.SubmitOrderInquiryReferral.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.SubmitOrderInquiryReferral;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.SubmitOrderInquiryReferral.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.SubmitOrderInquiryReferral;
         });
 
     public Task<IProvideShipmentInfoForItemNotReceivedInquiry_ProvideShipmentInfoForItemNotReceivedInquiry?> ProvideShipmentInfoForItemNotReceivedInquiryAsync(
@@ -767,16 +473,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ProvideShipmentInfoForItemNotReceivedInquiry.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ProvideShipmentInfoForItemNotReceivedInquiry;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ProvideShipmentInfoForItemNotReceivedInquiry.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ProvideShipmentInfoForItemNotReceivedInquiry;
         });
 
     // ── Item Commitments ──────────────────────────────────────────────────────
@@ -786,16 +485,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ItemCommitments.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ItemCommitments;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ItemCommitments.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ItemCommitments;
         });
 
     public Task<IItemCommitmentsByIds_ItemCommitmentsByIds?> ItemCommitmentsByIdsAsync(
@@ -803,16 +495,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.ItemCommitmentsByIds.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.ItemCommitmentsByIds;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.ItemCommitmentsByIds.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.ItemCommitmentsByIds;
         });
 
     public Task<IMarkItemCommitmentsPaid_MarkItemCommitmentsPaid?> MarkItemCommitmentsPaidAsync(
@@ -820,16 +505,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.MarkItemCommitmentsPaid.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.MarkItemCommitmentsPaid;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.MarkItemCommitmentsPaid.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.MarkItemCommitmentsPaid;
         });
 
     public Task<IBulkUpdateItemCommitmentTags_BulkUpdateItemCommitmentTags?> BulkUpdateItemCommitmentTagsAsync(
@@ -837,16 +515,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.BulkUpdateItemCommitmentTags.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.BulkUpdateItemCommitmentTags;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.BulkUpdateItemCommitmentTags.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.BulkUpdateItemCommitmentTags;
         });
 
     public Task<ICreateItemCommitmentCancellation_CreateItemCommitmentCancellation?> CreateItemCommitmentCancellationAsync(
@@ -854,16 +525,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.CreateItemCommitmentCancellation.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.CreateItemCommitmentCancellation;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.CreateItemCommitmentCancellation.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.CreateItemCommitmentCancellation;
         });
 
     // ── Purchase Quotes ───────────────────────────────────────────────────────
@@ -873,16 +537,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.PurchaseQuotes.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.PurchaseQuotes;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.PurchaseQuotes.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.PurchaseQuotes;
         });
 
     public Task<IPurchaseQuotesByIds_PurchaseQuotesByIds?> PurchaseQuotesByIdsAsync(
@@ -890,16 +547,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.PurchaseQuotesByIds.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.PurchaseQuotesByIds;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.PurchaseQuotesByIds.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.PurchaseQuotesByIds;
         });
 
     public Task<IPurchaseQuoteLineItemsByIds_PurchaseQuoteLineItemsByIds?> PurchaseQuoteLineItemsByIdsAsync(
@@ -907,16 +557,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.PurchaseQuoteLineItemsByIds.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.PurchaseQuoteLineItemsByIds;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.PurchaseQuoteLineItemsByIds.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.PurchaseQuoteLineItemsByIds;
         });
 
     public Task<ICreatePurchaseQuote_CreatePurchaseQuote?> CreatePurchaseQuoteAsync(
@@ -924,16 +567,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.CreatePurchaseQuote.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.CreatePurchaseQuote;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.CreatePurchaseQuote.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.CreatePurchaseQuote;
         });
 
     public Task<ICreatePurchaseQuoteCancellation_CreatePurchaseQuoteCancellation?> CreatePurchaseQuoteCancellationAsync(
@@ -941,16 +577,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.CreatePurchaseQuoteCancellation.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.CreatePurchaseQuoteCancellation;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.CreatePurchaseQuoteCancellation.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.CreatePurchaseQuoteCancellation;
         });
 
     public Task<IBulkUpdatePurchaseQuotes_BulkUpdatePurchaseQuotes?> BulkUpdatePurchaseQuotesAsync(
@@ -958,16 +587,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.BulkUpdatePurchaseQuotes.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.BulkUpdatePurchaseQuotes;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.BulkUpdatePurchaseQuotes.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.BulkUpdatePurchaseQuotes;
         });
 
     public Task<IRequestPurchaseQuote_RequestPurchaseQuote?> RequestPurchaseQuoteAsync(
@@ -975,16 +597,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.RequestPurchaseQuote.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.RequestPurchaseQuote;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.RequestPurchaseQuote.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.RequestPurchaseQuote;
         });
 
     public Task<ICommitToPurchase_CommitToPurchase?> CommitToPurchaseAsync(
@@ -992,16 +607,9 @@ public sealed class OrderGraphQLClient
         => _tokenContext.RunAsync(accessToken, async () =>
         {
             EnsureTypedClientAvailable();
-            try
-            {
-                var result = await _client!.CommitToPurchase.ExecuteAsync(input, ct).ConfigureAwait(false);
-                EnsureNoErrors(result);
-                return result.Data?.CommitToPurchase;
-            }
-            catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new UnauthorizedException(ex);
-            }
+            var result = await ExecuteAsync(() => _client!.CommitToPurchase.ExecuteAsync(input, ct));
+            EnsureNoErrors(result);
+            return result.Data?.CommitToPurchase;
         });
 
     // ── Dynamic escape hatch ──────────────────────────────────────────────────
@@ -1019,7 +627,28 @@ public sealed class OrderGraphQLClient
         string query, object? variables = null, string? accessToken = null, CancellationToken ct = default)
         => _dynamic.ExecuteRawUnsafeAsync(query, variables, accessToken, ct);
 
-    // ── Error handling ────────────────────────────────────────────────────────
+    // ── Helpers ───────────────────────────────────────────────────────────────
+
+    private static async Task<IOperationResult<T>> ExecuteAsync<T>(Func<Task<IOperationResult<T>>> call)
+        where T : class
+    {
+        try { return await call(); }
+        catch (Exception ex) when (ex is not SdkException) { throw WrapException(ex); }
+    }
+
+    private static Exception WrapException(Exception ex) => ex switch
+    {
+        HttpRequestException { StatusCode: HttpStatusCode.Unauthorized } => new UnauthorizedException(ex),
+        HttpRequestException { StatusCode: { } code } http =>
+            new SdkException($"GraphQL request failed with HTTP {(int)code}: {http.Message}", ex),
+        HttpRequestException http =>
+            new SdkException($"GraphQL request failed (network error): {http.Message} — check that GraphQLBaseUrl is reachable.", ex),
+        TaskCanceledException =>
+            new SdkException("GraphQL request timed out — check that GraphQLBaseUrl is reachable and the network is accessible.", ex),
+        InvalidOperationException { Message: var msg } when msg.Contains("execution attempt") =>
+            new SdkException("GraphQL request returned no data; the endpoint may be unreachable or returned an unexpected response — check GraphQLBaseUrl.", ex),
+        _ => new SdkException($"GraphQL request failed: {ex.Message}", ex)
+    };
 
     private static void EnsureNoErrors<T>(IOperationResult<T> result) where T : class
     {
