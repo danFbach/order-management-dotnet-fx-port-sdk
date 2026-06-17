@@ -1,0 +1,58 @@
+# macOS
+.DS_Store
+*/.DS_Store
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+
+# .NET
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.nupkg
+*.snupkg
+
+# Visual Studio
+.vs/
+*.rsuser
+*.vsp
+*.vspx
+
+# Rider
+.idea/
+*.sln.iml
+
+# NuGet
+*.nuget.props
+*.nuget.targets
+packages/
+!**/packages/build/
+nuget.config.local
+
+# Test results
+TestResults/
+coverage/
+*.trx
+*.coveragexml
+*.coverage
+
+# Publish
+publish/
+**/Properties/PublishProfiles/
+
+# User secrets / local config
+appsettings.local.json
+appsettings.*.local.json
+secrets.json
+
+# Environment
+.env
+.env.local
