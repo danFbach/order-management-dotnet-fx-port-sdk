@@ -16,9 +16,11 @@
 using EBay.OrderManagement.Clients.GraphQL;
 using EBay.OrderManagement.Clients.Rest;
 using EBay.OrderManagement.Configuration;
+using EBay.OrderManagement.Extensions;
 using EBay.OrderManagement.Generated.Fulfillment;
 using EBay.OrderManagement.Generated.GraphQL;
 using EBay.OrderManagement.Generated.Logistics;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Kiota.Abstractions.Authentication;
 using Microsoft.Kiota.Http.HttpClientLibrary;
 
@@ -39,17 +41,41 @@ public sealed class OrderManagementClient : IDisposable
 
     /// <summary>
     /// Standalone constructor for use outside DI (tests, scripts).
-    /// Typed GraphQL operations are not available in this mode; use GraphQL.ExecuteRawUnsafeAsync.
+    /// Builds a minimal internal service provider so that typed GraphQL operations work
+    /// without requiring the caller to set up DI.
     /// </summary>
     public OrderManagementClient(OrderManagementConfiguration config)
-        : this(
-            config,
-            BuildStandaloneHttpClient(config),
-            BuildStandaloneHttpClient(config),
-            null!,
-            new AsyncLocalTokenContext())
     {
+        var tokenContext = new AsyncLocalTokenContext();
+        _fulfillmentHttpClient = BuildStandaloneHttpClient(config);
+        _logisticsHttpClient   = BuildStandaloneHttpClient(config);
         _ownsHttpClients = true;
+
+        var auth = new BaseBearerTokenAuthenticationProvider(new KiotaAuthProvider(config, tokenContext));
+
+        var fulfillmentAdapter = new HttpClientRequestAdapter(
+            auth, httpClient: BuildKiotaClient(config.FulfillmentBaseUrl, _fulfillmentHttpClient))
+        { BaseUrl = config.FulfillmentBaseUrl };
+
+        var logisticsAdapter = new HttpClientRequestAdapter(
+            auth, httpClient: BuildKiotaClient(config.LogisticsBaseUrl, _logisticsHttpClient))
+        { BaseUrl = config.LogisticsBaseUrl };
+
+        Fulfillment = new FulfillmentClient(new FulfillmentApiClient(fulfillmentAdapter), config, tokenContext);
+        Logistics   = new LogisticsClient(new LogisticsApiClient(logisticsAdapter), config, tokenContext);
+        GraphQL     = new OrderGraphQLClient(
+            BuildStandaloneGqlClient(config, tokenContext),
+            new DynamicGraphQLClient(_fulfillmentHttpClient, config, tokenContext),
+            tokenContext);
+    }
+
+    private static IOrderManagementGraphQLClient BuildStandaloneGqlClient(
+        OrderManagementConfiguration config, ITokenContext tokenContext)
+    {
+        var services = new ServiceCollection();
+        services.AddOrderManagementSdk(config);
+        services.AddSingleton(tokenContext);
+        return services.BuildServiceProvider().GetRequiredService<IOrderManagementGraphQLClient>();
     }
 
     /// <summary>
