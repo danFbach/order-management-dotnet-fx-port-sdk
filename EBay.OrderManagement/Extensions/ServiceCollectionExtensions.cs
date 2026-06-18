@@ -41,7 +41,8 @@ public static class ServiceCollectionExtensions
                 client.BaseAddress = new Uri(config.GraphQLBaseUrl);
                 client.Timeout = config.HttpTimeout;
             })
-            .AddHttpMessageHandler<BearerTokenHandler>();
+            .AddHttpMessageHandler<BearerTokenHandler>()
+            .AddHttpMessageHandler(_ => new GraphQLHttpHandler(config));
 
         // Dynamic escape hatch
         services.AddScoped<DynamicGraphQLClient>(sp =>
