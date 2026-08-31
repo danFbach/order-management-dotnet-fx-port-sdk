@@ -46,6 +46,9 @@ dotnet kiota generate \
   -o EBay.OrderManagement/Generated/Logistics \
   --ebc --co
 
+echo "Adding license headers to generated files..."
+./add-license-headers.sh ./EBay.OrderManagement/Generated
+
 # Build the project
 echo ""
 echo "Building the SDK..."
