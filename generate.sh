@@ -52,7 +52,7 @@ echo "Adding license headers to generated files..."
 # Build the project
 echo ""
 echo "Building the SDK..."
-dotnet build EBay.OrderManagement/EBay.OrderManagement.csproj
+DOTNET_ROLL_FORWARD=LatestMajor dotnet build EBay.OrderManagement/EBay.OrderManagement.csproj
 
 echo ""
 echo "========================================="
