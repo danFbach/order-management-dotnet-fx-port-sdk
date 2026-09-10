@@ -31,7 +31,7 @@ echo "Regenerating REST clients with Kiota..."
 echo "  - Fulfillment client..."
 dotnet kiota generate \
   -l csharp \
-  -d specs/sell_fulfillment_v1_oas3.yaml \
+  -d specs/openapi/fulfillment.yaml \
   -c FulfillmentApiClient \
   -n EBay.OrderManagement.Generated.Fulfillment \
   -o EBay.OrderManagement/Generated/Fulfillment \
@@ -40,16 +40,19 @@ dotnet kiota generate \
 echo "  - Logistics client..."
 dotnet kiota generate \
   -l csharp \
-  -d specs/sell_logistics_v1_oas3.yaml \
+  -d specs/openapi/logistics.yaml \
   -c LogisticsApiClient \
   -n EBay.OrderManagement.Generated.Logistics \
   -o EBay.OrderManagement/Generated/Logistics \
   --ebc --co
 
+echo "Adding license headers to generated files..."
+./add-license-headers.sh ./EBay.OrderManagement/Generated
+
 # Build the project
 echo ""
 echo "Building the SDK..."
-dotnet build EBay.OrderManagement/EBay.OrderManagement.csproj
+DOTNET_ROLL_FORWARD=LatestMajor dotnet build EBay.OrderManagement/EBay.OrderManagement.csproj
 
 echo ""
 echo "========================================="
