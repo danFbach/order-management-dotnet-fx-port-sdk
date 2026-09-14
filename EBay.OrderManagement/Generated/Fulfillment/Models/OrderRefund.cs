@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This field shows the refund amount for an order. This container is always returned for each refund.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The refund amount shown is the seller&apos;s &lt;em&gt;net amount&lt;/em&gt; received from the sale/transaction. eBay-collected tax will not be included in this amount, so the actual amount of the buyer&apos;s refund may be higher than this value.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? Amount { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount Amount { get; set; }
 #endif
-        /// <summary>The date and time that the refund was issued. This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. This field is not returned until the refund has been issued. &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
+        /// <summary>The date and time that the refund was issued. This timestamp is in &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; format, which uses the 24-hour Universal Coordinated Time (UTC) clock. This field is not returned until the refund has been issued. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RefundDate { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string RefundDate { get; set; }
 #endif
-        /// <summary>Unique identifier of a refund that was initiated for an order through the &lt;b&gt;issueRefund&lt;/b&gt; method. If the &lt;b&gt;issueRefund&lt;/b&gt; method was used to issue one or more refunds at the line item level, these refund identifiers are returned at the line item level instead (&lt;b&gt;lineItems.refunds.refundId&lt;/b&gt; field).&lt;br&gt;&lt;br&gt; A &lt;b&gt;refundId&lt;/b&gt; value is returned in the response of the &lt;b&gt;issueRefund&lt;/b&gt; method, and this same value will be returned in the &lt;b&gt;getOrders&lt;/b&gt; and &lt;b&gt;getOrders&lt;/b&gt; responses for pending and completed refunds. For other refunds, see the &lt;b&gt;refundReferenceId&lt;/b&gt; field.</summary>
+        /// <summary>Unique identifier of a refund that was initiated for an order through the &lt;strong&gt;issueRefund&lt;/strong&gt; method. If the &lt;strong&gt;issueRefund&lt;/strong&gt; method was used to issue one or more refunds at the line item level, these refund identifiers are returned at the line item level instead (&lt;strong&gt;lineItems.refunds.refundId&lt;/strong&gt; field).&lt;br&gt;&lt;br&gt; A &lt;strong&gt;refundId&lt;/strong&gt; value is returned in the response of the &lt;strong&gt;issueRefund&lt;/strong&gt; method, and this same value will be returned in the &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; and &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorders&quot; target=&quot;_blank&quot;&gt;getOrders&lt;/a&gt; responses for pending and completed refunds. For other refunds, see the &lt;strong&gt;refundReferenceId&lt;/strong&gt; field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RefundId { get; set; }
@@ -61,14 +61,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string RefundReferenceId { get; set; }
 #endif
-        /// <summary>This enumeration value indicates the current status of the refund to the buyer. This container is always returned for each refund. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:RefundStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RefundStatus { get; set; }
-#nullable restore
-#else
-        public string RefundStatus { get; set; }
-#endif
+        /// <summary>This enumeration value indicates the current status of the refund to the buyer. This container is always returned for each refund.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.RefundStatusEnum? RefundStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderRefund"/> and sets the default values.
         /// </summary>
@@ -98,7 +92,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
                 { "refundDate", n => { RefundDate = n.GetStringValue(); } },
                 { "refundId", n => { RefundId = n.GetStringValue(); } },
                 { "refundReferenceId", n => { RefundReferenceId = n.GetStringValue(); } },
-                { "refundStatus", n => { RefundStatus = n.GetStringValue(); } },
+                { "refundStatus", n => { RefundStatus = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.RefundStatusEnum>(); } },
             };
         }
         /// <summary>
@@ -112,7 +106,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             writer.WriteStringValue("refundDate", RefundDate);
             writer.WriteStringValue("refundId", RefundId);
             writer.WriteStringValue("refundReferenceId", RefundReferenceId);
-            writer.WriteStringValue("refundStatus", RefundStatus);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.RefundStatusEnum>("refundStatus", RefundStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -53,14 +53,8 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string City { get; set; }
 #endif
-        /// <summary>The country of the address, represented as two-letter &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 3166&lt;/a&gt; country code. For example, &lt;code&gt;US&lt;/code&gt; represents the United States and &lt;code&gt;DE&lt;/code&gt; represents Germany. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/logistics/types/bas:CountryCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CountryCode { get; set; }
-#nullable restore
-#else
-        public string CountryCode { get; set; }
-#endif
+        /// <summary>The country of the address, represented as two-letter &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html&quot; title=&quot;https://www.iso.org&quot; target=&quot;_blank&quot;&gt;ISO 3166&lt;/a&gt; country code. For example, &lt;code&gt;US&lt;/code&gt; represents the United States and &lt;code&gt;DE&lt;/code&gt; represents Germany.</summary>
+        public global::EBay.OrderManagement.Generated.Logistics.Models.CountryCodeEnum? CountryCode { get; set; }
         /// <summary>The county (not country) in which the address is located. Counties typically contain multiple cities or towns.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,7 +107,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
                 { "addressLine1", n => { AddressLine1 = n.GetStringValue(); } },
                 { "addressLine2", n => { AddressLine2 = n.GetStringValue(); } },
                 { "city", n => { City = n.GetStringValue(); } },
-                { "countryCode", n => { CountryCode = n.GetStringValue(); } },
+                { "countryCode", n => { CountryCode = n.GetEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.CountryCodeEnum>(); } },
                 { "county", n => { County = n.GetStringValue(); } },
                 { "postalCode", n => { PostalCode = n.GetStringValue(); } },
                 { "stateOrProvince", n => { StateOrProvince = n.GetStringValue(); } },
@@ -129,7 +123,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
             writer.WriteStringValue("addressLine1", AddressLine1);
             writer.WriteStringValue("addressLine2", AddressLine2);
             writer.WriteStringValue("city", City);
-            writer.WriteStringValue("countryCode", CountryCode);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.CountryCodeEnum>("countryCode", CountryCode);
             writer.WriteStringValue("county", County);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("stateOrProvince", StateOrProvince);

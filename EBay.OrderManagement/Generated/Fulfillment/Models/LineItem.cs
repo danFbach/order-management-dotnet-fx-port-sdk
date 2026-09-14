@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.AppliedPromotion> AppliedPromotions { get; set; }
 #endif
-        /// <summary>This array is only returned for a Parts &amp; Accessory item, and identifies the buyer&apos;s motor vehicle that is compatible with the part or accessory.</summary>
+        /// <summary>This array is only returned for a Parts &amp; Accessory item and identifies the buyer&apos;s motor vehicle that is compatible with the part or accessory.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.Property>? CompatibilityProperties { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.Property> CompatibilityProperties { get; set; }
 #endif
-        /// <summary>This type contains a breakdown of all costs associated with the fulfillment of a line item.</summary>
+        /// <summary>This container consists of a breakdown of all costs associated with the fulfillment of the line item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.DeliveryCost? DeliveryCost { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.DeliveryCost DeliveryCost { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>The cost of the line item after applying any discounts. This container is only returned if the order line item was discounted through a promotion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? DiscountedLineItemCost { get; set; }
@@ -61,7 +61,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount DiscountedLineItemCost { get; set; }
 #endif
-        /// <summary>This container will be returned if the order line item is subject to a &apos;Collect and Remit&apos; tax that eBay will collect and remit to the proper taxing authority on the buyer&apos;s behalf.&lt;br&gt;&lt;br&gt;&apos;Collect and Remit&apos; tax includes:&lt;ul&gt;&lt;li&gt;US state-mandated sales tax&lt;/li&gt;&lt;li&gt;Federal and Provincial Sales Tax in Canada&lt;/li&gt;&lt;li&gt;&apos;Goods and Services&apos; tax in Canada, Australia, New Zealand, and Jersey&lt;/li&gt;&lt;li&gt;VAT collected for the UK, EU countries, Kazakhstan, and Belarus&lt;/li&gt;&lt;li&gt;Sales &amp; Service Tax (SST) in Malaysia&lt;/li&gt;&lt;/ul&gt;The amount of this tax is shown in the &lt;strong&gt;amount&lt;/strong&gt; field, and the type of tax is shown in the &lt;strong&gt;taxType&lt;/strong&gt; field.&lt;br&gt;&lt;br&gt;eBay will display the tax type and amount during checkout in accordance with the buyer&apos;s address, and handle collection and remittance of the tax without requiring the seller to take any action.</summary>
+        /// <summary>This container will be returned if the order line item is subject to a &apos;Collect and Remit&apos; tax that eBay will collect and remit to the proper taxing authority on the buyer&apos;s behalf.&lt;br&gt;&lt;br&gt;&apos;Collect and Remit&apos; tax includes:&lt;ul&gt;&lt;li&gt;US state-mandated sales tax&lt;/li&gt;&lt;li&gt;Federal and Provincial Sales Tax in Canada&lt;/li&gt;&lt;li&gt;&apos;Goods and Services&apos; tax in Canada, Australia, New Zealand, and Jersey&lt;/li&gt;&lt;li&gt;VAT collected for the UK, EU countries, Kazakhstan, and Belarus&lt;/li&gt;&lt;li&gt;Sales &amp; Service Tax (SST) in Malaysia&lt;/li&gt;&lt;/ul&gt;The amount of this tax is shown in the &lt;strong&gt;amount&lt;/strong&gt; field, and the type of tax is shown in the &lt;strong&gt;taxType&lt;/strong&gt; field.&lt;br&gt;&lt;br&gt;EBay will display the tax type and amount during checkout in accordance with the buyer&apos;s address, and handle collection and remittance of the tax without requiring the seller to take any action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayCollectAndRemitTax>? EbayCollectAndRemitTaxes { get; set; }
@@ -69,7 +69,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayCollectAndRemitTax> EbayCollectAndRemitTaxes { get; set; }
 #endif
-        /// <summary>This type contains the breakdown of costs that are collected by eBay from the buyer.</summary>
+        /// <summary>This container consists of a breakdown of costs that are collected by eBay from the buyer for this order. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Currently, this container is returned only if eBay is directly charging the buyer for eBay shipping.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayCollectedCharges? EbayCollectedCharges { get; set; }
@@ -77,7 +77,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayCollectedCharges EbayCollectedCharges { get; set; }
 #endif
-        /// <summary>This type contains information about a digital gift card line item that was purchased as a gift and sent to the recipient by email.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;b&gt;GiftDetails&lt;/b&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
+        /// <summary>This container consists of information that is needed by the seller to send a digital gift card to the buyer or recipient of the digital gift card. This container is only returned and applicable for digital gift card line items.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.GiftDetails? GiftDetails { get; set; }
@@ -85,7 +85,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.GiftDetails GiftDetails { get; set; }
 #endif
-        /// <summary>This type describes the physical location of an order.</summary>
+        /// <summary>This container field describes the physical location of the order line item.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If the item is shipped from a fulfillment center location through the Multi&amp;#8209;Warehouse Program, this container will return the location details of the fulfillment center closest to the buyer.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.ItemLocation? ItemLocation { get; set; }
@@ -109,7 +109,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string LegacyVariationId { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>The selling price of the line item before applying any discounts. The value of this field is calculated by multiplying the single unit price by the number of units purchased (value of the &lt;strong&gt;quantity&lt;/strong&gt; field).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? LineItemCost { get; set; }
@@ -117,7 +117,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount LineItemCost { get; set; }
 #endif
-        /// <summary>This type contains the specifications for processing the fulfillment of a line item, including the handling window and the delivery window. These fields provide guidance for &lt;i&gt;eBay Guaranteed Delivery&lt;/i&gt; as well as for non-guaranteed delivery.</summary>
+        /// <summary>This container consists of information related to shipping dates and expectations, including the &apos;ship-by date&apos; and expected delivery windows that are based on the seller&apos;s stated handling time and the shipping service option that will be used. These fields provide guidance on making sure expected delivery dates are made, whether the order is an &lt;em&gt;eBay Guaranteed Delivery&lt;/em&gt; order or a non-guaranteed delivery order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemFulfillmentInstructions? LineItemFulfillmentInstructions { get; set; }
@@ -125,14 +125,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemFulfillmentInstructions LineItemFulfillmentInstructions { get; set; }
 #endif
-        /// <summary>This enumeration value indicates the current fulfillment status of the line item. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:LineItemFulfillmentStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? LineItemFulfillmentStatus { get; set; }
-#nullable restore
-#else
-        public string LineItemFulfillmentStatus { get; set; }
-#endif
+        /// <summary>This enumeration value indicates the current fulfillment status of the line item.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemFulfillmentStatusEnum? LineItemFulfillmentStatus { get; set; }
         /// <summary>This is the unique identifier of an eBay order line item. This field is created as soon as there is a commitment to buy from the seller.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,7 +135,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string LineItemId { get; set; }
 #endif
-        /// <summary>An array of one or more line items related to the corresponding order, but not a part of that order. Details include the order ID, line item ID, and title of the linked line item, the seller of that item, item specifics, estimated delivery times, and shipment tracking (if available).</summary>
+        /// <summary>An array of one or more line items related to the corresponding order, but not a part of that order. Details include the order ID, line item ID and title of the linked line item, the seller of that item, item specifics, estimated delivery times, and shipment tracking (if available).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.LinkedOrderLineItem>? LinkedOrderLineItems { get; set; }
@@ -149,15 +143,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.LinkedOrderLineItem> LinkedOrderLineItems { get; set; }
 #endif
-        /// <summary>The unique identifier of the eBay marketplace where the line item was listed. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ListingMarketplaceId { get; set; }
-#nullable restore
-#else
-        public string ListingMarketplaceId { get; set; }
-#endif
-        /// <summary>This type contains information about the eBay programs under which a line item was listed and sold.</summary>
+        /// <summary>The unique identifier of the eBay marketplace where the line item was listed.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.MarketplaceIdEnum? ListingMarketplaceId { get; set; }
+        /// <summary>Contains information about the eBay programs, if any, under which the line item was listed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemProperties? Properties { get; set; }
@@ -165,17 +153,11 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemProperties Properties { get; set; }
 #endif
-        /// <summary>The unique identifier of the eBay marketplace where the line item was listed. Often, the &lt;strong&gt;listingMarketplaceId&lt;/strong&gt; and the &lt;strong&gt;purchaseMarketplaceId&lt;/strong&gt; identifier are the same, but there are occasions when an item will surface on multiple eBay marketplaces. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:MarketplaceIdEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PurchaseMarketplaceId { get; set; }
-#nullable restore
-#else
-        public string PurchaseMarketplaceId { get; set; }
-#endif
-        /// <summary>The number of units of the line item in the order. These are represented as a group by a single &lt;b&gt;lineItemId&lt;/b&gt;.</summary>
+        /// <summary>The unique identifier of the eBay marketplace where the line item was listed. Often, the &lt;strong&gt;listingMarketplaceId&lt;/strong&gt; and the &lt;strong&gt;purchaseMarketplaceId&lt;/strong&gt; identifier are the same, but there are occasions when an item will surface on multiple eBay marketplaces.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.MarketplaceIdEnum? PurchaseMarketplaceId { get; set; }
+        /// <summary>The number of units of the line item in the order. These are represented as a group by a single &lt;strong&gt;lineItemId&lt;/strong&gt;.</summary>
         public int? Quantity { get; set; }
-        /// <summary>This array is always returned, but is returned as an empty array unless the seller has submitted a partial or full refund to the buyer for the order. If a refund has occurred, the refund amount and refund date will be shown for each refund.</summary>
+        /// <summary>This array is always returned, but it is returned as an empty array unless the seller has submitted a partial or full refund to the buyer for the order. If a refund has occurred, the refund amount and refund date will be shown for each refund.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemRefund>? Refunds { get; set; }
@@ -183,7 +165,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemRefund> Refunds { get; set; }
 #endif
-        /// <summary>Seller-defined Stock-Keeping Unit (SKU). This inventory identifier must be unique within the seller&apos;s eBay inventory. SKUs are optional when listing in the legacy/Trading API system, but SKUs are required when listing items through the Inventory API model.</summary>
+        /// <summary>Seller-defined Stock-Keeping Unit (SKU). This inventory identifier must be unique within the seller&apos;s eBay inventory. SKUs are optional when listing in the legacy Trading API system, but SKUs are required when listing items through the Inventory API model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Sku { get; set; }
@@ -191,14 +173,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Sku { get; set; }
 #endif
-        /// <summary>The eBay listing type of the line item. The most common listing types are &lt;code&gt;AUCTION&lt;/code&gt; and &lt;code&gt;FIXED_PRICE&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:SoldFormatEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SoldFormat { get; set; }
-#nullable restore
-#else
-        public string SoldFormat { get; set; }
-#endif
+        /// <summary>The eBay listing type of the line item. The most common listing types are &lt;code&gt;AUCTION&lt;/code&gt; and &lt;code&gt;FIXED_PRICE&lt;/code&gt;.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.SoldFormatEnum? SoldFormat { get; set; }
         /// <summary>Contains a list of taxes applied to the line item, if any. This array is always returned, but will be returned as empty if no taxes are applicable to the line item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -207,7 +183,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.Tax> Taxes { get; set; }
 #endif
-        /// <summary>The title of the listing.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The Item ID value for the listing will be returned in this field instead of the actual title if this particular listing is on-hold due to an eBay policy violation.&lt;/span&gt;</summary>
+        /// <summary>The title of the listing.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The Item ID value for the listing will be returned in this field instead of the actual title if this particular listing is on-hold due to an eBay policy violation.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title { get; set; }
@@ -215,7 +191,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Title { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This is the total price that the buyer must pay for the line item after all costs (item cost, delivery cost, taxes) are added, minus any discounts and/or promotions.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; For orders that are subject to eBay &apos;Collect and Remit&apos; tax, the &apos;Collect and Remit&apos; tax amount for the order will be included in this &lt;strong&gt;total&lt;/strong&gt; value only when the &lt;strong&gt;fieldGroups&lt;/strong&gt; query parameter is set to &lt;code&gt;TAX_BREAKDOWN&lt;/code&gt;. If the &lt;strong&gt;fieldGroups&lt;/strong&gt; query parameter is not set to &lt;code&gt;TAX_BREAKDOWN&lt;/code&gt;, &apos;Collect and Remit&apos; will not be added into this &lt;strong&gt;total&lt;/strong&gt; value.&lt;br&gt;&lt;br&gt;To determine if &apos;Collect and Remit&apos; taxes were added into this &lt;strong&gt;total&lt;/strong&gt; value, the user can check for the corresponding &lt;strong&gt;lineItems.ebayCollectAndRemitTaxes&lt;/strong&gt; and the &lt;strong&gt;lineItems.taxes&lt;/strong&gt; containers in the response. If both of these containers appear for one or more line items in the response with the following &lt;strong&gt;taxType&lt;/strong&gt; values, the &apos;Collect and Remit&apos; tax amount that the buyer paid is in this amount:&lt;ul&gt;&lt;li&gt;&lt;code&gt;STATE_SALES_TAX&lt;/code&gt;: US state-mandated sales tax&lt;/li&gt;&lt;li&gt;&lt;code&gt;PROVINCE_SALES_TAX&lt;/code&gt;: Provincial Sales Tax in Canada&lt;/li&gt;&lt;li&gt;&lt;code&gt;GST&lt;/code&gt;: &apos;Goods and Services&apos; tax in Canada, Australia, and New Zealand&lt;/li&gt;&lt;li&gt;&lt;code&gt;VAT&lt;/code&gt;: VAT collected for UK and EU countries&lt;/li&gt;&lt;/ul&gt;&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? Total { get; set; }
@@ -268,16 +244,16 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
                 { "legacyVariationId", n => { LegacyVariationId = n.GetStringValue(); } },
                 { "lineItemCost", n => { LineItemCost = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount.CreateFromDiscriminatorValue); } },
                 { "lineItemFulfillmentInstructions", n => { LineItemFulfillmentInstructions = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemFulfillmentInstructions>(global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemFulfillmentInstructions.CreateFromDiscriminatorValue); } },
-                { "lineItemFulfillmentStatus", n => { LineItemFulfillmentStatus = n.GetStringValue(); } },
+                { "lineItemFulfillmentStatus", n => { LineItemFulfillmentStatus = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemFulfillmentStatusEnum>(); } },
                 { "lineItemId", n => { LineItemId = n.GetStringValue(); } },
                 { "linkedOrderLineItems", n => { LinkedOrderLineItems = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.LinkedOrderLineItem>(global::EBay.OrderManagement.Generated.Fulfillment.Models.LinkedOrderLineItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "listingMarketplaceId", n => { ListingMarketplaceId = n.GetStringValue(); } },
+                { "listingMarketplaceId", n => { ListingMarketplaceId = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.MarketplaceIdEnum>(); } },
                 { "properties", n => { Properties = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemProperties>(global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemProperties.CreateFromDiscriminatorValue); } },
-                { "purchaseMarketplaceId", n => { PurchaseMarketplaceId = n.GetStringValue(); } },
+                { "purchaseMarketplaceId", n => { PurchaseMarketplaceId = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.MarketplaceIdEnum>(); } },
                 { "quantity", n => { Quantity = n.GetIntValue(); } },
                 { "refunds", n => { Refunds = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemRefund>(global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemRefund.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sku", n => { Sku = n.GetStringValue(); } },
-                { "soldFormat", n => { SoldFormat = n.GetStringValue(); } },
+                { "soldFormat", n => { SoldFormat = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SoldFormatEnum>(); } },
                 { "taxes", n => { Taxes = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.Tax>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Tax.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "total", n => { Total = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount.CreateFromDiscriminatorValue); } },
@@ -303,16 +279,16 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             writer.WriteStringValue("legacyVariationId", LegacyVariationId);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>("lineItemCost", LineItemCost);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemFulfillmentInstructions>("lineItemFulfillmentInstructions", LineItemFulfillmentInstructions);
-            writer.WriteStringValue("lineItemFulfillmentStatus", LineItemFulfillmentStatus);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemFulfillmentStatusEnum>("lineItemFulfillmentStatus", LineItemFulfillmentStatus);
             writer.WriteStringValue("lineItemId", LineItemId);
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.LinkedOrderLineItem>("linkedOrderLineItems", LinkedOrderLineItems);
-            writer.WriteStringValue("listingMarketplaceId", ListingMarketplaceId);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.MarketplaceIdEnum>("listingMarketplaceId", ListingMarketplaceId);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemProperties>("properties", Properties);
-            writer.WriteStringValue("purchaseMarketplaceId", PurchaseMarketplaceId);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.MarketplaceIdEnum>("purchaseMarketplaceId", PurchaseMarketplaceId);
             writer.WriteIntValue("quantity", Quantity);
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemRefund>("refunds", Refunds);
             writer.WriteStringValue("sku", Sku);
-            writer.WriteStringValue("soldFormat", SoldFormat);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SoldFormatEnum>("soldFormat", SoldFormat);
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.Tax>("taxes", Taxes);
             writer.WriteStringValue("title", Title);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>("total", Total);

@@ -95,6 +95,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Payment_dispute.Item
         /// <returns>A <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDispute"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDispute?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -105,7 +107,12 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Payment_dispute.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDispute>(requestInfo, global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDispute.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDispute>(requestInfo, global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDispute.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This method retrieves detailed information on a specific payment dispute. The payment dispute identifier is passed in as path parameter at the end of the call URI.&lt;br&gt;&lt;br&gt;Below is a summary of the information that is retrieved:&lt;ul&gt;&lt;li&gt;Current status of payment dispute&lt;/li&gt;&lt;li&gt;Amount of the payment dispute&lt;/li&gt;&lt;li&gt;Reason the payment dispute was opened&lt;/li&gt;&lt;li&gt;Order and line items associated with the payment dispute&lt;/li&gt;&lt;li&gt;Seller response options if an action is currently required on the payment dispute&lt;/li&gt;&lt;li&gt;Details on the results of the payment dispute if it has been closed&lt;/li&gt;&lt;li&gt;Details on any evidence that was provided by the seller to fight the payment dispute&lt;/li&gt;&lt;/ul&gt;

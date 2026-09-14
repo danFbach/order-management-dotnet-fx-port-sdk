@@ -29,15 +29,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The two-letter &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 3166&lt;/a&gt; code representing the country of the address. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CountryCode { get; set; }
-#nullable restore
-#else
-        public string CountryCode { get; set; }
-#endif
-        /// <summary>Indicates the geographical location of the item (along with the values in the &lt;strong&gt;countryCode&lt;/strong&gt; and &lt;b&gt;postalCode&lt;/b&gt; fields).&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If the item is shipped from a fulfillment center location through the Multi-Warehouse Program, this field will return the geographical location of the fulfillment center closest to the buyer.&lt;/span&gt;&lt;br&gt;This field provides city, province, state, or similar information.</summary>
+        /// <summary>The two-letter &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html&quot; title=&quot;https://www.iso.org&quot; target=&quot;_blank&quot;&gt;ISO 3166&lt;/a&gt; code representing the country of the address.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum? CountryCode { get; set; }
+        /// <summary>Indicates the geographical location of the item (along with the values in the &lt;strong&gt;countryCode&lt;/strong&gt; and &lt;strong&gt;postalCode&lt;/strong&gt; fields).&lt;br&gt;&lt;br&gt;This field provides city, province, state, or similar information.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If the item is shipped from a fulfillment center location through the Multi-Warehouse Program, this field will return the geographical location of the fulfillment center closest to the buyer.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Location { get; set; }
@@ -78,7 +72,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "countryCode", n => { CountryCode = n.GetStringValue(); } },
+                { "countryCode", n => { CountryCode = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum>(); } },
                 { "location", n => { Location = n.GetStringValue(); } },
                 { "postalCode", n => { PostalCode = n.GetStringValue(); } },
             };
@@ -90,7 +84,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("countryCode", CountryCode);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum>("countryCode", CountryCode);
             writer.WriteStringValue("location", Location);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteAdditionalData(AdditionalData);

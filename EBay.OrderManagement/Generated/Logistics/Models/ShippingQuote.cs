@@ -22,7 +22,7 @@ using System;
 namespace EBay.OrderManagement.Generated.Logistics.Models
 {
     /// <summary>
-    /// This complex type describes a &quot;shipping quote,&quot; which contains the parameters for a package shipment. The shipping quote contains a list of &quot;live quotes&quot; or &lt;i&gt;rates&lt;/i&gt; for the shipment. Rates are offerd by a carrier for a particular service, of set of services, for shipping the package. Included in the shipping quote are the package specifications, the shipment&apos;s origin and destination addresses, and the shipping parameters specified by the seller.  &lt;br&gt;&lt;br&gt;Use the &lt;b&gt;rateId&lt;/b&gt; value to select the specific service you want when you create a shipment by calling &lt;b&gt;createFromShippingQuote&lt;/b&gt;.
+    /// This complex type describes a &quot;shipping quote,&quot; which contains the parameters for a package shipment. The shipping quote contains a list of &quot;live quotes&quot; or &lt;i&gt;rates&lt;/i&gt; for the shipment. Rates are offered by a carrier for a particular service, or set of services, for shipping the package. Included in the shipping quote are the package specifications, the shipment&apos;s origin and destination addresses, and the shipping parameters specified by the seller.  &lt;br&gt;&lt;br&gt;Use the &lt;strong&gt;rateId&lt;/strong&gt; value to select the specific service you want when you create a shipment by calling &lt;strong&gt;createFromShippingQuote&lt;/strong&gt;.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ShippingQuote : IAdditionalDataHolder, IParsable
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Logistics.Models.Order> Orders { get; set; }
 #endif
-        /// <summary>This complex type specifies the dimensions and weight of a package.</summary>
+        /// <summary>The weight and dimensions of the package covered by this shipping quote.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.PackageSpecification? PackageSpecification { get; set; }
@@ -61,7 +61,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public global::EBay.OrderManagement.Generated.Logistics.Models.PackageSpecification PackageSpecification { get; set; }
 #endif
-        /// <summary>A list of &lt;i&gt;rates&lt;/i&gt; where each rate, as identified by a &lt;b&gt;rateId&lt;/b&gt;, contains information about a specific shipping service offered by a carrier.  Rates include shipping carrier and service, the to and from locations, the pickup and delivery windows, the seller&apos;s shipping parameters, the service constraints, and the cost for the base service and a list of additional shipping options.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The Logistics API only supports USPS shipping rates and labels.&lt;/span&gt;&lt;br&gt;Each rate offered is supported by a label service where you can purchase the rate, and associated shipping label, via a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;.</summary>
+        /// <summary>A list of &lt;i&gt;rates&lt;/i&gt; where each rate, as identified by a &lt;strong&gt;rateId&lt;/strong&gt;, contains information about a specific shipping service offered by a carrier.  Rates include shipping carrier and service, the to and from locations, the pickup and delivery windows, the seller&apos;s shipping parameters, the service constraints, and the cost for the base service and a list of additional shipping options.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The Logistics API only supports USPS shipping rates and labels.&lt;/span&gt;&lt;br&gt;Each rate offered is supported by a label service where you can purchase the rate, and associated shipping label, via a call to &lt;strong&gt;createFromShippingQuote&lt;/strong&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::EBay.OrderManagement.Generated.Logistics.Models.Rate>? Rates { get; set; }
@@ -69,7 +69,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Logistics.Models.Rate> Rates { get; set; }
 #endif
-        /// <summary>This complex type contains contact information for an individual buyer or seller.</summary>
+        /// <summary>The address and contact details for the origin of the shipment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Contact? ShipFrom { get; set; }
@@ -85,7 +85,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string ShippingQuoteId { get; set; }
 #endif
-        /// <summary>This complex type contains contact information for an individual buyer or seller.</summary>
+        /// <summary>The address and contact details for the destination of the shipment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Contact? ShipTo { get; set; }
@@ -96,10 +96,10 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
         /// <summary>A list of any warnings triggered by the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::EBay.OrderManagement.Generated.Logistics.Models.Error>? Warnings { get; set; }
+        public List<global::EBay.OrderManagement.Generated.Logistics.Models.ErrorDetailV3>? Warnings { get; set; }
 #nullable restore
 #else
-        public List<global::EBay.OrderManagement.Generated.Logistics.Models.Error> Warnings { get; set; }
+        public List<global::EBay.OrderManagement.Generated.Logistics.Models.ErrorDetailV3> Warnings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Logistics.Models.ShippingQuote"/> and sets the default values.
@@ -134,7 +134,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
                 { "shipFrom", n => { ShipFrom = n.GetObjectValue<global::EBay.OrderManagement.Generated.Logistics.Models.Contact>(global::EBay.OrderManagement.Generated.Logistics.Models.Contact.CreateFromDiscriminatorValue); } },
                 { "shipTo", n => { ShipTo = n.GetObjectValue<global::EBay.OrderManagement.Generated.Logistics.Models.Contact>(global::EBay.OrderManagement.Generated.Logistics.Models.Contact.CreateFromDiscriminatorValue); } },
                 { "shippingQuoteId", n => { ShippingQuoteId = n.GetStringValue(); } },
-                { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Logistics.Models.Error>(global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Logistics.Models.ErrorDetailV3>(global::EBay.OrderManagement.Generated.Logistics.Models.ErrorDetailV3.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -152,7 +152,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Logistics.Models.Contact>("shipFrom", ShipFrom);
             writer.WriteStringValue("shippingQuoteId", ShippingQuoteId);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Logistics.Models.Contact>("shipTo", ShipTo);
-            writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Logistics.Models.Error>("warnings", Warnings);
+            writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Logistics.Models.ErrorDetailV3>("warnings", Warnings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

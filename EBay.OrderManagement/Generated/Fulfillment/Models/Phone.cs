@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary> The two-letter, &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html &quot; target=&quot;_blank&quot;&gt;ISO 3166&lt;/a&gt; code associated with the seller&apos;s phone number. This field is needed if the buyer is located in a different country than the seller. It is also OK to provide if the buyer and seller are both located in the same country&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/api-docs/sell/fulfillment/types/ba:CountryCodeEnum &quot; target=&quot;_blank&quot;&gt;CountryCodeEnum&lt;/a&gt; for a list of supported values.</summary>
+        /// <summary> The two-letter, &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html&quot; target=&quot;_blank&quot;&gt;ISO 3166&lt;/a&gt; code associated with the seller&apos;s phone number. This field is needed if the buyer is located in a different country than the seller. It is also OK to provide if the buyer and seller are both located in the same country&lt;br&gt;&lt;br&gt;See &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-acceptpaymentdispute.countrycodeenum&quot;&gt;CountryCodeEnum&lt;/a&gt; for a list of supported values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CountryCode { get; set; }

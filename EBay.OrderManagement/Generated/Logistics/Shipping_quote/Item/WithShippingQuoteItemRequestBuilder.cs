@@ -48,11 +48,14 @@ namespace EBay.OrderManagement.Generated.Logistics.Shipping_quote.Item
         {
         }
         /// <summary>
-        /// This method retrieves the complete details of the shipping quote associated with the specified &lt;b&gt;shippingQuoteId&lt;/b&gt; value.  &lt;br&gt;&lt;br&gt;A &quot;shipping quote&quot; pertains to a single specific package and contains a set of shipping &quot;rates&quot; that quote the cost to ship the package by different shipping carriers and services. The quotes are based on the package&apos;s origin, destination, and size.  &lt;br&gt;&lt;br&gt;Call &lt;b&gt;createShippingQuote&lt;/b&gt; to create a &lt;b&gt;shippingQuoteId&lt;/b&gt;.
+        /// This method retrieves the complete details of the shipping quote associated with the specified &lt;strong&gt;shippingQuoteId&lt;/strong&gt; value.  &lt;br&gt;&lt;br&gt;A &quot;shipping quote&quot; pertains to a single specific package and contains a set of shipping &quot;rates&quot; that quote the cost to ship the package by different shipping carriers and services. The quotes are based on the package&apos;s origin, destination, and size.  &lt;br&gt;&lt;br&gt;Call &lt;strong&gt;createShippingQuote&lt;/strong&gt; to create a &lt;strong&gt;shippingQuoteId&lt;/strong&gt;.
         /// </summary>
         /// <returns>A <see cref="global::EBay.OrderManagement.Generated.Logistics.Models.ShippingQuote"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Logistics.Models.Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Logistics.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Logistics.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::EBay.OrderManagement.Generated.Logistics.Models.ShippingQuote?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -63,10 +66,16 @@ namespace EBay.OrderManagement.Generated.Logistics.Shipping_quote.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Logistics.Models.ShippingQuote>(requestInfo, global::EBay.OrderManagement.Generated.Logistics.Models.ShippingQuote.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue },
+                { "404", global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue },
+                { "500", global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Logistics.Models.ShippingQuote>(requestInfo, global::EBay.OrderManagement.Generated.Logistics.Models.ShippingQuote.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// This method retrieves the complete details of the shipping quote associated with the specified &lt;b&gt;shippingQuoteId&lt;/b&gt; value.  &lt;br&gt;&lt;br&gt;A &quot;shipping quote&quot; pertains to a single specific package and contains a set of shipping &quot;rates&quot; that quote the cost to ship the package by different shipping carriers and services. The quotes are based on the package&apos;s origin, destination, and size.  &lt;br&gt;&lt;br&gt;Call &lt;b&gt;createShippingQuote&lt;/b&gt; to create a &lt;b&gt;shippingQuoteId&lt;/b&gt;.
+        /// This method retrieves the complete details of the shipping quote associated with the specified &lt;strong&gt;shippingQuoteId&lt;/strong&gt; value.  &lt;br&gt;&lt;br&gt;A &quot;shipping quote&quot; pertains to a single specific package and contains a set of shipping &quot;rates&quot; that quote the cost to ship the package by different shipping carriers and services. The quotes are based on the package&apos;s origin, destination, and size.  &lt;br&gt;&lt;br&gt;Call &lt;strong&gt;createShippingQuote&lt;/strong&gt; to create a &lt;strong&gt;shippingQuoteId&lt;/strong&gt;.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

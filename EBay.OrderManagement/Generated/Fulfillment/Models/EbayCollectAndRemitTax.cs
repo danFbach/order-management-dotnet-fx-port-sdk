@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>The monetary amount of the &apos;Collect and Remit&apos; tax. This currently includes the following:&lt;br&gt;&lt;ul&gt;&lt;li&gt;US state-mandated sales tax&lt;/li&gt;&lt;li&gt;Federal and Provincial Sales Tax in Canada&lt;/li&gt;&lt;li&gt;&apos;Goods and Services&apos; tax in Canada, Australia, New Zealand, and Jersey&lt;/li&gt;&lt;li&gt;VAT collected for the UK, EU countries, Kazakhstan, and Belarus&lt;/li&gt;&lt;li&gt;Sales &amp; Service Tax (SST) in Malaysia&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If the corresponding &lt;strong&gt;taxType&lt;/strong&gt; is &lt;code&gt;STATE_SALES_TAX&lt;/code&gt;, &lt;code&gt;PROVINCE_SALES_TAX&lt;/code&gt;, &lt;code&gt;GST&lt;/code&gt;, &lt;code&gt;VAT&lt;/code&gt;, or &lt;code&gt;SST&lt;/code&gt; and the &lt;strong&gt;lineItems.taxes&lt;/strong&gt; container also appears for this line item with the same tax amount, the order is subject to &apos;eBay Collect and Remit&apos; tax. For orders that are subject to &apos;eBay Collect and Remit&apos; tax, the tax amount in this field will be included in the &lt;strong&gt;lineItems.total&lt;/strong&gt;, &lt;strong&gt;paymentSummary.payments.amount&lt;/strong&gt;, &lt;strong&gt;paymentSummary.totalDueSeller&lt;/strong&gt;, and &lt;strong&gt;pricingSummary.total&lt;/strong&gt; fields.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? Amount { get; set; }
@@ -37,15 +37,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount Amount { get; set; }
 #endif
-        /// <summary>This field indicates the collection method used to collect the &apos;Collect and Remit&apos; tax for the order. This field is always returned for orders subject to &apos;Collect and Remit&apos; tax, and its value is always &lt;code&gt;NET&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Although the &lt;strong&gt;collectionMethod&lt;/strong&gt; field is returned for all orders subject to &apos;Collect and Remit&apos; tax, the &lt;strong&gt;collectionMethod&lt;/strong&gt; field and the &lt;strong&gt;CollectionMethodEnum&lt;/strong&gt; type are not currently of any practical use, although this field may have use in the future. If and when the logic of this field is changed, this note will be updated and a note will also be added to the Release Notes.&lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:CollectionMethodEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CollectionMethod { get; set; }
-#nullable restore
-#else
-        public string CollectionMethod { get; set; }
-#endif
-        /// <summary>This type describes the VAT tax details. The eBay VAT tax type and the eBay VAT identifier number will be returned if a VAT tax is applicable for the order.&lt;br&gt;</summary>
+        /// <summary>This field indicates the collection method used to collect the &apos;Collect and Remit&apos; tax for the order. This field is always returned for orders subject to &apos;Collect and Remit&apos; tax, and its value is always &lt;code&gt;NET&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Although the &lt;strong&gt;collectionMethod&lt;/strong&gt; field is returned for all orders subject to &apos;Collect and Remit&apos; tax, the &lt;strong&gt;collectionMethod&lt;/strong&gt; field and the &lt;strong&gt;CollectionMethodEnum&lt;/strong&gt; type are not currently of any practical use, although this field may have use in the future. If and when the logic of this field is changed, this note will be updated and a note will also be added to the Release Notes.&lt;/span&gt;</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.CollectionMethodEnum? CollectionMethod { get; set; }
+        /// <summary>This container field describes the line-item level VAT tax details.&lt;br&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayTaxReference? EbayReference { get; set; }
@@ -53,14 +47,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayTaxReference EbayReference { get; set; }
 #endif
-        /// <summary>The type of tax and fees that eBay will collect and remit to the taxing or fee authority. See the &lt;strong&gt;TaxTypeEnum&lt;/strong&gt; type definition for more information about each tax or fee type. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:TaxTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TaxType { get; set; }
-#nullable restore
-#else
-        public string TaxType { get; set; }
-#endif
+        /// <summary>The type of tax and fees that eBay will collect and remit to the taxing or fee authority. See the &lt;strong&gt;TaxTypeEnum&lt;/strong&gt; type definition for more information about each tax or fee type.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.TaxTypeEnum? TaxType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayCollectAndRemitTax"/> and sets the default values.
         /// </summary>
@@ -87,9 +75,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount.CreateFromDiscriminatorValue); } },
-                { "collectionMethod", n => { CollectionMethod = n.GetStringValue(); } },
+                { "collectionMethod", n => { CollectionMethod = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CollectionMethodEnum>(); } },
                 { "ebayReference", n => { EbayReference = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayTaxReference>(global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayTaxReference.CreateFromDiscriminatorValue); } },
-                { "taxType", n => { TaxType = n.GetStringValue(); } },
+                { "taxType", n => { TaxType = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.TaxTypeEnum>(); } },
             };
         }
         /// <summary>
@@ -100,9 +88,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>("amount", Amount);
-            writer.WriteStringValue("collectionMethod", CollectionMethod);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CollectionMethodEnum>("collectionMethod", CollectionMethod);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayTaxReference>("ebayReference", EbayReference);
-            writer.WriteStringValue("taxType", TaxType);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.TaxTypeEnum>("taxType", TaxType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

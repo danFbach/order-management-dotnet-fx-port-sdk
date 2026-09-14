@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This container shows the amount and currency of the charge.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? Amount { get; set; }
@@ -37,14 +37,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount Amount { get; set; }
 #endif
-        /// <summary>This field shows the type of buyer charge &lt;br&gt; &lt;br&gt; &lt;span class=&quot;tablenote&quot;&gt; &lt;strong&gt; Note: &lt;/strong&gt; Currently, the only supported charge type is BUYER_PROTECTION. &lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sol:ChargeTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ChargeType { get; set; }
-#nullable restore
-#else
-        public string ChargeType { get; set; }
-#endif
+        /// <summary>This field shows the type of buyer charge. &lt;br&gt; &lt;br&gt; &lt;span class=&quot;tablenote&quot;&gt; &lt;strong&gt; Note: &lt;/strong&gt; Currently, the only supported charge type is &lt;code&gt;BUYER_PROTECTION&lt;/code&gt;. &lt;/span&gt;</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.ChargeTypeEnum? ChargeType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.Charge"/> and sets the default values.
         /// </summary>
@@ -71,7 +65,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount.CreateFromDiscriminatorValue); } },
-                { "chargeType", n => { ChargeType = n.GetStringValue(); } },
+                { "chargeType", n => { ChargeType = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.ChargeTypeEnum>(); } },
             };
         }
         /// <summary>
@@ -82,7 +76,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>("amount", Amount);
-            writer.WriteStringValue("chargeType", ChargeType);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.ChargeTypeEnum>("chargeType", ChargeType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

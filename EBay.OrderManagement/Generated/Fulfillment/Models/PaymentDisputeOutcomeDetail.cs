@@ -29,7 +29,15 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type defines the monetary value of the payment dispute, and the currency used.</summary>
+        /// <summary>This container shows the amount of money in donation credits.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount? DonationCreditAmount { get; set; }
+#nullable restore
+#else
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount DonationCreditAmount { get; set; }
+#endif
+        /// <summary>This container will show the dollar value of any fees associated with the payment dispute. This container is only returned if there are fees associated with the payment dispute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount? Fees { get; set; }
@@ -37,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount Fees { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of the payment dispute, and the currency used.</summary>
+        /// <summary>This container shows the amount of money that the seller is protected against in a payment dispute under eBay&apos;s seller protection policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount? ProtectedAmount { get; set; }
@@ -45,23 +53,11 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount ProtectedAmount { get; set; }
 #endif
-        /// <summary>This enumeration value indicates if the seller is fully protected, partially protected, or not protected by eBay for the payment dispute. This field is always returned once the payment dispute is resolved. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/api:ProtectionStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProtectionStatus { get; set; }
-#nullable restore
-#else
-        public string ProtectionStatus { get; set; }
-#endif
-        /// <summary>The enumeration value returned in this field indicates the outcome of the payment dispute for the seller. This field is always returned once the payment dispute is resolved. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/api:OutcomeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ReasonForClosure { get; set; }
-#nullable restore
-#else
-        public string ReasonForClosure { get; set; }
-#endif
-        /// <summary>This type defines the monetary value of the payment dispute, and the currency used.</summary>
+        /// <summary>This enumeration value indicates if the seller is fully protected, partially protected, or not protected by eBay for the payment dispute. This field is always returned once the payment dispute is resolved.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.ProtectionStatusEnum? ProtectionStatus { get; set; }
+        /// <summary>The enumeration value returned in this field indicates the outcome of the payment dispute for the seller. This field is always returned once the payment dispute is resolved.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.OutcomeEnum? ReasonForClosure { get; set; }
+        /// <summary>This container shows the dollar amount being recouped from the seller. This container is empty if the seller wins the payment dispute or if the seller is fully protected by eBay&apos;s seller protection policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount? RecoupAmount { get; set; }
@@ -69,7 +65,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount RecoupAmount { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of the payment dispute, and the currency used.</summary>
+        /// <summary>This container shows the amount of money in selling fee credits due back to the seller after a payment dispute is settled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount? TotalFeeCredit { get; set; }
@@ -102,10 +98,11 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "donationCreditAmount", n => { DonationCreditAmount = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount.CreateFromDiscriminatorValue); } },
                 { "fees", n => { Fees = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount.CreateFromDiscriminatorValue); } },
                 { "protectedAmount", n => { ProtectedAmount = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount.CreateFromDiscriminatorValue); } },
-                { "protectionStatus", n => { ProtectionStatus = n.GetStringValue(); } },
-                { "reasonForClosure", n => { ReasonForClosure = n.GetStringValue(); } },
+                { "protectionStatus", n => { ProtectionStatus = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.ProtectionStatusEnum>(); } },
+                { "reasonForClosure", n => { ReasonForClosure = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.OutcomeEnum>(); } },
                 { "recoupAmount", n => { RecoupAmount = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount.CreateFromDiscriminatorValue); } },
                 { "totalFeeCredit", n => { TotalFeeCredit = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount.CreateFromDiscriminatorValue); } },
             };
@@ -117,10 +114,11 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>("donationCreditAmount", DonationCreditAmount);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>("fees", Fees);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>("protectedAmount", ProtectedAmount);
-            writer.WriteStringValue("protectionStatus", ProtectionStatus);
-            writer.WriteStringValue("reasonForClosure", ReasonForClosure);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.ProtectionStatusEnum>("protectionStatus", ProtectionStatus);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.OutcomeEnum>("reasonForClosure", ReasonForClosure);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>("recoupAmount", RecoupAmount);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>("totalFeeCredit", TotalFeeCredit);
             writer.WriteAdditionalData(AdditionalData);

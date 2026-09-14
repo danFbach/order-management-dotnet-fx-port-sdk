@@ -66,6 +66,7 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped(sp => sp.GetRequiredService<OrderManagementClient>().Fulfillment);
         services.AddScoped(sp => sp.GetRequiredService<OrderManagementClient>().Logistics);
+        services.AddScoped(sp => sp.GetRequiredService<OrderManagementClient>().PostOrderApi);
         services.AddScoped(sp => sp.GetRequiredService<OrderManagementClient>().GraphQL);
         return services;
     }

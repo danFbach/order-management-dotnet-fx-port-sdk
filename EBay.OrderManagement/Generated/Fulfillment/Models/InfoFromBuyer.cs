@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>When the value of this field is &lt;code&gt;true&lt;/code&gt; it indicates that the buyer&apos;s note regarding the payment dispute (i.e., the &lt;b&gt;buyerProvided.note&lt;/b&gt; field,) is on hold. When this is the case, the &lt;b&gt;buyerProvided.note&lt;/b&gt; field will not be returned.&lt;br&gt;&lt;br&gt;When the value of this field is &lt;code&gt;false&lt;/code&gt;, it is not returned.</summary>
+        /// <summary>When the value of this field is &lt;code&gt;true&lt;/code&gt; it indicates that the buyer&apos;s note regarding the payment dispute (i.e., the &lt;strong&gt;buyerProvided.note&lt;/strong&gt; field,) is on hold. When this is the case, the &lt;strong&gt;buyerProvided.note&lt;/strong&gt; field will not be returned.&lt;br&gt;&lt;br&gt;When the value of this field is &lt;code&gt;false&lt;/code&gt;, it is not returned.</summary>
         public bool? ContentOnHold { get; set; }
         /// <summary>This field shows any note that was left by the buyer in regard to the dispute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

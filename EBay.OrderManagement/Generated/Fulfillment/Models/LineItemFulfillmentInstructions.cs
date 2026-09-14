@@ -29,9 +29,17 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>This field is reserved for internal or future use. &lt;!-- Destination time zone. This is time zone id from Olson database. Example: America/Los_Angeles. Delivery dates are calculated relative to this time zone. --&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DestinationTimeZone { get; set; }
+#nullable restore
+#else
+        public string DestinationTimeZone { get; set; }
+#endif
         /// <summary>Although this field is still returned, it can be ignored since eBay Guaranteed Delivery is no longer a supported feature on any marketplace. This field may get removed from the schema in the future.</summary>
         public bool? GuaranteedDelivery { get; set; }
-        /// <summary>The estimated latest date and time that the buyer can expect to receive the line item based on the seller&apos;s stated handling time and the transit times of the available shipping service options. The seller must pay extra attention to this date, as a failure to deliver by this date/time can result in a &apos;Late shipment&apos; seller defect, and can affect seller level and Top-Rated Seller status. In addition to the seller defect, buyers will be eligible for a shipping cost refund, and will also be eligible to return the item for a full refund (with no return shipping charge) if they choose. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;&lt;/span&gt;</summary>
+        /// <summary>The estimated latest date and time that the buyer can expect to receive the line item based on the seller&apos;s stated handling time and the transit times of the available shipping service options. The seller must pay extra attention to this date, as a failure to deliver by this date/time can result in a &apos;Late shipment&apos; seller defect, and can affect seller level and Top-Rated Seller status. In addition to the seller defect, buyers will be eligible for a shipping cost refund, and will also be eligible to return the item for a full refund (with no return shipping charge) if they choose. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; This timestamp is in &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MaxEstimatedDeliveryDate { get; set; }
@@ -39,7 +47,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string MaxEstimatedDeliveryDate { get; set; }
 #endif
-        /// <summary>The estimated earliest date and time that the buyer can expect to receive the line item based on the seller&apos;s stated handling time and the transit times of the available shipping service options.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;&lt;/span&gt;</summary>
+        /// <summary>The estimated earliest date and time that the buyer can expect to receive the line item based on the seller&apos;s stated handling time and the transit times of the available shipping service options.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; This timestamp is in &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MinEstimatedDeliveryDate { get; set; }
@@ -47,13 +55,21 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string MinEstimatedDeliveryDate { get; set; }
 #endif
-        /// <summary>The latest date and time by which the seller should ship line item in order to meet the expected delivery window. This timestamp will be set by eBay based on time of purchase and the seller&apos;s stated handling time. The seller must pay extra attention to this date, as a failure to physically ship the line item by this date/time can result in a &apos;Late shipment&apos; seller defect, and can affect seller level and Top-Rated Seller status. In addition to the seller defect, buyers will be eligible for a shipping cost refund, and will also be eligible to return the item for a full refund (with no return shipping charge) if they choose. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;&lt;/span&gt;</summary>
+        /// <summary>The latest date and time by which the seller should ship line item in order to meet the expected delivery window. This timestamp will be set by eBay based on time of purchase and the seller&apos;s stated handling time. The seller must pay extra attention to this date, as a failure to physically ship the line item by this date/time can result in a &apos;Late shipment&apos; seller defect, and can affect seller level and Top-Rated Seller status. In addition to the seller defect, buyers will be eligible for a shipping cost refund, and will also be eligible to return the item for a full refund (with no return shipping charge) if they choose. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; This timestamp is in &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ShipByDate { get; set; }
 #nullable restore
 #else
         public string ShipByDate { get; set; }
+#endif
+        /// <summary>This field is reserved for internal or future use. &lt;!-- Source time zone. This is time zone id from Olson database. Example: America/Los_Angeles. Ship by date is calculated relative to this time zone. --&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SourceTimeZone { get; set; }
+#nullable restore
+#else
+        public string SourceTimeZone { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItemFulfillmentInstructions"/> and sets the default values.
@@ -80,10 +96,12 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "destinationTimeZone", n => { DestinationTimeZone = n.GetStringValue(); } },
                 { "guaranteedDelivery", n => { GuaranteedDelivery = n.GetBoolValue(); } },
                 { "maxEstimatedDeliveryDate", n => { MaxEstimatedDeliveryDate = n.GetStringValue(); } },
                 { "minEstimatedDeliveryDate", n => { MinEstimatedDeliveryDate = n.GetStringValue(); } },
                 { "shipByDate", n => { ShipByDate = n.GetStringValue(); } },
+                { "sourceTimeZone", n => { SourceTimeZone = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -93,10 +111,12 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("destinationTimeZone", DestinationTimeZone);
             writer.WriteBoolValue("guaranteedDelivery", GuaranteedDelivery);
             writer.WriteStringValue("maxEstimatedDeliveryDate", MaxEstimatedDeliveryDate);
             writer.WriteStringValue("minEstimatedDeliveryDate", MinEstimatedDeliveryDate);
             writer.WriteStringValue("shipByDate", ShipByDate);
+            writer.WriteStringValue("sourceTimeZone", SourceTimeZone);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

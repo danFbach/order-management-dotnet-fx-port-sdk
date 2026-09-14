@@ -27,7 +27,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AdditionalOption : IAdditionalDataHolder, IParsable
     {
-        /// <summary>A complex type that describes the value of a monetary amount as represented by a global currency.</summary>
+        /// <summary>The monetary cost of the additional shipping option identified by the &lt;strong&gt;optionType&lt;/strong&gt; field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Amount? AdditionalCost { get; set; }

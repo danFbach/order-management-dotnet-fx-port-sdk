@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type contains information about the order&apos;s buyer.</summary>
+        /// <summary>This container consists of information about the order&apos;s buyer. At this time, only the buyer&apos;s eBay user ID is returned, but it&apos;s possible that more buyer information can be added to this container in the future.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Effective September 26, 2025, select developers will no longer receive username data for U.S. users through this field. Instead, an immutable user ID will be returned in its place. For more information, please refer to &lt;a href=&quot;/api-docs/static/data-handling-update.html&quot; target=&quot;_blank&quot;&gt;Data Handling Compliance&lt;/a&gt;. &lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Buyer? Buyer { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Buyer Buyer { get; set; }
 #endif
-        /// <summary>This field contains any comments that the buyer left for the seller about the order during checkout process. This field is only returned if a buyer left comments at checkout time. </summary>
+        /// <summary>This field contains any comments that the buyer left for the seller about the order during the checkout process. This field is only returned if a buyer left comments at checkout time. </summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BuyerCheckoutNotes { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string BuyerCheckoutNotes { get; set; }
 #endif
-        /// <summary>This type contains information about any requests that have been made to cancel an order.</summary>
+        /// <summary>This container consists of order cancellation information if a cancel request has been made. This container is always returned, and if no cancel request has been made, the &lt;strong&gt;cancelState&lt;/strong&gt; field is returned with a value of &lt;code&gt;NONE_REQUESTED&lt;/code&gt;, and an empty &lt;strong&gt;cancelRequests&lt;/strong&gt; array is also returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.CancelStatus? CancelStatus { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.CancelStatus CancelStatus { get; set; }
 #endif
-        /// <summary>The date and time that the order was created. This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
+        /// <summary>The date and time that the order was created. This timestamp is in &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CreationDate { get; set; }
@@ -61,9 +61,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string CreationDate { get; set; }
 #endif
-        /// <summary>This field is only returned if &lt;code&gt;true&lt;/code&gt;, and indicates that eBay will collect tax (US state-mandated sales tax, Federal and Provincial Sales Tax in Canada, &apos;Goods and Services&apos; tax in Canada, Australia, and New Zealand, and VAT collected for UK and EU countries,) for at least one line item in the order, and remit the tax to the taxing authority of the buyer&apos;s residence. If this field is returned, the seller should search for one or more &lt;strong&gt;ebayCollectAndRemitTaxes&lt;/strong&gt; containers at the line item level to get more information about the type of tax and the amount.</summary>
+        /// <summary>This field is only returned if &lt;code&gt;true&lt;/code&gt; and indicates that eBay will collect tax (US state-mandated sales tax, Federal and Provincial Sales Tax in Canada, &apos;Goods and Services&apos; tax in Canada, Australia, and New Zealand, and VAT collected for UK and EU countries,) for at least one line item in the order, and remit the tax to the taxing authority of the buyer&apos;s residence. If this field is returned, the seller should search for one or more &lt;strong&gt;ebayCollectAndRemitTaxes&lt;/strong&gt; containers at the line item level to get more information about the type of tax and the amount.</summary>
         public bool? EbayCollectAndRemitTax { get; set; }
-        /// <summary>This array contains a list of one or more &lt;strong&gt;getShippingFulfillment&lt;/strong&gt; call URIs that can be used to retrieve shipping fulfillments that have been set up for the order.</summary>
+        /// <summary>This array contains a list of one or more &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-shipping_fulfillment-getshippingfulfillment&quot; target=&quot;_blank&quot;&gt;getShippingFulfillment&lt;/a&gt; call URIs that can be used to retrieve shipping fulfillments that have been set up for the order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? FulfillmentHrefs { get; set; }
@@ -79,7 +79,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.FulfillmentStartInstruction> FulfillmentStartInstructions { get; set; }
 #endif
-        /// <summary>The date and time that the order was last modified. This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
+        /// <summary>The date and time that the order was last modified. This timestamp is in &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastModifiedDate { get; set; }
@@ -95,14 +95,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItem> LineItems { get; set; }
 #endif
-        /// <summary>The degree to which fulfillment of the order is complete. See the &lt;strong&gt;OrderFulfillmentStatus&lt;/strong&gt; type definition for more information about each possible fulfillment state. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:OrderFulfillmentStatus&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OrderFulfillmentStatus { get; set; }
-#nullable restore
-#else
-        public string OrderFulfillmentStatus { get; set; }
-#endif
+        /// <summary>The degree to which fulfillment of the order is complete. See the &lt;strong&gt;OrderFulfillmentStatus&lt;/strong&gt; type definition for more information about each possible fulfillment state.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderFulfillmentStatus? OrderFulfillmentStatus { get; set; }
         /// <summary>The unique identifier of the order. This field is always returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,15 +105,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string OrderId { get; set; }
 #endif
-        /// <summary>The enumeration value returned in this field indicates the current payment status of an order, or in case of a refund request, the current status of the refund. See the &lt;strong&gt;OrderPaymentStatusEnum&lt;/strong&gt; type definition for more information about each possible payment/refund state. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:OrderPaymentStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OrderPaymentStatus { get; set; }
-#nullable restore
-#else
-        public string OrderPaymentStatus { get; set; }
-#endif
-        /// <summary>This type contains information about the various monetary exchanges that apply to the net balance due for the order.</summary>
+        /// <summary>The enumeration value returned in this field indicates the current payment status of an order, or in case of a refund request, the current status of the refund. See the &lt;strong&gt;OrderPaymentStatusEnum&lt;/strong&gt; type definition for more information about each possible payment/refund state.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderPaymentStatusEnum? OrderPaymentStatus { get; set; }
+        /// <summary>This container consists of detailed payment information for the order, including buyer payment for the order, refund information (if applicable), and seller payment holds (if applicable).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentSummary? PaymentSummary { get; set; }
@@ -127,7 +115,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentSummary PaymentSummary { get; set; }
 #endif
-        /// <summary>This type contains a summary of cumulative costs and charges for all line items of an order, including item price, price adjustments, sales taxes, delivery costs, and order discounts.</summary>
+        /// <summary>This container consists of a summary of cumulative costs and charges for all line items of an order, including item price, price adjustments, sales taxes, delivery costs, and order discounts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.PricingSummary? PricingSummary { get; set; }
@@ -135,7 +123,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.PricingSummary PricingSummary { get; set; }
 #endif
-        /// <summary>This type is returned for order line items eligible for the Authenticity Guarantee service and/or for order line items fulfilled by the eBay Fulfillment program or eBay shipping.</summary>
+        /// <summary>This container is returned for orders that are eligible for eBay&apos;s Authenticity Guarantee service. The seller ships Authenticity Guarantee service items to the authentication partner instead of the buyer. The authenticator address is found in the &lt;code&gt;fulfillmentStartInstructions.shippingStep.shipTo&lt;/code&gt; container. If the item is successfully authenticated, the authenticator will ship the item to the buyer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Program? Program { get; set; }
@@ -151,7 +139,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string SalesRecordReference { get; set; }
 #endif
-        /// <summary>The unique eBay user ID of the seller who sold the order.</summary>
+        /// <summary>The unique eBay user ID of the seller who sold the order.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Effective September 26, 2025, select developers will no longer receive username data for U.S. users through this field. Instead, an immutable user ID will be returned in its place. For more information, please refer to &lt;a href=&quot;/api-docs/static/data-handling-update.html&quot; target=&quot;_blank&quot;&gt;Data Handling Compliance&lt;/a&gt;. &lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SellerId { get; set; }
@@ -159,7 +147,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string SellerId { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This is the cumulative base amount used to calculate the final value fees for each order. The final value fees are deducted from the seller payout associated with the order. Final value fees are calculated as a percentage of order cost (item cost + shipping cost) and the percentage rate can vary by eBay category. </summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? TotalFeeBasisAmount { get; set; }
@@ -167,7 +155,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount TotalFeeBasisAmount { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This is the cumulative fees accrued for the order and deducted from the seller payout.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? TotalMarketplaceFee { get; set; }
@@ -209,9 +197,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
                 { "fulfillmentStartInstructions", n => { FulfillmentStartInstructions = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.FulfillmentStartInstruction>(global::EBay.OrderManagement.Generated.Fulfillment.Models.FulfillmentStartInstruction.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "lastModifiedDate", n => { LastModifiedDate = n.GetStringValue(); } },
                 { "lineItems", n => { LineItems = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItem>(global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "orderFulfillmentStatus", n => { OrderFulfillmentStatus = n.GetStringValue(); } },
+                { "orderFulfillmentStatus", n => { OrderFulfillmentStatus = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderFulfillmentStatus>(); } },
                 { "orderId", n => { OrderId = n.GetStringValue(); } },
-                { "orderPaymentStatus", n => { OrderPaymentStatus = n.GetStringValue(); } },
+                { "orderPaymentStatus", n => { OrderPaymentStatus = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderPaymentStatusEnum>(); } },
                 { "paymentSummary", n => { PaymentSummary = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentSummary>(global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentSummary.CreateFromDiscriminatorValue); } },
                 { "pricingSummary", n => { PricingSummary = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.PricingSummary>(global::EBay.OrderManagement.Generated.Fulfillment.Models.PricingSummary.CreateFromDiscriminatorValue); } },
                 { "program", n => { Program = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Program>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Program.CreateFromDiscriminatorValue); } },
@@ -237,9 +225,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.FulfillmentStartInstruction>("fulfillmentStartInstructions", FulfillmentStartInstructions);
             writer.WriteStringValue("lastModifiedDate", LastModifiedDate);
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.LineItem>("lineItems", LineItems);
-            writer.WriteStringValue("orderFulfillmentStatus", OrderFulfillmentStatus);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderFulfillmentStatus>("orderFulfillmentStatus", OrderFulfillmentStatus);
             writer.WriteStringValue("orderId", OrderId);
-            writer.WriteStringValue("orderPaymentStatus", OrderPaymentStatus);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderPaymentStatusEnum>("orderPaymentStatus", OrderPaymentStatus);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentSummary>("paymentSummary", PaymentSummary);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.PricingSummary>("pricingSummary", PricingSummary);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Program>("program", Program);

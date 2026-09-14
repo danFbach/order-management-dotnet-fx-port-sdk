@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This field shows information that the seller provides about the dispute, such as the basis for the dispute, any relevant evidence, tracking numbers, and so forth.&lt;br&gt;&lt;br&gt;&lt;b&gt;Max Length:&lt;/b&gt; 1000 characters.</summary>
+        /// <summary>This field shows information that the seller provides about the dispute, such as the basis for the dispute, any relevant evidence, tracking numbers, and so forth.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Max Length:&lt;/strong&gt; 1000 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Note { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Note { get; set; }
 #endif
-        /// <summary>This type is used by the payment dispute methods, and is relevant if the buyer will be returning the item to the seller.</summary>
+        /// <summary>This container is needed if the seller is requesting that the buyer return the item. If this container is used, all relevant fields must be included, including &lt;strong&gt;fullName&lt;/strong&gt; and &lt;strong&gt;primaryPhone&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If the &lt;a href =&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-getpaymentdispute.disputereasonenum&quot; target=&quot;_blank&quot;&gt;Dispute Reason&lt;/a&gt; is &lt;code&gt;SIGNIFICANTLY_NOT_AS_DESCRIBED&lt;/code&gt;, &lt;strong&gt;returnAddress&lt;/strong&gt; is required.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.ReturnAddress? ReturnAddress { get; set; }

@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>The monetary amount of the tax. The &lt;strong&gt;taxes&lt;/strong&gt; array is always returned for each line item in the order, but this &lt;strong&gt;amount&lt;/strong&gt; will only be returned when the line item is subject to any type of sales tax. </summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? Amount { get; set; }
@@ -37,14 +37,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount Amount { get; set; }
 #endif
-        /// <summary>Tax type. This field is only available when &lt;strong&gt;fieldGroups&lt;/strong&gt; is set to &lt;code&gt;TAX_BREAKDOWN&lt;/code&gt;. If the order has fees, a breakdown of the fees is also provided. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:TaxTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TaxType { get; set; }
-#nullable restore
-#else
-        public string TaxType { get; set; }
-#endif
+        /// <summary>Tax type. This field is only available when &lt;strong&gt;fieldGroups&lt;/strong&gt; is set to &lt;code&gt;TAX_BREAKDOWN&lt;/code&gt;. If the order has fees, a breakdown of the fees is also provided.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.TaxTypeEnum? TaxType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.Tax"/> and sets the default values.
         /// </summary>
@@ -71,7 +65,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount.CreateFromDiscriminatorValue); } },
-                { "taxType", n => { TaxType = n.GetStringValue(); } },
+                { "taxType", n => { TaxType = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.TaxTypeEnum>(); } },
             };
         }
         /// <summary>
@@ -82,7 +76,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>("amount", Amount);
-            writer.WriteStringValue("taxType", TaxType);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.TaxTypeEnum>("taxType", TaxType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

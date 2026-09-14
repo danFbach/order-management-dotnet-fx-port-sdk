@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The value returned in this field indicates the party that is handling fulfillment of the order line item. &lt;br&gt;&lt;br&gt;Valid value: &lt;code&gt;EBAY&lt;/code&gt;</summary>
+        /// <summary>The value returned in this field indicates the party that is handling fulfillment of the order line item. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Valid value&lt;/strong&gt;: &lt;code&gt;EBAY&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FulfilledBy { get; set; }

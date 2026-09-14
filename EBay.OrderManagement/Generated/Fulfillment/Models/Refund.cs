@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This is the base type of the &lt;b&gt;issueRefund&lt;/b&gt; response payload. As long as the &lt;b&gt;issueRefund&lt;/b&gt; method does not trigger an error, a response payload will be returned.
+    /// This is the base type of the issueRefund response payload. As long as the issueRefund method does not trigger an error, a response payload will be returned.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Refund : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The unique identifier of the order refund. This value is returned unless the refund operation fails (&lt;b&gt;refundStatus&lt;/b&gt; value shows &lt;code&gt;FAILED&lt;/code&gt;). This identifier can be used to track the status of the refund through a &lt;b&gt;getOrder&lt;/b&gt; or &lt;b&gt;getOrders&lt;/b&gt; call. For order-level refunds, check the &lt;b&gt;paymentSummary.refunds.refundId&lt;/b&gt; field in the &lt;b&gt;getOrder&lt;/b&gt;/&lt;b&gt;getOrders&lt;/b&gt; response, and for line item level refunds, check the &lt;b&gt;lineItems.refunds.refundId&lt;/b&gt; field(s) in the &lt;b&gt;getOrder&lt;/b&gt;/&lt;b&gt;getOrders&lt;/b&gt; response.</summary>
+        /// <summary>The unique identifier of the order refund. This value is returned unless the refund operation fails (refundStatus value shows FAILED). This identifier can be used to track the status of the refund through a getOrder or getOrders call. For order-level refunds, check the paymentSummary.refunds.refundId field in the getOrder/getOrders response, and for line item level refunds, check the lineItems.refunds.refundId field(s) in the getOrder/getOrders response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RefundId { get; set; }
@@ -37,14 +37,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string RefundId { get; set; }
 #endif
-        /// <summary>The value returned in this field indicates the success or failure of the refund operation. A successful &lt;b&gt;issueRefund&lt;/b&gt; operation should result in a value of &lt;code&gt;PENDING&lt;/code&gt;. A failed &lt;b&gt;issueRefund&lt;/b&gt; operation should result in a value of &lt;code&gt;FAILED&lt;/code&gt;, and an HTTP status code and/or and API error code may also get returned to possibly indicate the issue.&lt;br&gt;&lt;br&gt;The refunds issued through this method are processed asynchronously, so the refund will not show as &apos;Refunded&apos; right away. A seller will have to make a subsequent &lt;a href=&quot;https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrder&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; call to check the status of the refund.  The status of an order refund can be found in the &lt;a href=&quot;https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrder#response.paymentSummary.refunds.refundStatus&quot; target=&quot;_blank&quot;&gt;paymentSummary.refunds.refundStatus&lt;/a&gt; field of the &lt;a href=&quot;https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrder&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; response. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:RefundStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RefundStatus { get; set; }
-#nullable restore
-#else
-        public string RefundStatus { get; set; }
-#endif
+        /// <summary>The value returned in this field indicates the success or failure of the refund operation. A successful &lt;strong&gt;issueRefund&lt;/strong&gt; operation should result in a value of &lt;code&gt;PENDING&lt;/code&gt;. A failed &lt;strong&gt;issueRefund&lt;/strong&gt; operation should result in a value of &lt;code&gt;FAILED&lt;/code&gt;, and an HTTP status code and/or API error code may also get returned to possibly indicate the issue.&lt;br&gt;&lt;br&gt;The refunds issued through this method are processed asynchronously, so the refund will not show as &apos;Refunded&apos; right away. A seller will have to make a subsequent &lt;strong&gt;getOrder&lt;/strong&gt; call to check the status of the refund.  The status of an order refund can be found in the &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder.orderrefund.refundstatus&quot; target=&quot;_blank&quot;&gt;paymentSummary.refunds.refundStatus&lt;/a&gt; field of the &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; response.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.RefundStatusEnum? RefundStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.Refund"/> and sets the default values.
         /// </summary>
@@ -71,7 +65,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "refundId", n => { RefundId = n.GetStringValue(); } },
-                { "refundStatus", n => { RefundStatus = n.GetStringValue(); } },
+                { "refundStatus", n => { RefundStatus = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.RefundStatusEnum>(); } },
             };
         }
         /// <summary>
@@ -82,7 +76,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("refundId", RefundId);
-            writer.WriteStringValue("refundStatus", RefundStatus);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.RefundStatusEnum>("refundStatus", RefundStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -36,14 +36,14 @@ public sealed class FulfillmentClient
     }
 
     /// <summary>
-    /// Use this call to retrieve the contents of an order based on its unique identifier, <i>orderId</i>. This value was returned in the <b> getOrders</b> call's <b>orders.orderId</b> field when you searched for orders by creation date, modification date, or fulfillment status. Include the optional <b>fieldGroups</b> query parameter set to <c>TAX_BREAKDOWN</c> to return a breakdown of the taxes and fees.
-    /// The returned <b>Order</b> object contains information you can use to create and process fulfillments, including:
+    /// Use this call to retrieve the contents of an order based on its unique identifier, <i>orderId</i>. This value is returned in the <see href="/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorders">getOrders</see> call's <b>orders.orderId</b> field when you search for orders by creation date, modification date, or fulfillment status. Include the optional <b>fieldGroups</b> query parameter set to <c>TAX_BREAKDOWN</c> to return a breakdown of the taxes and fees.
+    /// The returned <b>Order</b> object contains information you can use to create and process fulfillments, including the following:
     /// - Information about the buyer and seller
     /// - Information about the order's line items
-    /// - The plans for packaging, addressing and shipping the order
+    /// - The plans for packaging, addressing, and shipping the order
     /// - The status of payment, packaging, addressing, and shipping the order
     /// - A summary of monetary amounts specific to the order such as pricing, payments, and shipping costs
-    /// - A summary of applied taxes and fees, and optionally a breakdown of each
+    /// - A summary of applied taxes and fees and, optionally, a breakdown of each
     /// </summary>
     public Task<Order?> GetOrderAsync(
         string orderId,
@@ -72,7 +72,7 @@ public sealed class FulfillmentClient
     /// - The status of payment, packaging, addressing, and shipping the order
     /// - A summary of monetary amounts specific to the order such as pricing, payments, and shipping costs
     /// - A summary of applied taxes and fees, and optionally a breakdown of each
-    /// <b>Important:</b> In this call, the <b>cancelStatus.cancelRequests</b> array is returned but is always empty. Use the <b>getOrder</b> call instead, which returns this array fully populated with information about any cancellation requests.
+    /// <b>Important:</b> In this call, the <b>cancelStatus.cancelRequests</b> array is returned but is always empty. Use the <see href="/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder">getOrder</see> call instead, which returns this array fully populated with information about any cancellation requests.
     /// </summary>
     public Task<OrderSearchPagedCollection?> GetOrdersAsync(
         string? fieldGroups = null,
@@ -112,7 +112,7 @@ public sealed class FulfillmentClient
         }, ct));
 
     /// <summary>
-    /// Issue Refund
+    /// Issues a full or partial refund to a buyer on behalf of the seller.
     /// </summary>
     public Task<Refund?> IssueRefundAsync(
         string orderId,
@@ -129,7 +129,7 @@ public sealed class FulfillmentClient
         }, ct));
 
     /// <summary>
-    /// Use this call to retrieve the contents of all fulfillments currently defined for a specified order based on the order's unique identifier, <b>orderId</b>. This value is returned in the <b>getOrders</b> call's <b>members.orderId</b> field when you search for orders by creation date or shipment status.
+    /// Use this call to retrieve the contents of all fulfillments currently defined for a specified order based on the order's unique identifier, <b>orderId</b>. This value is returned in the <see href="/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorders">getOrders</see> call's <b>members.orderId</b> field when you search for orders by creation date or shipment status.
     /// </summary>
     public Task<ShippingFulfillmentPagedCollection?> GetShippingFulfillmentsAsync(
         string orderId,
@@ -145,9 +145,10 @@ public sealed class FulfillmentClient
         }, ct));
 
     /// <summary>
-    /// When you group an order's line items into one or more packages, each package requires a corresponding plan for handling, addressing, and shipping; this is a <i>shipping fulfillment</i>. For each package, execute this call once to generate a shipping fulfillment associated with that package.
+    /// When you group an order's line items into one or more packages, each package requires a corresponding plan for handling, addressing, and shipping; this is <i>shipping fulfillment</i>. For each package, execute this call once to generate the shipping fulfillment associated with that package.
     /// <b>Note:</b> A single line item in an order can consist of multiple units of a purchased item, and one unit can consist of multiple parts or components. Although these components might be provided by the manufacturer in separate packaging, the seller must include all components of a given line item in the same package.
     /// Before using this call for a given package, you must determine which line items are in the package. If the package has been shipped, you should provide the date of shipment in the request. If not provided, it will default to the current date and time.
+    /// This method can also be used to provide proof of delivery for contested payment disputes. To do so, use this method to create a shipping fulfillment and provide shipment tracking information for all line items involved in the dispute. EBay will then pick up this information for the dispute directly.
     /// </summary>
     public Task CreateShippingFulfillmentAsync(
         string orderId,
@@ -164,7 +165,7 @@ public sealed class FulfillmentClient
         }, ct));
 
     /// <summary>
-    /// Use this call to retrieve the contents of a fulfillment based on its unique identifier, <b>fulfillmentId</b> (combined with the associated order's <b>orderId</b>). The <b>fulfillmentId</b> value was originally generated by the <b>createShippingFulfillment</b> call, and is returned by the <b>getShippingFulfillments</b> call in the <b>members.fulfillmentId</b> field.
+    /// Use this call to retrieve the contents of a fulfillment based on its unique identifier, <b>fulfillmentId</b> (combined with the associated order's <b>orderId</b>). The <b>fulfillmentId</b> value was originally generated by the <b>createShippingFulfillment</b> call and is returned by the <see href="/develop/api/sell/fulfillment_api#sell-fulfillment_api-shipping_fulfillment-getshippingfulfillments">getShippingFulfillments</see> call in the <b>members.fulfillmentId</b> field.
     /// </summary>
     public Task<ShippingFulfillment?> GetShippingFulfillmentAsync(
         string fulfillmentId,
@@ -319,7 +320,7 @@ public sealed class FulfillmentClient
     /// <summary>
     /// Upload an Evidence File
     /// </summary>
-    public Task<FileEvidence?> UploadEvidenceFileAsync(
+    public Task<UploadEvidenceFilePaymentDisputeResponse?> UploadEvidenceFileAsync(
         string paymentDisputeId,
         Stream fileContent,
         string fileName,
@@ -339,7 +340,7 @@ public sealed class FulfillmentClient
                     "file",
                     fileContent,
                     fileName,
-                    FileEvidence.CreateFromDiscriminatorValue,
+                    UploadEvidenceFilePaymentDisputeResponse.CreateFromDiscriminatorValue,
                     ct);
             });
 

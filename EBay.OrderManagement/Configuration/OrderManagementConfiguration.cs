@@ -16,8 +16,9 @@ namespace EBay.OrderManagement.Configuration;
 
 public sealed class OrderManagementConfiguration
 {
-    private string _fulfillmentBaseUrl = "https://api.ebay.com/sell/fulfillment/v1";
+    private string _fulfillmentBaseUrl = "https://apiz.ebay.com/sell/fulfillment/v1";
     private string _logisticsBaseUrl = "https://api.ebay.com/sell/logistics/v1_beta";
+    private string _postOrderApiBaseUrl = "https://api.ebay.com/post-order/v2";
     private string _graphQLBaseUrl = "https://api.ebay.com/graphql";
 
     public string FulfillmentBaseUrl
@@ -30,6 +31,12 @@ public sealed class OrderManagementConfiguration
     {
         get => _logisticsBaseUrl;
         set => _logisticsBaseUrl = RequireHttps(value);
+    }
+
+    public string PostOrderApiBaseUrl
+    {
+        get => _postOrderApiBaseUrl;
+        set => _postOrderApiBaseUrl = RequireHttps(value);
     }
 
     public string GraphQLBaseUrl
@@ -61,11 +68,13 @@ public sealed class OrderManagementConfiguration
     {
         "fulfillment" => _fulfillmentBaseUrl,
         "logistics" => _logisticsBaseUrl,
+        "post-order-api" => _postOrderApiBaseUrl,
         _ => throw new ArgumentOutOfRangeException(nameof(apiId), apiId, "Unknown REST API.")
     };
 
     internal static IEnumerable<string> AllowedHosts =>
     [
+        "apiz.ebay.com",
         "api.ebay.com"
     ];
 

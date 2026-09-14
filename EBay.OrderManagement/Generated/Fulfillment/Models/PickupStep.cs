@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This type is used to indicate the merchant&apos;s store where the buyer will pickup their In-Store Pickup order. The &lt;b&gt;pickupStep&lt;/b&gt; container is only returned for In-Store Pickup orders. The In-Store Pickup feature is supported in the US, Canada, UK, Germany, and Australia marketplaces.
+    /// This type is used to indicate the merchant&apos;s store where the buyer will pickup their In-Store Pickup order. The &lt;strong&gt;pickupStep&lt;/strong&gt; container is only returned for In-Store Pickup orders. The In-Store Pickup feature is supported in the US, Canada, UK, Germany, and Australia marketplaces.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PickupStep : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A merchant-defined unique identifier of the merchant&apos;s store where the buyer will pick up their In-Store Pickup order.&lt;br&gt;&lt;br&gt; This field is always returned with the &lt;b&gt;pickupStep&lt;/b&gt; container.</summary>
+        /// <summary>A merchant-defined unique identifier of the merchant&apos;s store where the buyer will pick up their In-Store Pickup order.&lt;br&gt;&lt;br&gt; This field is always returned with the &lt;strong&gt;pickupStep&lt;/strong&gt; container.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MerchantLocationKey { get; set; }

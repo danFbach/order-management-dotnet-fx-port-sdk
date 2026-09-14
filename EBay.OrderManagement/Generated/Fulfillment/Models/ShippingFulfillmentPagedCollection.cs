@@ -22,7 +22,7 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This type contains the specifications for the entire collection of shipping fulfillments that are associated with the order specified by a &lt;b&gt;getShippingFulfillments&lt;/b&gt; call. The &lt;b&gt;fulfillments&lt;/b&gt; container returns an array of all the fulfillments in the collection.
+    /// This type contains the specifications for the entire collection of shipping fulfillments that are associated with the order specified by a &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-shipping_fulfillment-getshippingfulfillments&quot; target=&quot;_blank&quot;&gt;getShippingFulfillments&lt;/a&gt; call. The &lt;strong&gt;fulfillments&lt;/strong&gt; container returns an array of all the fulfillments in the collection.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ShippingFulfillmentPagedCollection : IAdditionalDataHolder, IParsable
@@ -42,10 +42,10 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         /// <summary>This array is only returned if one or more errors or warnings occur with the call request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.Error>? Warnings { get; set; }
+        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorDetailV3>? Warnings { get; set; }
 #nullable restore
 #else
-        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.Error> Warnings { get; set; }
+        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorDetailV3> Warnings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ShippingFulfillmentPagedCollection"/> and sets the default values.
@@ -74,7 +74,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             {
                 { "fulfillments", n => { Fulfillments = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.ShippingFulfillment>(global::EBay.OrderManagement.Generated.Fulfillment.Models.ShippingFulfillment.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total", n => { Total = n.GetIntValue(); } },
-                { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.Error>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorDetailV3>(global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorDetailV3.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.ShippingFulfillment>("fulfillments", Fulfillments);
             writer.WriteIntValue("total", Total);
-            writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.Error>("warnings", Warnings);
+            writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorDetailV3>("warnings", Warnings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

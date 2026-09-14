@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>The amount involved in the monetary transaction. For active cross-border trade orders, the currency conversion and &lt;strong&gt;exchangeRate&lt;/strong&gt; fields will be displayed as well.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.DisputeAmount? Amount { get; set; }
@@ -45,22 +45,10 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Date { get; set; }
 #endif
-        /// <summary>This enumeration value indicates the reason for the monetary transaction. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/api:MonetaryTransactionReasonEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Reason { get; set; }
-#nullable restore
-#else
-        public string Reason { get; set; }
-#endif
-        /// <summary>This enumeration value indicates whether the monetary transaction is a charge or a credit to the seller. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/api:MonetaryTransactionTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        /// <summary>This enumeration value indicates the reason for the monetary transaction.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.MonetaryTransactionReasonEnum? Reason { get; set; }
+        /// <summary>This enumeration value indicates whether the monetary transaction is a charge or a credit to the seller.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.MonetaryTransactionTypeEnum? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.MonetaryTransaction"/> and sets the default values.
         /// </summary>
@@ -88,8 +76,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             {
                 { "amount", n => { Amount = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.DisputeAmount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.DisputeAmount.CreateFromDiscriminatorValue); } },
                 { "date", n => { Date = n.GetStringValue(); } },
-                { "reason", n => { Reason = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "reason", n => { Reason = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.MonetaryTransactionReasonEnum>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.MonetaryTransactionTypeEnum>(); } },
             };
         }
         /// <summary>
@@ -101,8 +89,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.DisputeAmount>("amount", Amount);
             writer.WriteStringValue("date", Date);
-            writer.WriteStringValue("reason", Reason);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.MonetaryTransactionReasonEnum>("reason", Reason);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.MonetaryTransactionTypeEnum>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This type contains the name-value specifics of a multi-variation listing (&lt;b&gt;variationAspects&lt;/b&gt;) or the name-value specifics for all item aspects of a linked line item (&lt;b&gt;linkedOrderLineItems&lt;/b&gt;).
+    /// This type contains the name-value specifics of a multi-variation listing (&lt;strong&gt;variationAspects&lt;/strong&gt;) or the name-value specifics for all item aspects of a linked line item (&lt;strong&gt;linkedOrderLineItems&lt;/strong&gt;).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NameValuePair : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The text representing the name of the aspect for the name-value pair. For example, &lt;code&gt;color&lt;/code&gt;, or &lt;code&gt;Tire Type&lt;/code&gt;.</summary>
+        /// <summary>The text representing the name of the aspect for the name-value pair. For example, &lt;code&gt;color&lt;/code&gt; or &lt;code&gt;Tire Type&lt;/code&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The value of the aspect for the name-value pair. For example, &lt;code&gt;red&lt;/code&gt;, or &lt;code&gt;All Season&lt;/code&gt;.</summary>
+        /// <summary>The value of the aspect for the name-value pair. For example, &lt;code&gt;red&lt;/code&gt; or &lt;code&gt;All Season&lt;/code&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Value { get; set; }

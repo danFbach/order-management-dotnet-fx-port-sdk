@@ -29,22 +29,10 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This field indicates the result of the authenticity verification inspection on an order line item. This field is not returned when the status value of the order line item is &lt;code&gt;PENDING&lt;/code&gt; or &lt;code&gt;PASSED&lt;/code&gt;. The possible values returned here are &lt;code&gt;NOT_AUTHENTIC&lt;/code&gt;, &lt;code&gt;NOT_AS_DESCRIBED&lt;/code&gt;, &lt;code&gt;CUSTOMIZED&lt;/code&gt;, &lt;code&gt;MISCATEGORIZED&lt;/code&gt;, or &lt;code&gt;NOT_AUTHENTIC_NO_RETURN&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:AuthenticityVerificationReasonEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OutcomeReason { get; set; }
-#nullable restore
-#else
-        public string OutcomeReason { get; set; }
-#endif
-        /// <summary>The value in this field indicates whether the order line item has passed or failed the authenticity verification inspection, or if the inspection and/or results are still pending. The possible values returned here are &lt;code&gt;PENDING&lt;/code&gt;, &lt;code&gt;PASSED&lt;/code&gt;, &lt;code&gt;FAILED&lt;/code&gt;, or &lt;code&gt;PASSED_WITH_EXCEPTION&lt;/code&gt;. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:AuthenticityVerificationStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Status { get; set; }
-#nullable restore
-#else
-        public string Status { get; set; }
-#endif
+        /// <summary>This field indicates the result of the authenticity verification inspection on an order line item. This field is not returned when the status value of the order line item is &lt;code&gt;PENDING&lt;/code&gt; or &lt;code&gt;PASSED&lt;/code&gt;. The possible values returned here are &lt;code&gt;NOT_AUTHENTIC&lt;/code&gt;, &lt;code&gt;NOT_AS_DESCRIBED&lt;/code&gt;, &lt;code&gt;CUSTOMIZED&lt;/code&gt;, &lt;code&gt;MISCATEGORIZED&lt;/code&gt;, or &lt;code&gt;NOT_AUTHENTIC_NO_RETURN&lt;/code&gt;.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.AuthenticityVerificationReasonEnum? OutcomeReason { get; set; }
+        /// <summary>The value in this field indicates whether the order line item has passed or failed the authenticity verification inspection, or if the inspection and/or results are still pending. The possible values returned here are &lt;code&gt;PENDING&lt;/code&gt;, &lt;code&gt;PASSED&lt;/code&gt;, &lt;code&gt;FAILED&lt;/code&gt;, or &lt;code&gt;PASSED_WITH_EXCEPTION&lt;/code&gt;.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.AuthenticityVerificationStatusEnum? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.PostSaleAuthenticationProgram"/> and sets the default values.
         /// </summary>
@@ -70,8 +58,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "outcomeReason", n => { OutcomeReason = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
+                { "outcomeReason", n => { OutcomeReason = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.AuthenticityVerificationReasonEnum>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.AuthenticityVerificationStatusEnum>(); } },
             };
         }
         /// <summary>
@@ -81,8 +69,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("outcomeReason", OutcomeReason);
-            writer.WriteStringValue("status", Status);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.AuthenticityVerificationReasonEnum>("outcomeReason", OutcomeReason);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.AuthenticityVerificationStatusEnum>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

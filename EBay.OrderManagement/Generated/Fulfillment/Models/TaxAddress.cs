@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This container consists of address information that can be used by sellers for tax purpose.
+    /// This container consists of address information that can be used by sellers for tax purposes.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TaxAddress : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The city name that can be used by sellers for tax purpose.</summary>
+        /// <summary>The city name that can be used by sellers for tax purposes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? City { get; set; }
@@ -37,15 +37,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string City { get; set; }
 #endif
-        /// <summary>The country code that can be used by sellers for tax purpose, represented as a two-letter ISO 3166-1 alpha-2 country code. For example, &lt;strong&gt;US&lt;/strong&gt; represents the United States, and &lt;strong&gt;DE&lt;/strong&gt; represents Germany. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CountryCode { get; set; }
-#nullable restore
-#else
-        public string CountryCode { get; set; }
-#endif
-        /// <summary>The postal code that can be used by sellers for tax purpose. Usually referred to as Zip codes in the US.</summary>
+        /// <summary>The country code that can be used by sellers for tax purposes, represented as a two-letter ISO 3166&amp;#8209;1 alpha&amp;#8209;2 country code. For example, &lt;strong&gt;US&lt;/strong&gt; represents the United States, and &lt;strong&gt;DE&lt;/strong&gt; represents Germany.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum? CountryCode { get; set; }
+        /// <summary>The postal code that can be used by sellers for tax purposes. Usually referred to as ZIP codes in the US.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostalCode { get; set; }
@@ -53,7 +47,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string PostalCode { get; set; }
 #endif
-        /// <summary>The state name that can be used by sellers for tax purpose.</summary>
+        /// <summary>The state name that can be used by sellers for tax purposes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StateOrProvince { get; set; }
@@ -87,7 +81,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "city", n => { City = n.GetStringValue(); } },
-                { "countryCode", n => { CountryCode = n.GetStringValue(); } },
+                { "countryCode", n => { CountryCode = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum>(); } },
                 { "postalCode", n => { PostalCode = n.GetStringValue(); } },
                 { "stateOrProvince", n => { StateOrProvince = n.GetStringValue(); } },
             };
@@ -100,7 +94,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("city", City);
-            writer.WriteStringValue("countryCode", CountryCode);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum>("countryCode", CountryCode);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("stateOrProvince", StateOrProvince);
             writer.WriteAdditionalData(AdditionalData);

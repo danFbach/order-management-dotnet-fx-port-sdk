@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string CompanyName { get; set; }
 #endif
-        /// <summary>This complex type specifies the details of a geographical address.</summary>
+        /// <summary>The details of the contact&apos;s geographical address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.ContactAddress? ContactAddress { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string FullName { get; set; }
 #endif
-        /// <summary>This complex type contains a string field representing a telephone number.</summary>
+        /// <summary>The contact&apos;s primary telephone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.PhoneNumber? PrimaryPhone { get; set; }

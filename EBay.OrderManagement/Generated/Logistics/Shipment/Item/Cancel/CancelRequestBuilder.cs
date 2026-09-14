@@ -48,11 +48,15 @@ namespace EBay.OrderManagement.Generated.Logistics.Shipment.Item.Cancel
         {
         }
         /// <summary>
-        /// This method cancels the shipment associated with the specified shipment ID and the associated shipping label is deleted. When you cancel a shipment, the &lt;b&gt;totalShippingCost&lt;/b&gt; of the canceled shipment is refunded to the account established by the user&apos;s billing agreement.  &lt;br&gt;&lt;br&gt;Note that you cannot cancel a shipment if you have used the associated shipping label.
+        /// This method cancels the shipment associated with the specified shipment ID and the associated shipping label is deleted. When you cancel a shipment, the &lt;strong&gt;totalShippingCost&lt;/strong&gt; of the canceled shipment is refunded to the account established by the user&apos;s billing agreement.  &lt;br&gt;&lt;br&gt;Note that you cannot cancel a shipment if you have used the associated shipping label.
         /// </summary>
         /// <returns>A <see cref="global::EBay.OrderManagement.Generated.Logistics.Models.Shipment"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Logistics.Models.Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Logistics.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Logistics.Models.Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Logistics.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::EBay.OrderManagement.Generated.Logistics.Models.Shipment?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -63,10 +67,17 @@ namespace EBay.OrderManagement.Generated.Logistics.Shipment.Item.Cancel
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Logistics.Models.Shipment>(requestInfo, global::EBay.OrderManagement.Generated.Logistics.Models.Shipment.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue },
+                { "404", global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue },
+                { "409", global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue },
+                { "500", global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Logistics.Models.Shipment>(requestInfo, global::EBay.OrderManagement.Generated.Logistics.Models.Shipment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// This method cancels the shipment associated with the specified shipment ID and the associated shipping label is deleted. When you cancel a shipment, the &lt;b&gt;totalShippingCost&lt;/b&gt; of the canceled shipment is refunded to the account established by the user&apos;s billing agreement.  &lt;br&gt;&lt;br&gt;Note that you cannot cancel a shipment if you have used the associated shipping label.
+        /// This method cancels the shipment associated with the specified shipment ID and the associated shipping label is deleted. When you cancel a shipment, the &lt;strong&gt;totalShippingCost&lt;/strong&gt; of the canceled shipment is refunded to the account established by the user&apos;s billing agreement.  &lt;br&gt;&lt;br&gt;Note that you cannot cancel a shipment if you have used the associated shipping label.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -60,11 +60,14 @@ namespace EBay.OrderManagement.Generated.Logistics.Shipment.Item
         {
         }
         /// <summary>
-        /// This method retrieves the shipment details for the specified shipment ID. Call &lt;b&gt;createFromShippingQuote&lt;/b&gt; to generate a shipment ID.
+        /// This method retrieves the shipment details for the specified shipment ID. Call &lt;strong&gt;createFromShippingQuote&lt;/strong&gt; to generate a shipment ID.
         /// </summary>
         /// <returns>A <see cref="global::EBay.OrderManagement.Generated.Logistics.Models.Shipment"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Logistics.Models.Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Logistics.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Logistics.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::EBay.OrderManagement.Generated.Logistics.Models.Shipment?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -75,10 +78,16 @@ namespace EBay.OrderManagement.Generated.Logistics.Shipment.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Logistics.Models.Shipment>(requestInfo, global::EBay.OrderManagement.Generated.Logistics.Models.Shipment.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue },
+                { "404", global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue },
+                { "500", global::EBay.OrderManagement.Generated.Logistics.Models.Error.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Logistics.Models.Shipment>(requestInfo, global::EBay.OrderManagement.Generated.Logistics.Models.Shipment.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// This method retrieves the shipment details for the specified shipment ID. Call &lt;b&gt;createFromShippingQuote&lt;/b&gt; to generate a shipment ID.
+        /// This method retrieves the shipment details for the specified shipment ID. Call &lt;strong&gt;createFromShippingQuote&lt;/strong&gt; to generate a shipment ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Logistics.Models.AdditionalOption> AdditionalOptions { get; set; }
 #endif
-        /// <summary>A complex type that describes the value of a monetary amount as represented by a global currency.</summary>
+        /// <summary>A live quote for the cost that the carrier (identified by &lt;strong&gt;shippingCarrierCode&lt;/strong&gt;) is charging for the shipping service being offered (identified by &lt;strong&gt;shippingServiceCode&lt;/strong&gt;), excluding any additional shipping options.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Amount? BaseShippingCost { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string DestinationTimeZone { get; set; }
 #endif
-        /// <summary>The latest stated date and time the shipment will be delivered at this rate.  &lt;br&gt;&lt;br&gt;The time stamp is formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2018-08-20T07:09:00.000Z&lt;/code&gt;</summary>
+        /// <summary>The latest stated date and time the shipment will be delivered at this rate.  &lt;br&gt;&lt;br&gt;The time stamp is formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org&quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2018-08-20T07:09:00.000Z&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MaxEstimatedDeliveryDate { get; set; }
@@ -85,14 +85,8 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Logistics.Models.PickupSlot> PickupSlots { get; set; }
 #endif
-        /// <summary>The type of pickup or drop-off service associated with the &lt;b&gt;pickupSlots&lt;/b&gt; time frames. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/logistics/types/api:PickupTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PickupType { get; set; }
-#nullable restore
-#else
-        public string PickupType { get; set; }
-#endif
+        /// <summary>The type of pickup or drop-off service associated with the &lt;strong&gt;pickupSlots&lt;/strong&gt; time frames.</summary>
+        public global::EBay.OrderManagement.Generated.Logistics.Models.PickupTypeEnum? PickupType { get; set; }
         /// <summary>The unique eBay-assigned ID for this shipping rate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,12 +98,12 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
         /// <summary>A list of reasons this rate is recommended. Available values are: &lt;ul&gt; &lt;li&gt;&lt;code&gt;BUYER_CHOSEN&lt;/code&gt; &amp;mdash; The rate meets or exceeds the requirements of the buyer&apos;s preferred shipping option.&lt;/li&gt; &lt;li&gt;&lt;code&gt;CHEAPEST_ON_TIME&lt;/code&gt; &amp;mdash; The rate is the cheapest rate available that will provide delivery within the seller&apos;s time frame commitment.&lt;/li&gt;  &lt;li&gt;&lt;code&gt;EBAY_PLUS_OK&lt;/code&gt; &amp;mdash; The rate complies with the shipping requirements of the eBay Plus program.&lt;/li&gt; &lt;li&gt;&lt;code&gt;FASTEST_ON_TIME&lt;/code&gt; &amp;mdash; The rate has the fastest shipping time, and will provide delivery within the seller&apos;s time frame commitment.&lt;/li&gt; &lt;li&gt;&lt;code&gt;GUARANTEED_DELIVERY_OK&lt;/code&gt; &amp;mdash; The rate complies with the shipping requirements of the eBay Guaranteed Delivery program.&lt;/li&gt;&lt;/ul&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RateRecommendation { get; set; }
+        public List<global::EBay.OrderManagement.Generated.Logistics.Models.RateRecommendationEnum?>? RateRecommendation { get; set; }
 #nullable restore
 #else
-        public List<string> RateRecommendation { get; set; }
+        public List<global::EBay.OrderManagement.Generated.Logistics.Models.RateRecommendationEnum?> RateRecommendation { get; set; }
 #endif
-        /// <summary>The code name of the shipping carrier who will provide the service identified by &lt;b&gt;shippingServiceCode&lt;/b&gt;.</summary>
+        /// <summary>The code name of the shipping carrier who will provide the service identified by &lt;strong&gt;shippingServiceCode&lt;/strong&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ShippingCarrierCode { get; set; }
@@ -125,7 +119,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string ShippingCarrierName { get; set; }
 #endif
-        /// <summary>The code name of the shipping service to be provided by the carrier identified by &lt;b&gt;shippingCarrierCode&lt;/b&gt;.</summary>
+        /// <summary>The code name of the shipping service to be provided by the carrier identified by &lt;strong&gt;shippingCarrierCode&lt;/strong&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ShippingServiceCode { get; set; }
@@ -173,9 +167,9 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
                 { "minEstimatedDeliveryDate", n => { MinEstimatedDeliveryDate = n.GetStringValue(); } },
                 { "pickupNetworks", n => { PickupNetworks = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "pickupSlots", n => { PickupSlots = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Logistics.Models.PickupSlot>(global::EBay.OrderManagement.Generated.Logistics.Models.PickupSlot.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "pickupType", n => { PickupType = n.GetStringValue(); } },
+                { "pickupType", n => { PickupType = n.GetEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.PickupTypeEnum>(); } },
                 { "rateId", n => { RateId = n.GetStringValue(); } },
-                { "rateRecommendation", n => { RateRecommendation = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "rateRecommendation", n => { RateRecommendation = n.GetCollectionOfEnumValues<global::EBay.OrderManagement.Generated.Logistics.Models.RateRecommendationEnum>()?.AsList(); } },
                 { "shippingCarrierCode", n => { ShippingCarrierCode = n.GetStringValue(); } },
                 { "shippingCarrierName", n => { ShippingCarrierName = n.GetStringValue(); } },
                 { "shippingServiceCode", n => { ShippingServiceCode = n.GetStringValue(); } },
@@ -196,9 +190,9 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
             writer.WriteStringValue("minEstimatedDeliveryDate", MinEstimatedDeliveryDate);
             writer.WriteCollectionOfPrimitiveValues<string>("pickupNetworks", PickupNetworks);
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Logistics.Models.PickupSlot>("pickupSlots", PickupSlots);
-            writer.WriteStringValue("pickupType", PickupType);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.PickupTypeEnum>("pickupType", PickupType);
             writer.WriteStringValue("rateId", RateId);
-            writer.WriteCollectionOfPrimitiveValues<string>("rateRecommendation", RateRecommendation);
+            writer.WriteCollectionOfEnumValues<global::EBay.OrderManagement.Generated.Logistics.Models.RateRecommendationEnum>("rateRecommendation", RateRecommendation);
             writer.WriteStringValue("shippingCarrierCode", ShippingCarrierCode);
             writer.WriteStringValue("shippingCarrierName", ShippingCarrierName);
             writer.WriteStringValue("shippingServiceCode", ShippingServiceCode);

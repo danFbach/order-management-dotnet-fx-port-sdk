@@ -36,7 +36,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Shipment
             get => new global::EBay.OrderManagement.Generated.Logistics.Shipment.Create_from_shipping_quote.Create_from_shipping_quoteRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the EBay.OrderManagement.Generated.Logistics.shipment.item collection</summary>
-        /// <param name="position">This path parameter specifies the unique eBay-assigned identifier of the shipment you want to retrieve.&lt;br&gt;&lt;br&gt;The &lt;b&gt;shipmentId&lt;/b&gt; value is generated and returned by the &lt;a href=&quot;/api-docs/sell/logistics/resources/shipment/methods/createFromShippingQuote&quot; target=&quot;_blank&quot;&gt;createFromShippingQuote&lt;/a&gt; method.</param>
+        /// <param name="position">This path parameter specifies the unique eBay-assigned identifier of the shipment you want to retrieve.&lt;br&gt;&lt;br&gt;The &lt;strong&gt;shipmentId&lt;/strong&gt; value is generated and returned by the &lt;a href=&quot;/api-docs/sell/logistics/resources/shipment/methods/createFromShippingQuote&quot; target=&quot;_blank&quot;&gt;createFromShippingQuote&lt;/a&gt; method.</param>
         /// <returns>A <see cref="global::EBay.OrderManagement.Generated.Logistics.Shipment.Item.WithShipmentItemRequestBuilder"/></returns>
         public global::EBay.OrderManagement.Generated.Logistics.Shipment.Item.WithShipmentItemRequestBuilder this[string position]
         {

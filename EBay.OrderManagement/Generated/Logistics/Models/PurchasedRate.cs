@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Logistics.Models
 {
     /// <summary>
-    /// The &quot;rate&quot; that has been selected and purchased for the shipment, as referenced by the &lt;b&gt;rateId&lt;/b&gt; value.
+    /// The &quot;rate&quot; that has been selected and purchased for the shipment, as referenced by the &lt;strong&gt;rateId&lt;/strong&gt; value.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PurchasedRate : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>An list of additional, optional features that have been purchased for the shipment.</summary>
+        /// <summary>A list of additional, optional features that have been purchased for the shipment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::EBay.OrderManagement.Generated.Logistics.Models.AdditionalOption>? AdditionalOptions { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Logistics.Models.AdditionalOption> AdditionalOptions { get; set; }
 #endif
-        /// <summary>A complex type that describes the value of a monetary amount as represented by a global currency.</summary>
+        /// <summary>The amount of the &quot;base cost&quot; for the shipment as set by the given carrier for the specified service. This cost excludes any additional costs accrued from the addition of any optional shipping options.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Amount? BaseShippingCost { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string DestinationTimeZone { get; set; }
 #endif
-        /// <summary>A string value representing maximum (latest) estimated delivery time, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2018-08-20T07:09:00.000Z&lt;/code&gt;</summary>
+        /// <summary>A string value representing maximum (latest) estimated delivery time, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org&quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2018-08-20T07:09:00.000Z&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MaxEstimatedDeliveryDate { get; set; }
@@ -61,7 +61,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string MaxEstimatedDeliveryDate { get; set; }
 #endif
-        /// <summary>A string value representing minimum (earliest) estimated delivery time, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt;ISO 8601&lt;/a&gt; UTC string.</summary>
+        /// <summary>A string value representing minimum (earliest) estimated delivery time, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org&quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; UTC string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MinEstimatedDeliveryDate { get; set; }
@@ -85,14 +85,8 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string PickupSlotId { get; set; }
 #endif
-        /// <summary>The type of pickup or drop off configured for the shipment. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/logistics/types/api:PickupTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PickupType { get; set; }
-#nullable restore
-#else
-        public string PickupType { get; set; }
-#endif
+        /// <summary>The type of pickup or drop-off configured for the shipment.</summary>
+        public global::EBay.OrderManagement.Generated.Logistics.Models.PickupTypeEnum? PickupType { get; set; }
         /// <summary>The eBay-generated ID of the shipping rate that the seller has chosen to purchase for the shipment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,7 +111,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string ShippingCarrierName { get; set; }
 #endif
-        /// <summary>The unique eBay-generated ID of the &lt;i&gt;shipping quote&lt;/i&gt; from which the seller selected a shipping rate (&lt;b&gt;rateId&lt;/b&gt;).</summary>
+        /// <summary>The unique eBay-generated ID of the &lt;i&gt;shipping quote&lt;/i&gt; from which the seller selected a shipping rate (&lt;strong&gt;rateId&lt;/strong&gt;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ShippingQuoteId { get; set; }
@@ -141,7 +135,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string ShippingServiceName { get; set; }
 #endif
-        /// <summary>A complex type that describes the value of a monetary amount as represented by a global currency.</summary>
+        /// <summary>The total shipping cost, which is the sum cost of the base shipping cost and the cost of all the selected shipping options.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Amount? TotalShippingCost { get; set; }
@@ -181,7 +175,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
                 { "minEstimatedDeliveryDate", n => { MinEstimatedDeliveryDate = n.GetStringValue(); } },
                 { "pickupNetworks", n => { PickupNetworks = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "pickupSlotId", n => { PickupSlotId = n.GetStringValue(); } },
-                { "pickupType", n => { PickupType = n.GetStringValue(); } },
+                { "pickupType", n => { PickupType = n.GetEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.PickupTypeEnum>(); } },
                 { "rateId", n => { RateId = n.GetStringValue(); } },
                 { "shippingCarrierCode", n => { ShippingCarrierCode = n.GetStringValue(); } },
                 { "shippingCarrierName", n => { ShippingCarrierName = n.GetStringValue(); } },
@@ -205,7 +199,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
             writer.WriteStringValue("minEstimatedDeliveryDate", MinEstimatedDeliveryDate);
             writer.WriteCollectionOfPrimitiveValues<string>("pickupNetworks", PickupNetworks);
             writer.WriteStringValue("pickupSlotId", PickupSlotId);
-            writer.WriteStringValue("pickupType", PickupType);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.PickupTypeEnum>("pickupType", PickupType);
             writer.WriteStringValue("rateId", RateId);
             writer.WriteStringValue("shippingCarrierCode", ShippingCarrierCode);
             writer.WriteStringValue("shippingCarrierName", ShippingCarrierName);

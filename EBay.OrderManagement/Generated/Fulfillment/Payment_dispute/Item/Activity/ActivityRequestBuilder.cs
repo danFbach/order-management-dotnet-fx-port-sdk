@@ -48,11 +48,13 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Payment_dispute.Item.Activi
         {
         }
         /// <summary>
-        /// This method retrieve a log of activity for a payment dispute. The identifier of the payment dispute is passed in as a path parameter. The output includes a timestamp for each action of the payment dispute, from creation to resolution, and all steps in between.
+        /// This method retrieves the activity log for a payment dispute. The identifier of the payment dispute is passed in as a path parameter. The output includes a timestamp for each action of the payment dispute, from creation to resolution, and all steps in between.
         /// </summary>
         /// <returns>A <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDisputeActivityHistory"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDisputeActivityHistory?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -63,10 +65,15 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Payment_dispute.Item.Activi
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDisputeActivityHistory>(requestInfo, global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDisputeActivityHistory.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "404", global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDisputeActivityHistory>(requestInfo, global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDisputeActivityHistory.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// This method retrieve a log of activity for a payment dispute. The identifier of the payment dispute is passed in as a path parameter. The output includes a timestamp for each action of the payment dispute, from creation to resolution, and all steps in between.
+        /// This method retrieves the activity log for a payment dispute. The identifier of the payment dispute is passed in as a path parameter. The output includes a timestamp for each action of the payment dispute, from creation to resolution, and all steps in between.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

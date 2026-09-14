@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This complex type defines the dimensions of a package to be shipped.</summary>
+        /// <summary>Declares the height, length, width, and unit of measure for the package to be shipped.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Dimensions? Dimensions { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public global::EBay.OrderManagement.Generated.Logistics.Models.Dimensions Dimensions { get; set; }
 #endif
-        /// <summary>This complex type contains information about the weight of an object such as a shipping package.</summary>
+        /// <summary>Declares the weight of the package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Weight? Weight { get; set; }

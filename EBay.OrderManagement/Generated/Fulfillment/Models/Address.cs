@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The first line of the street address.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;b&gt;addressLine1&lt;/b&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
+        /// <summary>The first line of the street address.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;strong&gt;addressLine1&lt;/strong&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AddressLine1 { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string AddressLine1 { get; set; }
 #endif
-        /// <summary>The second line of the street address. This field can be used for additional address information, such as a suite or apartment number. This field will be returned if defined for the shipping address.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;b&gt;addressLine2&lt;/b&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
+        /// <summary>The second line of the street address. This field can be used for additional address information, such as a suite or apartment number. This field will be returned if defined for the shipping address.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;strong&gt;addressLine2&lt;/strong&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AddressLine2 { get; set; }
@@ -53,14 +53,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string City { get; set; }
 #endif
-        /// <summary>The country of the shipping destination, represented as a two-letter ISO 3166-1 alpha-2 country code. For example, &lt;code&gt;US&lt;/code&gt; represents the United States, and &lt;code&gt;DE&lt;/code&gt; represents Germany. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CountryCode { get; set; }
-#nullable restore
-#else
-        public string CountryCode { get; set; }
-#endif
+        /// <summary>The country of the shipping destination, represented as a two-letter ISO 3166&amp;#8209;1 alpha&amp;#8209;2 country code. For example, &lt;code&gt;US&lt;/code&gt; represents the United States, and &lt;code&gt;DE&lt;/code&gt; represents Germany.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum? CountryCode { get; set; }
         /// <summary>The county of the shipping destination. Counties typically, but not always, contain multiple cities or towns. This field is returned if known/available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,7 +63,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string County { get; set; }
 #endif
-        /// <summary>The postal code of the shipping destination. Usually referred to as Zip codes in the US. Most countries have postal codes, but not all. The postal code will be returned if applicable.</summary>
+        /// <summary>The postal code of the shipping destination. This is usually referred to as ZIP codes in the US. Most countries have postal codes, but not all. The postal code will be returned, if applicable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostalCode { get; set; }
@@ -113,7 +107,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
                 { "addressLine1", n => { AddressLine1 = n.GetStringValue(); } },
                 { "addressLine2", n => { AddressLine2 = n.GetStringValue(); } },
                 { "city", n => { City = n.GetStringValue(); } },
-                { "countryCode", n => { CountryCode = n.GetStringValue(); } },
+                { "countryCode", n => { CountryCode = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum>(); } },
                 { "county", n => { County = n.GetStringValue(); } },
                 { "postalCode", n => { PostalCode = n.GetStringValue(); } },
                 { "stateOrProvince", n => { StateOrProvince = n.GetStringValue(); } },
@@ -129,7 +123,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             writer.WriteStringValue("addressLine1", AddressLine1);
             writer.WriteStringValue("addressLine2", AddressLine2);
             writer.WriteStringValue("city", City);
-            writer.WriteStringValue("countryCode", CountryCode);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum>("countryCode", CountryCode);
             writer.WriteStringValue("county", County);
             writer.WriteStringValue("postalCode", PostalCode);
             writer.WriteStringValue("stateOrProvince", StateOrProvince);

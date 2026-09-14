@@ -21,15 +21,14 @@ using System.IO;
 using System;
 namespace EBay.OrderManagement.Generated.Logistics.Models
 {
-    /// <summary>
-    /// Container for an error parameter.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class ErrorParameter : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Name of the entity that threw the error.</summary>
+        /// <summary>The object of the error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -37,7 +36,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>A description of the error.</summary>
+        /// <summary>The value of the object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Value { get; set; }
