@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The date and time the pickup slot ends, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2018-08-20T07:09:00.000Z&lt;/code&gt;</summary>
+        /// <summary>The date and time the pickup slot ends, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org&quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2018-08-20T07:09:00.000Z&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PickupSlotEndTime { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string PickupSlotEndTime { get; set; }
 #endif
-        /// <summary>Seller-defined name for the pickup slot. &lt;!-- Max characters? --&gt;</summary>
+        /// <summary>Seller-defined name for the pickup slot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PickupSlotId { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string PickupSlotId { get; set; }
 #endif
-        /// <summary>The date and time the pickup slot begins, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; UTC string.</summary>
+        /// <summary>The date and time the pickup slot begins, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org&quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; UTC string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PickupSlotStartTime { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string PickupSlotStartTime { get; set; }
 #endif
-        /// <summary>The time zone of the pickup location, returned as &lt;a href=&quot;https://www.iana.org/time-zones &quot; target=&quot;_blank&quot;&gt;Time Zone Database&lt;/a&gt; ID (also know as an Olson time zone ID).</summary>
+        /// <summary>The time zone of the pickup location, returned as &lt;a href=&quot;https://www.iana.org/time-zones &quot; target=&quot;_blank&quot;&gt;Time Zone Database&lt;/a&gt; ID (also known as an Olson time zone ID).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PickupSlotTimeZone { get; set; }

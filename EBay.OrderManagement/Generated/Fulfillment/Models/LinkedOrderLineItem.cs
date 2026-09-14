@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This type contains data on a line item that is related to, but not a part of the order.
+    /// This type contains data on a line item that is related to, but not a part of, the order.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LinkedOrderLineItem : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This array contains the complete set of items aspects for the linked line item. For example:&lt;br&gt;&lt;pre&gt;&quot;lineItemAspects&quot;: [&lt;br&gt;    {&lt;br&gt;        &quot;name&quot;: &quot;Tire Type&quot;,&lt;br&gt;        &quot;value&quot;: &quot;All Season&quot;&lt;br&gt;    },&lt;br&gt;&lt;br&gt;    ...&lt;br&gt; &lt;br&gt;    {&lt;br&gt;        &quot;name&quot;: &quot;Car Type&quot;,&lt;br&gt;        &quot;value&quot;: &quot;Performance&quot;&lt;br&gt;    }&lt;br&gt;]&lt;/pre&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; All item specifics for the listing are returned. The name/value pairs returned are in the language of the linked line item&apos;s listing site, which may vary from the seller&apos;s language.&lt;/span&gt;</summary>
+        /// <summary>This array contains the complete set of item aspects for the linked line item. For example:&lt;br&gt;&lt;pre&gt;&quot;lineItemAspects&quot;: [&lt;br&gt;    {&lt;br&gt;        &quot;name&quot;: &quot;Tire Type&quot;,&lt;br&gt;        &quot;value&quot;: &quot;All Season&quot;&lt;br&gt;    },&lt;br&gt;&lt;br&gt;    ...&lt;br&gt; &lt;br&gt;    {&lt;br&gt;        &quot;name&quot;: &quot;Car Type&quot;,&lt;br&gt;        &quot;value&quot;: &quot;Performance&quot;&lt;br&gt;    }&lt;br&gt;]&lt;/pre&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; All item specifics for the listing are returned. The name/value pairs returned are in the language of the linked line item&apos;s listing site, which may vary from the seller&apos;s language.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.NameValuePair>? LineItemAspects { get; set; }
@@ -69,7 +69,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string OrderId { get; set; }
 #endif
-        /// <summary>The eBay user ID of the seller who sold the linked line item. For example, the user ID of the tire seller.</summary>
+        /// <summary>The eBay user ID of the seller who sold the linked line item. For example, the user ID of the tire seller.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Effective September 26, 2025, select developers will no longer receive username data for U.S. users through this field. Instead, an immutable user ID will be returned in its place. For more information, please refer to &lt;a href=&quot;/api-docs/static/data-handling-update.html&quot; target=&quot;_blank&quot;&gt;Data Handling Compliance&lt;/a&gt;. &lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SellerId { get; set; }
@@ -85,7 +85,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.TrackingInfo> Shipments { get; set; }
 #endif
-        /// <summary>The listing title of the linked line item.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; The Item ID value for the listing will be returned in this field instead of the actual title if this particular listing is on-hold due to an eBay policy violation.&lt;/span&gt;</summary>
+        /// <summary>The listing title of the linked line item.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The Item ID value for the listing will be returned in this field instead of the actual title if this particular listing is on-hold due to an eBay policy violation.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title { get; set; }

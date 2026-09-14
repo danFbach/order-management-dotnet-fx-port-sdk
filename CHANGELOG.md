@@ -1,5 +1,14 @@
 # ChangeLog
 
+## 1.1.0 (09/14/2026)
+
+- The following clients were added:
+  - `PostOrderApiClient`
+- The following members were added to `OrderManagementClient`:
+  - `PostOrderApi`
+- The following members were added to `OrderManagementConfiguration`:
+  - `PostOrderApiBaseUrl`
+
 ## 1.0.0 (09/14/2026)
 
 **Breaking changes**

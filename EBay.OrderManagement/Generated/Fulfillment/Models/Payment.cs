@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>The amount that seller receives for the order via the payment method mentioned in &lt;strong&gt;Payment.paymentMethod&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; For orders that are subject to eBay &apos;Collect and Remit&apos; tax, which includes US state-mandated sales tax, Federal and Provincial Sales Tax in Canada, &apos;Good and Services&apos; tax in Canada, Australia, and New Zealand, and VAT collected for UK or EU, the &apos;Collect and Remit&apos; tax amount for the order will be included in this &lt;strong&gt;amount.value&lt;/strong&gt; field (and in the &lt;strong&gt;amount.convertedFromValue&lt;/strong&gt; field if currency conversion is applicable).&lt;br&gt;&lt;br&gt; To determine if &apos;Collect and Remit&apos; taxes were added into this &lt;strong&gt;totalDueSeller&lt;/strong&gt; value, the user can check for the corresponding &lt;strong&gt;lineItems.ebayCollectAndRemitTaxes&lt;/strong&gt; and the &lt;strong&gt;lineItems.taxes&lt;/strong&gt; containers in the response. If both of these containers appear for one or more line items in the response with the following &lt;strong&gt;taxType&lt;/strong&gt; values, the &apos;Collect and Remit&apos; tax amount that the buyer paid is included in this amount:&lt;ul&gt;&lt;li&gt;&lt;code&gt;STATE_SALES_TAX&lt;/code&gt;: US&lt;/li&gt;&lt;li&gt;&lt;code&gt;PROVINCE_SALES_TAX&lt;/code&gt;: Provincial Sales Tax in Canada&lt;/li&gt;&lt;li&gt;&lt;code&gt;GST&lt;/code&gt;: Canada, Australia, and New Zealand&lt;/li&gt;&lt;li&gt;&lt;code&gt;VAT&lt;/code&gt;: UK and EU countries&lt;/li&gt;&lt;/ul&gt;&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? Amount { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount Amount { get; set; }
 #endif
-        /// <summary>The date and time that the payment was received by the seller. This field will not be returned if buyer has yet to pay for the order. This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
+        /// <summary>The date and time that the payment was received by the seller. This field will not be returned if buyer has yet to pay for the order. This timestamp is in &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; format, which uses the 24-hour Universal Coordinated Time (UTC) clock. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PaymentDate { get; set; }
@@ -53,14 +53,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentHold> PaymentHolds { get; set; }
 #endif
-        /// <summary>The payment method used to pay for the order. See the &lt;strong&gt;PaymentMethodTypeEnum&lt;/strong&gt; type for more information on the payment methods. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:PaymentMethodTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PaymentMethod { get; set; }
-#nullable restore
-#else
-        public string PaymentMethod { get; set; }
-#endif
+        /// <summary>The payment method used to pay for the order. See the &lt;strong&gt;PaymentMethodTypeEnum&lt;/strong&gt; type for more information on the payment methods.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Effective September 26, 2025, access to buyer payment details for U.S. users will be limited to select developers. All other developers will receive a value of &quot;CustomCode&quot; in place of buyer payment details. For more information, please refer to &lt;a href=&quot;/api-docs/static/data-handling-update.html&quot; target=&quot;_blank&quot;&gt;Data Handling Compliance&lt;/a&gt;.&lt;/span&gt;</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentMethodTypeEnum? PaymentMethod { get; set; }
         /// <summary>This field is only returned if payment has been made by the buyer, and the &lt;strong&gt;paymentMethod&lt;/strong&gt; is &lt;code&gt;ESCROW&lt;/code&gt;. This field contains a special ID for ESCROW.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,14 +63,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string PaymentReferenceId { get; set; }
 #endif
-        /// <summary>The enumeration value returned in this field indicates the status of the payment for the order. See the &lt;strong&gt;PaymentStatusEnum&lt;/strong&gt; type definition for more information on the possible payment states. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:PaymentStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PaymentStatus { get; set; }
-#nullable restore
-#else
-        public string PaymentStatus { get; set; }
-#endif
+        /// <summary>The enumeration value returned in this field indicates the status of the payment for the order. See the &lt;strong&gt;PaymentStatusEnum&lt;/strong&gt; type definition for more information on the possible payment states.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentStatusEnum? PaymentStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.Payment"/> and sets the default values.
         /// </summary>
@@ -105,9 +93,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
                 { "amount", n => { Amount = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount.CreateFromDiscriminatorValue); } },
                 { "paymentDate", n => { PaymentDate = n.GetStringValue(); } },
                 { "paymentHolds", n => { PaymentHolds = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentHold>(global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentHold.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "paymentMethod", n => { PaymentMethod = n.GetStringValue(); } },
+                { "paymentMethod", n => { PaymentMethod = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentMethodTypeEnum>(); } },
                 { "paymentReferenceId", n => { PaymentReferenceId = n.GetStringValue(); } },
-                { "paymentStatus", n => { PaymentStatus = n.GetStringValue(); } },
+                { "paymentStatus", n => { PaymentStatus = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentStatusEnum>(); } },
             };
         }
         /// <summary>
@@ -120,9 +108,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount>("amount", Amount);
             writer.WriteStringValue("paymentDate", PaymentDate);
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentHold>("paymentHolds", PaymentHolds);
-            writer.WriteStringValue("paymentMethod", PaymentMethod);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentMethodTypeEnum>("paymentMethod", PaymentMethod);
             writer.WriteStringValue("paymentReferenceId", PaymentReferenceId);
-            writer.WriteStringValue("paymentStatus", PaymentStatus);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentStatusEnum>("paymentStatus", PaymentStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

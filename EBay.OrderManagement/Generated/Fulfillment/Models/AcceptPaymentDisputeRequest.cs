@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type is used by the payment dispute methods, and is relevant if the buyer will be returning the item to the seller.</summary>
+        /// <summary>This container is used if the seller wishes to provide a return address to the buyer. This container should be used if the seller is requesting that the buyer return the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.ReturnAddress? ReturnAddress { get; set; }

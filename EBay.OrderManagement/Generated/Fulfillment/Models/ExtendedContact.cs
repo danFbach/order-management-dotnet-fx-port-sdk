@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string CompanyName { get; set; }
 #endif
-        /// <summary>This type contains the details of a geographical address.</summary>
+        /// <summary>This container shows the shipping address of the buyer or eBay shipping partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Address? ContactAddress { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Address ContactAddress { get; set; }
 #endif
-        /// <summary>This field contains the email address of the buyer. This address will be returned for up to 14 days from order creation. If an order is more than 14 days old, no address is returned.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt; &lt;strong&gt;Note:&lt;/strong&gt; If returned, this field contains the email address of the buyer, even for Global Shipping Program shipments.&lt;br&gt;&lt;br&gt;The &lt;b&gt;email&lt;/b&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
+        /// <summary>This field contains the email address of the buyer. This address will be returned for up to 14 days from order creation. If an order is more than 14 days old, no address is returned.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt; &lt;strong&gt;Note:&lt;/strong&gt; If returned, this field contains the email address of the buyer, even for Global Shipping Program shipments.&lt;br&gt;&lt;br&gt;The &lt;strong&gt;email&lt;/strong&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Email { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>The full name of the buyer or eBay shipping partner.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;b&gt;fullName&lt;/b&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
+        /// <summary>The full name of the buyer or eBay shipping partner.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;strong&gt;fullName&lt;/strong&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FullName { get; set; }
@@ -61,7 +61,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string FullName { get; set; }
 #endif
-        /// <summary>This type contains a string field representing a telephone number.</summary>
+        /// <summary>The primary telephone number of the buyer or eBay shipping partner.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;strong&gt;primaryPhone&lt;/strong&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.PhoneNumber? PrimaryPhone { get; set; }

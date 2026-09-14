@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// Type defining the &lt;b&gt;legacyReference&lt;/b&gt; container. This container is needed if the seller is issuing a refund for an individual order line item, and wishes to use an item ID and transaction ID to identify the order line item.
+    /// Type defining the legacyReference container. This container is needed if the seller is issuing a refund for an individual order line item, and wishes to use an item ID and transaction ID to identify the order line item.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LegacyReference : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The unique identifier of a listing.&lt;br&gt;&lt;br&gt; This value can be found in the &lt;a href=&quot;/devzone/xml/docs/reference/ebay/getorders.html#Response.OrderArray.Order.TransactionArray.Transaction&quot; target=&quot;_blank&quot;&gt;Transaction&lt;/a&gt; container in the response of the &lt;a href=&quot;/devzone/xml/docs/reference/ebay/getorders.html&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; call of the &lt;b&gt;Trading API&lt;/b&gt;.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Both &lt;b&gt;legacyItemId&lt;/b&gt; and &lt;b&gt;legacyTransactionId&lt;/b&gt; are needed to identify an order line item. &lt;/span&gt;</summary>
+        /// <summary>The unique identifier of a listing. This value can be found in the Transaction container in the response of the getOrder call of the Trading API. Note: Both legacyItemId and legacyTransactionId are needed to identify an order line item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LegacyItemId { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string LegacyItemId { get; set; }
 #endif
-        /// <summary>The unique identifier of a sale/transaction in legacy/Trading API format. A &apos;transaction ID&apos; is created once a buyer purchases a &apos;Buy It Now&apos; item or if an auction listing ends with a winning bidder.&lt;br&gt;&lt;br&gt; This value can be found in the &lt;a href=&quot;/devzone/xml/docs/reference/ebay/getorders.html#Response.OrderArray.Order.TransactionArray.Transaction&quot; target=&quot;_blank&quot;&gt;Transaction&lt;/a&gt; container in the response of the &lt;a href=&quot;/devzone/xml/docs/reference/ebay/getorders.html&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; call of the &lt;b&gt;Trading API&lt;/b&gt;. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Both &lt;b&gt;legacyItemId&lt;/b&gt; and &lt;b&gt;legacyTransactionId&lt;/b&gt; are needed to identify an order line item. &lt;/span&gt;</summary>
+        /// <summary>The unique identifier of a sale/transaction in legacy/Trading API format. A &apos;transaction ID&apos; is created once a buyer purchases a &apos;Buy It Now&apos; item or if an auction listing ends with a winning bidder. This value can be found in the Transaction container in the response of the getOrder call of the Trading API. Note: Both legacyItemId and legacyTransactionId are needed to identify an order line item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LegacyTransactionId { get; set; }

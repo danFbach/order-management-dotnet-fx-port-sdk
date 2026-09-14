@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This type defines the base response payload of the &lt;strong&gt;getPaymentDisputeSummaries&lt;/strong&gt; method. Each payment dispute that matches the input criteria is returned under the &lt;strong&gt;paymentDisputeSummaries&lt;/strong&gt; array.
+    /// This type defines the base response payload of the &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-getpaymentdisputesummaries&quot; target=&quot;_blank &quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; method. Each payment dispute that matches the input criteria is returned under the &lt;strong&gt;paymentDisputeSummaries&lt;/strong&gt; array.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DisputeSummaryResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The URI of the &lt;strong&gt;getPaymentDisputeSummaries&lt;/strong&gt; call request that produced the current page of the result set.</summary>
+        /// <summary>The URI of the &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-getpaymentdisputesummaries&quot; target=&quot;_blank &quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; call request that produced the current page of the result set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Href { get; set; }
@@ -37,9 +37,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Href { get; set; }
 #endif
-        /// <summary>This value shows the maximum number of payment disputes that will appear on one page of the result set. The &lt;strong&gt;limit&lt;/strong&gt; value can be passed in as a query parameter in the request, or if it is not used, it defaults to &lt;code&gt;200&lt;/code&gt;. If the value in the &lt;strong&gt;total&lt;/strong&gt; field exceeds this &lt;strong&gt;limit&lt;/strong&gt; value, there are multiple pages in the current result set.&lt;br&gt;&lt;br&gt;&lt;b&gt;Min&lt;/b&gt;: 1; &lt;b&gt;Max&lt;/b&gt;: 200; &lt;b&gt;Default&lt;/b&gt;: 200</summary>
+        /// <summary>This value shows the maximum number of payment disputes that will appear on one page of the result set. The &lt;strong&gt;limit&lt;/strong&gt; value can be passed in as a query parameter in the request, or if it is not used, it defaults to &lt;code&gt;200&lt;/code&gt;. If the value in the &lt;strong&gt;total&lt;/strong&gt; field exceeds this &lt;strong&gt;limit&lt;/strong&gt; value, there are multiple pages in the current result set.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Min&lt;/strong&gt;: 1; &lt;strong&gt;Max&lt;/strong&gt;: 200; &lt;strong&gt;Default&lt;/strong&gt;: 200</summary>
         public int? Limit { get; set; }
-        /// <summary>The &lt;strong&gt;getPaymentDisputeSummaries&lt;/strong&gt; call URI to use if you wish to view the next page of the result set. For example, the following URI returns records 11 thru 20 from the collection of payment disputes:&lt;br&gt;&lt;br&gt;&lt;code&gt;path/payment_dispute_summary?limit=10&amp;offset=10&lt;/code&gt;&lt;br&gt;&lt;br&gt;This field is only returned if there is a next page of results to view based on the current input criteria.</summary>
+        /// <summary>The &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-getpaymentdisputesummaries&quot; target=&quot;_blank &quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; call URI to use if you wish to view the next page of the result set. For example, the following URI returns records 11 through 20 from the collection of payment disputes:&lt;br&gt;&lt;br&gt;&lt;code&gt;path/payment_dispute_summary?limit=10&amp;offset=10&lt;/code&gt;&lt;br&gt;&lt;br&gt;This field is only returned if there is a next page of results to view based on the current input criteria.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Next { get; set; }
@@ -57,7 +57,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.PaymentDisputeSummary> PaymentDisputeSummaries { get; set; }
 #endif
-        /// <summary>The &lt;strong&gt;getPaymentDisputeSummaries&lt;/strong&gt; call URI to use if you wish to view the previous page of the result set. For example, the following URI returns records 1 thru 10 from the collection of payment disputes:&lt;br&gt;&lt;br&gt;&lt;code&gt;path/payment_dispute_summary?limit=10&amp;offset=0&lt;/code&gt;&lt;br&gt;&lt;br&gt;This field is only returned if there is a previous page of results to view based on the current input criteria.</summary>
+        /// <summary>The &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-getpaymentdisputesummaries&quot; target=&quot;_blank &quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; call URI to use if you wish to view the previous page of the result set. For example, the following URI returns records 1 through 10 from the collection of payment disputes:&lt;br&gt;&lt;br&gt;&lt;code&gt;path/payment_dispute_summary?limit=10&amp;offset=0&lt;/code&gt;&lt;br&gt;&lt;br&gt;This field is only returned if there is a previous page of results to view based on the current input criteria.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Prev { get; set; }

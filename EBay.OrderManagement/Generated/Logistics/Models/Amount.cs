@@ -29,15 +29,9 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The base currency applied to the &lt;b&gt;value&lt;/b&gt; field to establish a monetary amount.  &lt;br&gt;&lt;br&gt;The currency is represented as a 3-letter &lt;a href=&quot;https://www.iso.org/iso-4217-currency-codes.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 4217&lt;/a&gt; currency code. For example, the code for the Canadian Dollar is &lt;code&gt;CAD&lt;/code&gt;.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Default:&lt;/b&gt; The default currency of the eBay marketplace that hosts the listing. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/logistics/types/bas:CurrencyCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Currency { get; set; }
-#nullable restore
-#else
-        public string Currency { get; set; }
-#endif
-        /// <summary>The monetary amount in the specified &lt;b&gt;currency&lt;/b&gt;.  &lt;br&gt;&lt;br&gt;&lt;i&gt;Required in&lt;/i&gt; the &lt;b&gt;amount&lt;/b&gt; type.</summary>
+        /// <summary>The base currency applied to the &lt;strong&gt;value&lt;/strong&gt; field to establish a monetary amount.  &lt;br&gt;&lt;br&gt;The currency is represented as a 3-letter &lt;a href=&quot;https://www.iso.org/iso-4217-currency-codes.html&quot; title=&quot;https://www.iso.org&quot; target=&quot;_blank&quot;&gt;ISO 4217&lt;/a&gt; currency code. For example, the code for the Canadian Dollar is &lt;code&gt;CAD&lt;/code&gt;.  &lt;br&gt;&lt;br&gt;&lt;strong&gt;Default:&lt;/strong&gt; The default currency of the eBay marketplace that hosts the listing.</summary>
+        public global::EBay.OrderManagement.Generated.Logistics.Models.CurrencyCodeEnum? Currency { get; set; }
+        /// <summary>The monetary amount in the specified &lt;strong&gt;currency&lt;/strong&gt;.  &lt;br&gt;&lt;br&gt;&lt;i&gt;Required in&lt;/i&gt; the &lt;strong&gt;amount&lt;/strong&gt; type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Value { get; set; }
@@ -70,7 +64,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "currency", n => { Currency = n.GetStringValue(); } },
+                { "currency", n => { Currency = n.GetEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.CurrencyCodeEnum>(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -81,7 +75,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("currency", Currency);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.CurrencyCodeEnum>("currency", Currency);
             writer.WriteStringValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

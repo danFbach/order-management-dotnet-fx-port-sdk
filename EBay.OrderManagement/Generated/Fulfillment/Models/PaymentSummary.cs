@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.Payment> Payments { get; set; }
 #endif
-        /// <summary>This array is always returned, but is returned as an empty array unless the seller has submitted a partial or full refund to the buyer for the order. If a refund has occurred, the refund amount and refund date will be shown for each refund.</summary>
+        /// <summary>This array is always returned, but it is returned as an empty array unless the seller has submitted a partial or full refund to the buyer for the order. If a refund has occurred, the refund amount and refund date will be shown for each refund.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderRefund>? Refunds { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderRefund> Refunds { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This is the total price that the seller receives for the entire order after all costs (item cost, delivery cost, taxes) are added for all line items, minus any discounts and/or promotions for any of the line items. Note that this value is subject to change before payment is actually made by the buyer (if the &lt;strong&gt;paymentStatus&lt;/strong&gt; value was &lt;code&gt;PENDING&lt;/code&gt; or &lt;code&gt;FAILED&lt;/code&gt;), or if a partial or full refund occurs with the order.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; For orders that are subject to eBay &apos;Collect and Remit&apos; tax, the &apos;Collect and Remit&apos; tax amount for the order will be included in this &lt;strong&gt;totalDueSeller&lt;/strong&gt; value.&lt;br&gt;&lt;br&gt;To determine if &apos;Collect and Remit&apos; taxes were added into this &lt;strong&gt;totalDueSeller&lt;/strong&gt; value, the user can check for the corresponding &lt;strong&gt;lineItems.ebayCollectAndRemitTaxes&lt;/strong&gt; and the &lt;strong&gt;lineItems.taxes&lt;/strong&gt; containers in the response. If both of these containers appear for one or more line items in the response with the following &lt;strong&gt;taxType&lt;/strong&gt; values, the &apos;Collect and Remit&apos; tax amount that the buyer paid is included in this amount:&lt;ul&gt;&lt;li&gt;&lt;code&gt;STATE_SALES_TAX&lt;/code&gt;: US&lt;/li&gt;&lt;li&gt;&lt;code&gt;PROVINCE_SALES_TAX&lt;/code&gt;: Provincial Sales Tax in Canada&lt;/li&gt;&lt;li&gt;&lt;code&gt;GST&lt;/code&gt;: Canada, Australia, and New Zealand&lt;/li&gt;&lt;li&gt;&lt;code&gt;VAT&lt;/code&gt;: VAT collected for UK and EU countries&lt;/li&gt;&lt;/ul&gt;&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? TotalDueSeller { get; set; }

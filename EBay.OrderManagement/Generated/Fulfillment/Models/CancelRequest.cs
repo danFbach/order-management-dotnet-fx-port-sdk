@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The date and time that the order cancellation was completed, if applicable. This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. This field is not returned until the cancellation request has actually been approved by the seller.&lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
+        /// <summary>This string is the date and time that the order cancellation was completed, if applicable. This timestamp is in &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; format, which uses the 24-hour Universal Coordinated Time (UTC) clock. This field is not returned until the cancellation request has actually been approved by the seller.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CancelCompletedDate { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string CancelCompletedDate { get; set; }
 #endif
-        /// <summary>This string value indicates the party who made the initial cancellation request. Typically, either the &apos;Buyer&apos; or &apos;Seller&apos;. If a cancellation request has been made, this field should be returned.</summary>
+        /// <summary>This string value indicates the party who made the initial cancellation request. This is typically, either the &apos;Buyer&apos; or &apos;Seller&apos;. If a cancellation request has been made, this field should be returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CancelInitiator { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string CancelInitiator { get; set; }
 #endif
-        /// <summary>The reason why the &lt;b&gt;cancelInitiator&lt;/b&gt; initiated the cancellation request. Cancellation reasons for a buyer might include &apos;order placed by mistake&apos; or &apos;order won&apos;t arrive in time&apos;. For a seller, a typical cancellation reason is &apos;out of stock&apos;. If a cancellation request has been made, this field should be returned.</summary>
+        /// <summary>This string indicates the reason why the &lt;strong&gt;cancelInitiator&lt;/strong&gt; initiated the cancellation request. Cancellation reasons for a buyer might include &apos;order placed by mistake&apos; or &apos;order won&apos;t arrive in time&apos;. For a seller, a typical cancellation reason is &apos;out of stock&apos;. If a cancellation request has been made, this field should be returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CancelReason { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string CancelReason { get; set; }
 #endif
-        /// <summary>The date and time that the order cancellation was requested. This timestamp is in ISO 8601 format, which uses the 24-hour Universal Coordinated Time (UTC) clock. This field is returned for each cancellation request.&lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
+        /// <summary>This string is the date and time that the order cancellation was requested. This timestamp is in &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; format, which uses the 24-hour Universal Coordinated Time (UTC) clock. This field is returned for each cancellation request.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2015-08-04T19:09:02.768Z&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CancelRequestedDate { get; set; }
@@ -61,7 +61,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string CancelRequestedDate { get; set; }
 #endif
-        /// <summary>The unique identifier of the order cancellation request. This field is returned for each cancellation request.</summary>
+        /// <summary>This string vlaue is the unique identifier of the order cancellation request. This field is returned for each cancellation request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CancelRequestId { get; set; }
@@ -69,14 +69,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string CancelRequestId { get; set; }
 #endif
-        /// <summary>The current stage or condition of the cancellation request. This field is returned for each cancellation request. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:CancelRequestStateEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CancelRequestState { get; set; }
-#nullable restore
-#else
-        public string CancelRequestState { get; set; }
-#endif
+        /// <summary>The current stage or condition of the cancellation request. This field is returned for each cancellation request.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.CancelRequestStateEnum? CancelRequestState { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.CancelRequest"/> and sets the default values.
         /// </summary>
@@ -106,7 +100,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
                 { "cancelInitiator", n => { CancelInitiator = n.GetStringValue(); } },
                 { "cancelReason", n => { CancelReason = n.GetStringValue(); } },
                 { "cancelRequestId", n => { CancelRequestId = n.GetStringValue(); } },
-                { "cancelRequestState", n => { CancelRequestState = n.GetStringValue(); } },
+                { "cancelRequestState", n => { CancelRequestState = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CancelRequestStateEnum>(); } },
                 { "cancelRequestedDate", n => { CancelRequestedDate = n.GetStringValue(); } },
             };
         }
@@ -122,7 +116,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             writer.WriteStringValue("cancelReason", CancelReason);
             writer.WriteStringValue("cancelRequestedDate", CancelRequestedDate);
             writer.WriteStringValue("cancelRequestId", CancelRequestId);
-            writer.WriteStringValue("cancelRequestState", CancelRequestState);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CancelRequestStateEnum>("cancelRequestState", CancelRequestState);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

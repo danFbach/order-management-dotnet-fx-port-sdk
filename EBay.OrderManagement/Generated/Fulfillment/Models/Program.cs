@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type is used to provide the status and outcome of an order line item going through the Authenticity Guarantee verification process.</summary>
+        /// <summary>This field is returned when the third-party authenticator performs the authentication verification inspection on the order line item. Different values will be returned based on whether the item passed or failed the authentication verification inspection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.PostSaleAuthenticationProgram? AuthenticityVerification { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.PostSaleAuthenticationProgram AuthenticityVerification { get; set; }
 #endif
-        /// <summary>This type is used to provide details about an order line item being managed through eBay International Shipping.</summary>
+        /// <summary>This container is returned if the order is being fulfilled through eBay International Shipping.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayInternationalShipping? EbayInternationalShipping { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayInternationalShipping EbayInternationalShipping { get; set; }
 #endif
-        /// <summary>This type contains information about the management of the shipping for the order.</summary>
+        /// <summary>This container is returned only if the order is an eBay shipping order. It consists of a field that indicates the provider of a shipping label for this order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayShipping? EbayShipping { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayShipping EbayShipping { get; set; }
 #endif
-        /// <summary>The ebayVault property</summary>
+        /// <summary>This field provides information about the eBay vault program that has been selected for an order. This is returned only for those items that are eligible for the eBay Vault Program.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayVaultProgram? EbayVault { get; set; }
@@ -61,7 +61,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayVaultProgram EbayVault { get; set; }
 #endif
-        /// <summary>This type is used to provide details about an order line item being fulfilled by eBay or an eBay fulfillment partner.</summary>
+        /// <summary>This field provides details about an order line item being handled by eBay fulfillment. It is only returned for paid orders being fulfilled by eBay or an eBay fulfillment partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayFulfillmentProgram? FulfillmentProgram { get; set; }

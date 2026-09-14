@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This field contains the shipping label provider. If &lt;code&gt;EBAY&lt;/code&gt;, this order is managed by eBay shipping and a free shipping label by eBay is downloadable by the seller via the eBay website.</summary>
+        /// <summary>This field contains the shipping label provider. If &lt;code&gt;EBAY&lt;/code&gt;, this order is managed by eBay shipping and a free shipping label created by eBay is downloadable by the seller via the eBay website.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ShippingLabelProvidedBy { get; set; }

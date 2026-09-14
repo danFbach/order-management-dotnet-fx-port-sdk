@@ -21,21 +21,16 @@ using System.IO;
 using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
+    /// <summary>
+    /// This type contains details on the fulfillment type.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class EbayVaultProgram : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This field specifies how an eBay vault order will be fulfilled. Supported options are:&lt;ul&gt;&lt;li&gt;&lt;b&gt;Seller to Vault&lt;/b&gt;: the order will be shipped by the seller to an authenticator.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Vault to Vault&lt;/b&gt;: the order will be shipped from an eBay vault to the buyer&apos;s vault.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Vault to Buyer&lt;/b&gt;: the order will be shipped from an eBay vault to the buyer&apos;s shipping address.&lt;/li&gt;&lt;/ul&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:EbayVaultFulfillmentTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? FulfillmentType { get; set; }
-#nullable restore
-#else
-        public string FulfillmentType { get; set; }
-#endif
+        /// <summary>This field specifies how an eBay vault order will be fulfilled. Supported options are:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Seller to Vault&lt;/strong&gt;: The order will be shipped by the seller to an authenticator.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Vault to Vault&lt;/strong&gt;: The order will be shipped from an eBay vault to the buyer&apos;s vault.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Vault to Buyer&lt;/strong&gt;: The order will be shipped from an eBay vault to the buyer&apos;s shipping address.&lt;/li&gt;&lt;/ul&gt;</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayVaultFulfillmentTypeEnum? FulfillmentType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayVaultProgram"/> and sets the default values.
         /// </summary>
@@ -61,7 +56,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fulfillmentType", n => { FulfillmentType = n.GetStringValue(); } },
+                { "fulfillmentType", n => { FulfillmentType = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayVaultFulfillmentTypeEnum>(); } },
             };
         }
         /// <summary>
@@ -71,7 +66,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("fulfillmentType", FulfillmentType);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.EbayVaultFulfillmentTypeEnum>("fulfillmentType", FulfillmentType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

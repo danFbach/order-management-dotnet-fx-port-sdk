@@ -48,12 +48,18 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Order.Item.Issue_refund
         {
         }
         /// <summary>
-        /// &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; Due to EU &amp;amp; UK Payments regulatory requirements, an additional security verification via Digital Signatures is required for certain API calls that are made on behalf of EU/UK sellers, including &lt;b&gt;issueRefund&lt;/b&gt;. Please refer to &lt;a href=&quot;/develop/guides/digital-signatures-for-apis &quot; target=&quot;_blank&quot;&gt;Digital Signatures for APIs&lt;/a&gt; to learn more on the impacted APIs and the process to create signatures to be included in the HTTP payload.&lt;/p&gt;&lt;/div&gt;&lt;br&gt; This method allows a seller to issue a full or partial refund to a buyer for an order. Full or partial refunds can be issued at the order level or line item level.&lt;br&gt;&lt;br&gt;The refunds issued through this method are processed asynchronously, so the refund will not show as &apos;Refunded&apos; right away. A seller will have to make a subsequent &lt;a href=&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrder&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; call to check the status of the refund.  The status of an order refund can be found in the &lt;a href=&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrder#response.paymentSummary.refunds.refundStatus&quot; target=&quot;_blank&quot;&gt;paymentSummary.refunds.refundStatus&lt;/a&gt; field of the &lt;a href=&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrder&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; response.
+        /// This method allows a seller to issue a full or partial refund to a buyer for an order. Full or partial refunds can be issued at the order level or line item level. The refunds issued through this method are processed asynchronously, so the refund will not show as &apos;Refunded&apos; right away. A seller will have to make a subsequent getOrder call to check the status of the refund. The status of an order refund can be found in the paymentSummary.refunds.refundStatus field of the getOrder response.
         /// </summary>
         /// <returns>A <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.Refund"/></returns>
-        /// <param name="body">The base type used by the request payload of the &lt;b&gt;issueRefund&lt;/b&gt; method.</param>
+        /// <param name="body">The base type used by the request payload of the issueRefund method.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::EBay.OrderManagement.Generated.Fulfillment.Models.Refund?> PostAsync(global::EBay.OrderManagement.Generated.Fulfillment.Models.IssueRefundRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,13 +71,22 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Order.Item.Issue_refund
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Fulfillment.Models.Refund>(requestInfo, global::EBay.OrderManagement.Generated.Fulfillment.Models.Refund.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "409", global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::EBay.OrderManagement.Generated.Fulfillment.Models.Refund>(requestInfo, global::EBay.OrderManagement.Generated.Fulfillment.Models.Refund.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &lt;div class=&quot;msgbox_important&quot;&gt;&lt;p class=&quot;msgbox_importantInDiv&quot; data-mc-autonum=&quot;&amp;lt;b&amp;gt;&amp;lt;span style=&amp;quot;color: #dd1e31;&amp;quot; class=&amp;quot;mcFormatColor&amp;quot;&amp;gt;Important! &amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&quot;&gt;&lt;span class=&quot;autonumber&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important!&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/span&gt; Due to EU &amp;amp; UK Payments regulatory requirements, an additional security verification via Digital Signatures is required for certain API calls that are made on behalf of EU/UK sellers, including &lt;b&gt;issueRefund&lt;/b&gt;. Please refer to &lt;a href=&quot;/develop/guides/digital-signatures-for-apis &quot; target=&quot;_blank&quot;&gt;Digital Signatures for APIs&lt;/a&gt; to learn more on the impacted APIs and the process to create signatures to be included in the HTTP payload.&lt;/p&gt;&lt;/div&gt;&lt;br&gt; This method allows a seller to issue a full or partial refund to a buyer for an order. Full or partial refunds can be issued at the order level or line item level.&lt;br&gt;&lt;br&gt;The refunds issued through this method are processed asynchronously, so the refund will not show as &apos;Refunded&apos; right away. A seller will have to make a subsequent &lt;a href=&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrder&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; call to check the status of the refund.  The status of an order refund can be found in the &lt;a href=&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrder#response.paymentSummary.refunds.refundStatus&quot; target=&quot;_blank&quot;&gt;paymentSummary.refunds.refundStatus&lt;/a&gt; field of the &lt;a href=&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrder&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; response.
+        /// This method allows a seller to issue a full or partial refund to a buyer for an order. Full or partial refunds can be issued at the order level or line item level. The refunds issued through this method are processed asynchronously, so the refund will not show as &apos;Refunded&apos; right away. A seller will have to make a subsequent getOrder call to check the status of the refund. The status of an order refund can be found in the paymentSummary.refunds.refundStatus field of the getOrder response.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The base type used by the request payload of the &lt;b&gt;issueRefund&lt;/b&gt; method.</param>
+        /// <param name="body">The base type used by the request payload of the issueRefund method.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -25,47 +25,14 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     /// This type is used by the request payload of the &lt;strong&gt;addEvidence&lt;/strong&gt; method. The &lt;strong&gt;addEvidence&lt;/strong&gt; method is used to create a new evidence set against a payment dispute with one or more evidence files.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AddEvidencePaymentDisputeRequest : IAdditionalDataHolder, IParsable
+    public partial class AddEvidencePaymentDisputeRequest : global::EBay.OrderManagement.Generated.Fulfillment.Models.ProcessEvidencePaymentDisputeRequest, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This field is used to indicate the type of evidence being provided through one or more evidence files. All evidence files (if more than one) should be associated with the evidence type passed in this field.&lt;br&gt;&lt;br&gt;See the &lt;a href=&quot;/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum&quot; target=&quot;_blank &quot;&gt;EvidenceTypeEnum&lt;/a&gt; type for the supported evidence types. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? EvidenceType { get; set; }
-#nullable restore
-#else
-        public string EvidenceType { get; set; }
-#endif
-        /// <summary>This array is used to specify one or more evidence files that will become part of a new evidence set associated with a payment dispute. At least one evidence file must be specified in the &lt;strong&gt;files&lt;/strong&gt; array.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.FileEvidence>? Files { get; set; }
-#nullable restore
-#else
-        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.FileEvidence> Files { get; set; }
-#endif
-        /// <summary>This array identifies the order line item(s) for which the evidence file(s) will be applicable.&lt;br&gt;&lt;Br&gt;These values are returned under the &lt;strong&gt;evidenceRequests.lineItems&lt;/strong&gt; array in the &lt;a href=&quot;/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDispute&quot; target=&quot;_blank &quot;&gt;getPaymentDispute&lt;/a&gt; response.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderLineItems>? LineItems { get; set; }
-#nullable restore
-#else
-        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderLineItems> LineItems { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.AddEvidencePaymentDisputeRequest"/> and sets the default values.
-        /// </summary>
-        public AddEvidencePaymentDisputeRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.AddEvidencePaymentDisputeRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::EBay.OrderManagement.Generated.Fulfillment.Models.AddEvidencePaymentDisputeRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::EBay.OrderManagement.Generated.Fulfillment.Models.AddEvidencePaymentDisputeRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::EBay.OrderManagement.Generated.Fulfillment.Models.AddEvidencePaymentDisputeRequest();
@@ -74,26 +41,20 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "evidenceType", n => { EvidenceType = n.GetStringValue(); } },
-                { "files", n => { Files = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.FileEvidence>(global::EBay.OrderManagement.Generated.Fulfillment.Models.FileEvidence.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "lineItems", n => { LineItems = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderLineItems>(global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderLineItems.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer)
+        public override void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("evidenceType", EvidenceType);
-            writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.FileEvidence>("files", Files);
-            writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderLineItems>("lineItems", LineItems);
-            writer.WriteAdditionalData(AdditionalData);
+            base.Serialize(writer);
         }
     }
 }

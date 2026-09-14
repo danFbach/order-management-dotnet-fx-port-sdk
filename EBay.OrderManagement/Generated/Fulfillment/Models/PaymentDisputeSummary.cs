@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This type is used by each payment dispute that is returned with the &lt;strong&gt;getPaymentDisputeSummaries&lt;/strong&gt; method.
+    /// This type is used by each payment dispute that is returned with the &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-getpaymentdisputesummaries&quot; target=&quot;_blank &quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; method.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PaymentDisputeSummary : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type defines the monetary value of the payment dispute, and the currency used.</summary>
+        /// <summary>This container shows the dollar value associated with the payment dispute in the currency used by the seller&apos;s marketplace. This container is returned for all payment disputes returned in the response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount? Amount { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount Amount { get; set; }
 #endif
-        /// <summary>This is the buyer&apos;s eBay user ID. This field is returned for all payment disputes returned in the response.</summary>
+        /// <summary>This is the buyer&apos;s eBay user ID. This field is returned for all payment disputes returned in the response.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Effective September 26, 2025, select developers will no longer receive username data for U.S. users through this field. Instead, an immutable user ID will be returned in its place. For more information, please refer to &lt;a href=&quot;/api-docs/static/data-handling-update.html&quot; target=&quot;_blank&quot;&gt;Data Handling Compliance&lt;/a&gt;. &lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BuyerUsername { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string BuyerUsername { get; set; }
 #endif
-        /// <summary>The timestamp in this field shows the date/time when the payment dispute was closed, so this field is only returned for payment disputes in the &lt;code&gt;CLOSED&lt;/code&gt; state.&lt;br&gt;&lt;br&gt;The timestamps returned here use the ISO-8601 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO-8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
+        /// <summary>The timestamp in this field shows the date/time when the payment dispute was closed, so this field is only returned for payment disputes in the &lt;code&gt;CLOSED&lt;/code&gt; state.&lt;br&gt;&lt;br&gt;The timestamps returned here use the &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO 8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClosedDate { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string ClosedDate { get; set; }
 #endif
-        /// <summary>The timestamp in this field shows the date/time when the payment dispute was opened. This field is returned for payment disputes in all states.&lt;br&gt;&lt;br&gt;The timestamps returned here use the ISO-8601 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO-8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
+        /// <summary>The timestamp in this field shows the date/time when the payment dispute was opened. This field is returned for payment disputes in all states.&lt;br&gt;&lt;br&gt;The timestamps returned here use the &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO 8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OpenDate { get; set; }
@@ -77,23 +77,11 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string PaymentDisputeId { get; set; }
 #endif
-        /// <summary>The enumeration value in this field gives the current status of the payment dispute. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/api:DisputeStateEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PaymentDisputeStatus { get; set; }
-#nullable restore
-#else
-        public string PaymentDisputeStatus { get; set; }
-#endif
-        /// <summary>The enumeration value in this field gives the reason why the buyer initiated the payment dispute. See &lt;strong&gt;DisputeReasonEnum&lt;/strong&gt; type for a description of the supported reasons that buyers can give for initiating a payment dispute. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/api:DisputeReasonEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Reason { get; set; }
-#nullable restore
-#else
-        public string Reason { get; set; }
-#endif
-        /// <summary>The timestamp in this field shows the date/time when the seller must response to a payment dispute, so this field is only returned for payment disputes in the &lt;code&gt;ACTION_NEEDED&lt;/code&gt; state. For payment disputes that require action by the seller, that same seller must call &lt;strong&gt;getPaymentDispute&lt;/strong&gt; to see the next action(s) that they can take against the payment dispute.&lt;br&gt;&lt;br&gt;The timestamps returned here use the ISO-8601 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO-8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
+        /// <summary>The enumeration value in this field gives the current status of the payment dispute.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.DisputeStateEnum? PaymentDisputeStatus { get; set; }
+        /// <summary>The enumeration value in this field gives the reason why the buyer initiated the payment dispute. See &lt;strong&gt;DisputeReasonEnum&lt;/strong&gt; type for a description of the supported reasons that buyers can give for initiating a payment dispute.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.DisputeReasonEnum? Reason { get; set; }
+        /// <summary>The timestamp in this field shows the date/time when the seller must response to a payment dispute, so this field is only returned for payment disputes in the &lt;code&gt;ACTION_NEEDED&lt;/code&gt; state. For payment disputes that require action by the seller, that same seller must call &lt;strong&gt;getPaymentDispute&lt;/strong&gt; to see the next action(s) that they can take against the payment dispute.&lt;br&gt;&lt;br&gt;The timestamps returned here use the &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO 8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RespondByDate { get; set; }
@@ -132,8 +120,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
                 { "openDate", n => { OpenDate = n.GetStringValue(); } },
                 { "orderId", n => { OrderId = n.GetStringValue(); } },
                 { "paymentDisputeId", n => { PaymentDisputeId = n.GetStringValue(); } },
-                { "paymentDisputeStatus", n => { PaymentDisputeStatus = n.GetStringValue(); } },
-                { "reason", n => { Reason = n.GetStringValue(); } },
+                { "paymentDisputeStatus", n => { PaymentDisputeStatus = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.DisputeStateEnum>(); } },
+                { "reason", n => { Reason = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.DisputeReasonEnum>(); } },
                 { "respondByDate", n => { RespondByDate = n.GetStringValue(); } },
             };
         }
@@ -150,8 +138,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             writer.WriteStringValue("openDate", OpenDate);
             writer.WriteStringValue("orderId", OrderId);
             writer.WriteStringValue("paymentDisputeId", PaymentDisputeId);
-            writer.WriteStringValue("paymentDisputeStatus", PaymentDisputeStatus);
-            writer.WriteStringValue("reason", Reason);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.DisputeStateEnum>("paymentDisputeStatus", PaymentDisputeStatus);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.DisputeReasonEnum>("reason", Reason);
             writer.WriteStringValue("respondByDate", RespondByDate);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -29,15 +29,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A three-letter ISO 4217 code that indicates the currency of the amount in the &lt;b&gt;convertedFromValue&lt;/b&gt; field. This value is required or returned only if currency conversion/localization is required, and represents the pre-conversion currency. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CurrencyCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ConvertedFromCurrency { get; set; }
-#nullable restore
-#else
-        public string ConvertedFromCurrency { get; set; }
-#endif
-        /// <summary>The monetary amount before any conversion is performed, in the currency specified by the &lt;b&gt;convertedFromCurrency&lt;/b&gt; field. This value is required or returned only if currency conversion/localization is required. The &lt;b&gt;value&lt;/b&gt; field contains the converted amount of this value, in the currency specified by the &lt;b&gt;currency&lt;/b&gt; field.</summary>
+        /// <summary>A three-letter &lt;a href=&quot;https://www.iso.org/iso-4217-currency-codes.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 4217&lt;/a&gt; code that indicates the currency of the amount in the &lt;strong&gt;convertedFromValue&lt;/strong&gt; field. This value is required or returned only if currency conversion/localization is required and represents the pre-conversion currency.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.CurrencyCodeEnum? ConvertedFromCurrency { get; set; }
+        /// <summary>The monetary amount, before any conversion is performed, in the currency specified by the &lt;strong&gt;convertedFromCurrency&lt;/strong&gt; field. This value is required or returned only if currency conversion/localization is required. The &lt;strong&gt;value&lt;/strong&gt; field contains the converted amount of this value in the currency specified by the &lt;strong&gt;currency&lt;/strong&gt; field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ConvertedFromValue { get; set; }
@@ -45,15 +39,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string ConvertedFromValue { get; set; }
 #endif
-        /// <summary>A three-letter ISO 4217 code that indicates the currency of the amount in the &lt;b&gt;value&lt;/b&gt; field. If currency conversion/localization is required, this is the post-conversion currency of the amount in the &lt;b&gt;value&lt;/b&gt; field.&lt;br&gt;&lt;br&gt;&lt;b&gt;Default:&lt;/b&gt; The default currency of the eBay marketplace that hosts the listing. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CurrencyCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Currency { get; set; }
-#nullable restore
-#else
-        public string Currency { get; set; }
-#endif
-        /// <summary>The monetary amount, in the currency specified by the &lt;b&gt;currency&lt;/b&gt; field. If currency conversion/localization is required, this value is the converted amount, and the &lt;b&gt;convertedFromValue&lt;/b&gt; field contains the amount in the original currency.  &lt;br&gt;&lt;br&gt;&lt;i&gt;Required in&lt;/i&gt; the &lt;b&gt;amount&lt;/b&gt; type.</summary>
+        /// <summary>A three-letter &lt;a href=&quot;https://www.iso.org/iso-4217-currency-codes.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 4217&lt;/a&gt; code that indicates the currency of the amount in the &lt;strong&gt;value&lt;/strong&gt; field. If currency conversion/localization is required, this is the post-conversion currency of the amount in the &lt;strong&gt;value&lt;/strong&gt; field.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Default:&lt;/strong&gt; The default currency with be that of the eBay marketplace that hosts the listing.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.CurrencyCodeEnum? Currency { get; set; }
+        /// <summary>The monetary amount in the currency specified by the &lt;strong&gt;currency&lt;/strong&gt; field. If currency conversion/localization is required, this value is the converted amount, and the &lt;strong&gt;convertedFromValue&lt;/strong&gt; field contains the amount in the original currency.  &lt;br&gt;&lt;br&gt;&lt;em&gt;Required&lt;/em&gt; in the &lt;strong&gt;amount&lt;/strong&gt; type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Value { get; set; }
@@ -86,9 +74,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "convertedFromCurrency", n => { ConvertedFromCurrency = n.GetStringValue(); } },
+                { "convertedFromCurrency", n => { ConvertedFromCurrency = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CurrencyCodeEnum>(); } },
                 { "convertedFromValue", n => { ConvertedFromValue = n.GetStringValue(); } },
-                { "currency", n => { Currency = n.GetStringValue(); } },
+                { "currency", n => { Currency = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CurrencyCodeEnum>(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -99,9 +87,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("convertedFromCurrency", ConvertedFromCurrency);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CurrencyCodeEnum>("convertedFromCurrency", ConvertedFromCurrency);
             writer.WriteStringValue("convertedFromValue", ConvertedFromValue);
-            writer.WriteStringValue("currency", Currency);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CurrencyCodeEnum>("currency", Currency);
             writer.WriteStringValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

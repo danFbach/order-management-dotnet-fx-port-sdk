@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This type contains information about a digital gift card line item that was purchased as a gift and sent to the recipient by email.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;b&gt;GiftDetails&lt;/b&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;
+    /// This type contains information about a digital gift card line item that was purchased as a gift and sent to the recipient by email.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;strong&gt;GiftDetails&lt;/strong&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GiftDetails : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This field contains the gift message from the buyer to the gift recipient. This field is only returned if the buyer of the gift included a message for the gift.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;b&gt;message&lt;/b&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
+        /// <summary>This field contains the gift message from the buyer to the gift recipient. This field is only returned if the buyer of the gift included a message for the gift.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;strong&gt;message&lt;/strong&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Message { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The email address of the gift recipient. The seller will send the digital gift card to this email address.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;b&gt;recipientEmail&lt;/b&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
+        /// <summary>The email address of the gift recipient. The seller will send the digital gift card to this email address.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;strong&gt;recipientEmail&lt;/strong&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RecipientEmail { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string RecipientEmail { get; set; }
 #endif
-        /// <summary>The name of the buyer, which will appear on the email that is sent to the gift recipient.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;b&gt;senderName&lt;/b&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
+        /// <summary>The name of the buyer, which will appear on the email that is sent to the gift recipient.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;strong&gt;senderName&lt;/strong&gt; will not be returned for any order that is more than 90 days old.&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SenderName { get; set; }

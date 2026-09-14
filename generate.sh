@@ -16,6 +16,9 @@
 
 set -euo pipefail
 
+echo "Pinning Kiota to 1.35.0..."
+dotnet tool update microsoft.openapi.kiota --local --version 1.35.0 --allow-downgrade
+
 echo "Restoring tools..."
 dotnet tool restore
 
@@ -24,7 +27,7 @@ rm -rf ./EBay.OrderManagement/Generated
 
 dotnet kiota generate \
   -l csharp \
-  -d specs/openapi/fulfillment.yaml \
+  -d specs/openapi/fulfillment.json \
   -c FulfillmentApiClient \
   -n EBay.OrderManagement.Generated.Fulfillment \
   -o EBay.OrderManagement/Generated/Fulfillment \
@@ -32,10 +35,18 @@ dotnet kiota generate \
 
 dotnet kiota generate \
   -l csharp \
-  -d specs/openapi/logistics.yaml \
+  -d specs/openapi/logistics.json \
   -c LogisticsApiClient \
   -n EBay.OrderManagement.Generated.Logistics \
   -o EBay.OrderManagement/Generated/Logistics \
+  --ebc --co
+
+dotnet kiota generate \
+  -l csharp \
+  -d specs/openapi/post-order-api.json \
+  -c PostOrderApiApiClient \
+  -n EBay.OrderManagement.Generated.PostOrderApi \
+  -o EBay.OrderManagement/Generated/PostOrderApi \
   --ebc --co
 
 echo "Adding license headers to generated files..."

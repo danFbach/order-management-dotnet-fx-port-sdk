@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This type contains the specifications for the collection of orders that match the search or filter criteria of a &lt;b&gt;getOrders&lt;/b&gt; call. The collection is grouped into a result set, and based on the query parameters that are set (including the &lt;strong&gt;limit&lt;/strong&gt; and &lt;strong&gt;offset&lt;/strong&gt; parameters), the result set may included multiple pages, but only one page of the result set can be viewed at a time.
+    /// This type contains the specifications for the collection of orders that match the search or filter criteria of a &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorders&quot; target=&quot;_blank&quot;&gt;getOrders&lt;/a&gt; call. The collection is grouped into a result set, and based on the query parameters that are set (including the &lt;strong&gt;limit&lt;/strong&gt; and &lt;strong&gt;offset&lt;/strong&gt; parameters), the result set may included multiple pages, but only one page of the result set can be viewed at a time.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrderSearchPagedCollection : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The URI of the &lt;b&gt;getOrders&lt;/b&gt; call request that produced the current page of the result set.</summary>
+        /// <summary>The URI of the &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorders&quot; target=&quot;_blank&quot;&gt;getOrders&lt;/a&gt; call request that produced the current page of the result set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Href { get; set; }
@@ -37,9 +37,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Href { get; set; }
 #endif
-        /// <summary>The maximum number of orders returned per page of the result set. The &lt;strong&gt;limit&lt;/strong&gt; value can be passed in as a query parameter, or if omitted, its value defaults to &lt;code&gt;50&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If this is the last or only page of the result set, the page may contain fewer orders than the &lt;strong&gt;limit&lt;/strong&gt; value.  To determine the number of pages in a result set, divide the &lt;b&gt;total&lt;/b&gt; value (total number of orders matching input criteria) by this &lt;strong&gt;limit&lt;/strong&gt; value, and then round up to the next integer. For example, if the &lt;b&gt;total&lt;/b&gt; value was &lt;code&gt;120&lt;/code&gt; (120 total orders) and the &lt;strong&gt;limit&lt;/strong&gt; value was &lt;code&gt;50&lt;/code&gt; (show 50 orders per page), the total number of pages in the result set is three, so the seller would have to make three separate &lt;strong&gt;getOrders&lt;/strong&gt; calls to view all orders matching the input criteria. &lt;/span&gt;&lt;b&gt;Default:&lt;/b&gt; &lt;code&gt;50&lt;/code&gt;</summary>
+        /// <summary>The maximum number of orders returned per page of the result set. The &lt;strong&gt;limit&lt;/strong&gt; value can be passed in as a query parameter, or if omitted, its value defaults to &lt;code&gt;50&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If this is the last or only page of the result set, the page may contain fewer orders than the &lt;strong&gt;limit&lt;/strong&gt; value.  To determine the number of pages in a result set, divide the &lt;strong&gt;total&lt;/strong&gt; value (total number of orders matching input criteria) by this &lt;strong&gt;limit&lt;/strong&gt; value, and then round up to the next integer. For example, if the &lt;strong&gt;total&lt;/strong&gt; value was &lt;code&gt;120&lt;/code&gt; (120 total orders) and the &lt;strong&gt;limit&lt;/strong&gt; value was &lt;code&gt;50&lt;/code&gt; (show 50 orders per page), the total number of pages in the result set is three, so the seller would have to make three separate &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorders&quot; target=&quot;_blank&quot;&gt;getOrders&lt;/a&gt; calls to view all orders matching the input criteria. &lt;/span&gt;&lt;strong&gt;Default:&lt;/strong&gt; &lt;code&gt;50&lt;/code&gt;</summary>
         public int? Limit { get; set; }
-        /// <summary>The &lt;b&gt;getOrders&lt;/b&gt; call URI to use if you wish to view the  next page of the result set. For example, the following URI returns records 41 thru 50 from the collection of orders: &lt;br&gt;&lt;br&gt;&lt;code&gt;&lt;i&gt;path&lt;/i&gt;/order?limit=10&amp;offset=40 &lt;/code&gt;&lt;br&gt;&lt;br&gt;This field is only returned if there is a next page of results to view based on the current input criteria.&lt;br&gt;</summary>
+        /// <summary>The &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorders&quot; target=&quot;_blank&quot;&gt;getOrders&lt;/a&gt; call URI to use if you wish to view the  next page of the result set. For example, the following URI returns records 41 through 50 from the collection of orders: &lt;br&gt;&lt;br&gt;&lt;code&gt;&lt;i&gt;path&lt;/i&gt;/order?limit=10&amp;offset=40 &lt;/code&gt;&lt;br&gt;&lt;br&gt;This field is only returned if there is a next page of results to view based on the current input criteria.&lt;br&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Next { get; set; }
@@ -47,7 +47,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Next { get; set; }
 #endif
-        /// <summary>The number of results skipped in the result set before listing the first returned result. This value can be set in the request with the &lt;b&gt;offset&lt;/b&gt; query parameter. &lt;p class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;The items in a paginated result set use a zero-based list where the first item in the list has an offset of &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;</summary>
+        /// <summary>The number of results skipped in the result set before listing the first returned result. This value can be set in the request with the &lt;strong&gt;offset&lt;/strong&gt; query parameter. &lt;p class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;The items in a paginated result set use a zero-based list where the first item in the list has an offset of &lt;code&gt;0&lt;/code&gt;.&lt;/p&gt;</summary>
         public int? Offset { get; set; }
         /// <summary>This array contains one or more orders that are part of the current result set, that is controlled by the input criteria. The details of each order include information about the buyer, order history, shipping fulfillments, line items, costs, payments, and order fulfillment status. &lt;br&gt;&lt;br&gt;By default, orders are returned according to creation date (oldest to newest), but the order will vary according to any filter that is set in request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,7 +57,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.Order> Orders { get; set; }
 #endif
-        /// <summary>The &lt;b&gt;getOrders&lt;/b&gt; call URI for the previous result set. For example, the following URI returns orders 21 thru 30 from the collection of orders: &lt;br&gt;&lt;br&gt;&lt;code&gt;&lt;i&gt;path&lt;/i&gt;/order?limit=10&amp;offset=20&lt;/code&gt;&lt;br&gt;&lt;br&gt;This field is only returned if there is a previous page of results to view based on the current input criteria.</summary>
+        /// <summary>The &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorders&quot; target=&quot;_blank&quot;&gt;getOrders&lt;/a&gt; call URI for the previous result set. For example, the following URI returns orders 21 through 30 from the collection of orders: &lt;br&gt;&lt;br&gt;&lt;code&gt;&lt;i&gt;path&lt;/i&gt;/order?limit=10&amp;offset=20&lt;/code&gt;&lt;br&gt;&lt;br&gt;This field is only returned if there is a previous page of results to view based on the current input criteria.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Prev { get; set; }
@@ -70,10 +70,10 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         /// <summary>This array is returned if one or more errors or warnings occur with the call request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.Error>? Warnings { get; set; }
+        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorDetailV3>? Warnings { get; set; }
 #nullable restore
 #else
-        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.Error> Warnings { get; set; }
+        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorDetailV3> Warnings { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderSearchPagedCollection"/> and sets the default values.
@@ -107,7 +107,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
                 { "orders", n => { Orders = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.Order>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Order.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "prev", n => { Prev = n.GetStringValue(); } },
                 { "total", n => { Total = n.GetIntValue(); } },
-                { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.Error>(global::EBay.OrderManagement.Generated.Fulfillment.Models.Error.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorDetailV3>(global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorDetailV3.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -124,7 +124,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.Order>("orders", Orders);
             writer.WriteStringValue("prev", Prev);
             writer.WriteIntValue("total", Total);
-            writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.Error>("warnings", Warnings);
+            writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorDetailV3>("warnings", Warnings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

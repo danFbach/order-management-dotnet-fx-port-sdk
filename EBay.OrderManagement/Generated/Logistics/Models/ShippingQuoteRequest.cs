@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Logistics.Models
 {
     /// <summary>
-    /// This complex type defines the request body for &lt;b&gt;createShippingQuote&lt;/b&gt;. Sellers &lt;i&gt;request a quote&lt;/i&gt; for a shipment by defining the &quot;To&quot; and &quot;From&quot; addresses for the package, plus the package&apos;s size.  &lt;br&gt;&lt;br&gt;Carriers respond by offering up a &quot;rate&quot; for the service of theirs that best fits seller&apos;s needs.
+    /// This complex type defines the request body for &lt;strong&gt;createShippingQuote&lt;/strong&gt;. Sellers &lt;i&gt;request a quote&lt;/i&gt; for a shipment by defining the &quot;To&quot; and &quot;From&quot; addresses for the package, plus the package&apos;s size.  &lt;br&gt;&lt;br&gt;Carriers respond by offering up a &quot;rate&quot; for the service that best fits the seller&apos;s needs.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ShippingQuoteRequest : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>In this array, the seller specifies one or more orders that will be shipped in the shipping package. &lt;br&gt;&lt;br&gt;A shipping package can contain any number of line items from one or more orders, providing they all ship in the same package.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum list size:&lt;/b&gt; 10</summary>
+        /// <summary>In this array, the seller specifies one or more orders that will be shipped in the shipping package. &lt;br&gt;&lt;br&gt;A shipping package can contain any number of line items from one or more orders, providing they all ship in the same package.  &lt;br&gt;&lt;br&gt;&lt;strong&gt;Maximum list size:&lt;/strong&gt; 10</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::EBay.OrderManagement.Generated.Logistics.Models.Order>? Orders { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Logistics.Models.Order> Orders { get; set; }
 #endif
-        /// <summary>This complex type specifies the dimensions and weight of a package.</summary>
+        /// <summary>Declares the weight and dimensions of the package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.PackageSpecification? PackageSpecification { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public global::EBay.OrderManagement.Generated.Logistics.Models.PackageSpecification PackageSpecification { get; set; }
 #endif
-        /// <summary>This complex type contains contact information for an individual buyer or seller.</summary>
+        /// <summary>The address and contact details pertaining to the origin of the shipment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Contact? ShipFrom { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public global::EBay.OrderManagement.Generated.Logistics.Models.Contact ShipFrom { get; set; }
 #endif
-        /// <summary>This complex type contains contact information for an individual buyer or seller.</summary>
+        /// <summary>The address and contact details pertaining to the shipment&apos;s destination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Contact? ShipTo { get; set; }

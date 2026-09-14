@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>The monetary amount of the sales promotion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? DiscountAmount { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount DiscountAmount { get; set; }
 #endif
-        /// <summary>An eBay-generated unique identifier of the sales promotion.&lt;br&gt;&lt;br&gt; Multiple types of sales promotions are available to eBay Store owners, including order size/volume discounts, shipping discounts, special coupons, and price markdowns. Sales promotions can be managed through the Marketing tab of Seller Hub in My eBay, or by using the Trading API&apos;s &lt;b&gt;SetPromotionalSale&lt;/b&gt; call or the Marketing API&apos;s &lt;b&gt;createItemPromotion&lt;/b&gt; method.</summary>
+        /// <summary>An eBay-generated unique identifier of the sales promotion.&lt;br&gt;&lt;br&gt; Multiple types of sales promotions are available to eBay Store owners, including order size/volume discounts, shipping discounts, special coupons, and price markdowns. Sales promotions can be managed through the Marketing tab of Seller Hub in My eBay or by using the Marketing API&apos;s &lt;strong&gt;createItemPromotion&lt;/strong&gt; method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PromotionId { get; set; }

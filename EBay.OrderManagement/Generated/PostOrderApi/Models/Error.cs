@@ -16,20 +16,21 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace EBay.OrderManagement.Generated.Fulfillment.Models
+namespace EBay.OrderManagement.Generated.PostOrderApi.Models
 {
     /// <summary>
-    /// This type contains a error or warning related to a call request. 
+    /// This type defines the fields that can be returned in an error.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Error : IAdditionalDataHolder, IParsable
+    public partial class Error : ApiException, IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The context or source of this error or warning.</summary>
+        /// <summary>Identifies the type of erro.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Category { get; set; }
@@ -37,7 +38,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Category { get; set; }
 #endif
-        /// <summary>The name of the domain containing the service or application. For example, &lt;code&gt;sell&lt;/code&gt; is a domain.</summary>
+        /// <summary>Name for the primary system where the error occurred. This is relevant for application errors.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Domain { get; set; }
@@ -45,9 +46,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Domain { get; set; }
 #endif
-        /// <summary>A positive integer that uniquely identifies the specific error condition that occurred. Your application can use these values as error code identifiers in your customized error-handling algorithms.</summary>
+        /// <summary>A unique number to identify the error.</summary>
         public int? ErrorId { get; set; }
-        /// <summary>A list of one or more specific request elements (if any) associated with the error or warning. The format of these strings depends on the request payload format. For JSON, use JSONPath notation.</summary>
+        /// <summary>An array of request elements most closely associated to the error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? InputRefIds { get; set; }
@@ -55,7 +56,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<string> InputRefIds { get; set; }
 #endif
-        /// <summary>An expanded version of the &lt;b&gt;message&lt;/b&gt; field. &lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum length:&lt;/b&gt; 200 characters</summary>
+        /// <summary>A more detailed explanation of the error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LongMessage { get; set; }
@@ -63,15 +64,17 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string LongMessage { get; set; }
 #endif
-        /// <summary>A message about the error or warning which is device agnostic and readable by end users and application developers. It explains what the error or warning is, and how to fix it (in a general sense). If applicable, the value is localized to the end user&apos;s requested locale. &lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum length:&lt;/b&gt; 50 characters</summary>
+        /// <summary>The primary error message.</summary>
+        public override string Message { get => MessageEscaped ?? string.Empty; }
+        /// <summary>Information on how to correct the problem, in the end user&apos;s terms and language where applicable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public string? MessageEscaped { get; set; }
 #nullable restore
 #else
-        public string Message { get; set; }
+        public string MessageEscaped { get; set; }
 #endif
-        /// <summary>A list of one or more specific response elements (if any) associated with the error or warning. The format of these strings depends on the request payload format. For JSON, use JSONPath notation.</summary>
+        /// <summary>An array of request elements most closely associated to the error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? OutputRefIds { get; set; }
@@ -79,15 +82,15 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<string> OutputRefIds { get; set; }
 #endif
-        /// <summary>Contains a list of name-value pairs that provide additional information concerning this error or warning. Each item in the list is an input parameter that contributed to the error or warning condition.</summary>
+        /// <summary>An array of name/value pairs that describe details the error condition. These are useful when multiple errors are returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorParameter>? Parameters { get; set; }
+        public List<global::EBay.OrderManagement.Generated.PostOrderApi.Models.ErrorParameter>? Parameters { get; set; }
 #nullable restore
 #else
-        public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorParameter> Parameters { get; set; }
+        public List<global::EBay.OrderManagement.Generated.PostOrderApi.Models.ErrorParameter> Parameters { get; set; }
 #endif
-        /// <summary>The name of the domain&apos;s subsystem or subdivision. For example, &lt;code&gt;fulfillment&lt;/code&gt; is a subdomain in the &lt;code&gt;sell&lt;/code&gt; domain.</summary>
+        /// <summary>Further helps indicate which subsystem the error is coming from. System subcategories include: Initialization, Serialization, Security, Monitoring, Rate Limiting, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Subdomain { get; set; }
@@ -96,7 +99,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         public string Subdomain { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.Error"/> and sets the default values.
+        /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.PostOrderApi.Models.Error"/> and sets the default values.
         /// </summary>
         public Error()
         {
@@ -105,12 +108,12 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Models.Error"/></returns>
+        /// <returns>A <see cref="global::EBay.OrderManagement.Generated.PostOrderApi.Models.Error"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::EBay.OrderManagement.Generated.Fulfillment.Models.Error CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::EBay.OrderManagement.Generated.PostOrderApi.Models.Error CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::EBay.OrderManagement.Generated.Fulfillment.Models.Error();
+            return new global::EBay.OrderManagement.Generated.PostOrderApi.Models.Error();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -125,9 +128,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
                 { "errorId", n => { ErrorId = n.GetIntValue(); } },
                 { "inputRefIds", n => { InputRefIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "longMessage", n => { LongMessage = n.GetStringValue(); } },
-                { "message", n => { Message = n.GetStringValue(); } },
+                { "message", n => { MessageEscaped = n.GetStringValue(); } },
                 { "outputRefIds", n => { OutputRefIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorParameter>(global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorParameter.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.PostOrderApi.Models.ErrorParameter>(global::EBay.OrderManagement.Generated.PostOrderApi.Models.ErrorParameter.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "subdomain", n => { Subdomain = n.GetStringValue(); } },
             };
         }
@@ -143,9 +146,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             writer.WriteIntValue("errorId", ErrorId);
             writer.WriteCollectionOfPrimitiveValues<string>("inputRefIds", InputRefIds);
             writer.WriteStringValue("longMessage", LongMessage);
-            writer.WriteStringValue("message", Message);
+            writer.WriteStringValue("message", MessageEscaped);
             writer.WriteCollectionOfPrimitiveValues<string>("outputRefIds", OutputRefIds);
-            writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.ErrorParameter>("parameters", Parameters);
+            writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.PostOrderApi.Models.ErrorParameter>("parameters", Parameters);
             writer.WriteStringValue("subdomain", Subdomain);
             writer.WriteAdditionalData(AdditionalData);
         }

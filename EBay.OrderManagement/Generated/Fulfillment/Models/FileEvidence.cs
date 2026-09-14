@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This field is used to identify the evidence file to be uploaded to the evidence set.&lt;br&gt;&lt;br&gt; This file is created with the &lt;a href=&quot;/api-docs/sell/fulfillment/resources/payment_dispute/methods/uploadEvidenceFile&quot; target=&quot;_blank &quot;&gt;uploadEvidenceFile&lt;/a&gt; method and can be retrieved using the &lt;a href=&quot;/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputes&quot; target=&quot;_blank &quot;&gt;getPaymentDisputes&lt;/a&gt; method.</summary>
+        /// <summary>This field is used to identify the evidence file to be uploaded to the evidence set.&lt;br&gt;&lt;br&gt; This file is created with the &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-uploadevidencefile&quot; target=&quot;_blank &quot;&gt;uploadEvidenceFile&lt;/a&gt; method and can be retrieved using the &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-getpaymentdispute&quot; target=&quot;_blank &quot;&gt;getPaymentDispute&lt;/a&gt; method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FileId { get; set; }

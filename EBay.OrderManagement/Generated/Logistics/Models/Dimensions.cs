@@ -45,14 +45,8 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string Length { get; set; }
 #endif
-        /// <summary>The unit of measure used to express the height, length, and width of the package. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/logistics/types/api:LengthUnitOfMeasureEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Unit { get; set; }
-#nullable restore
-#else
-        public string Unit { get; set; }
-#endif
+        /// <summary>The unit of measure used to express the height, length, and width of the package.</summary>
+        public global::EBay.OrderManagement.Generated.Logistics.Models.LengthUnitOfMeasureEnum? Unit { get; set; }
         /// <summary>The numeric value of the width of the package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,7 +82,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
             {
                 { "height", n => { Height = n.GetStringValue(); } },
                 { "length", n => { Length = n.GetStringValue(); } },
-                { "unit", n => { Unit = n.GetStringValue(); } },
+                { "unit", n => { Unit = n.GetEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.LengthUnitOfMeasureEnum>(); } },
                 { "width", n => { Width = n.GetStringValue(); } },
             };
         }
@@ -101,7 +95,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("height", Height);
             writer.WriteStringValue("length", Length);
-            writer.WriteStringValue("unit", Unit);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.LengthUnitOfMeasureEnum>("unit", Unit);
             writer.WriteStringValue("width", Width);
             writer.WriteAdditionalData(AdditionalData);
         }

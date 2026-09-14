@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Unique identifier of the evidential file set. Potentially, each evidential file set can have more than one file, that is why there is this file set identifier, and then an identifier for each file within this file set.</summary>
+        /// <summary>Unique identifier for the evidential file set. Each file set may contain multiple files, which is why there is a file set identifier and a separate identifier for each individual file within the set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EvidenceId { get; set; }
@@ -37,14 +37,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string EvidenceId { get; set; }
 #endif
-        /// <summary>This enumeration value shows the type of evidential file provided. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/api:EvidenceTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? EvidenceType { get; set; }
-#nullable restore
-#else
-        public string EvidenceType { get; set; }
-#endif
+        /// <summary>This enumeration value shows the type of evidential file provided.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.EvidenceTypeEnum? EvidenceType { get; set; }
         /// <summary>This array shows the name, ID, file type, and upload date for each provided file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +55,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderLineItems> LineItems { get; set; }
 #endif
-        /// <summary>The timestamp in this field shows the date/time when the seller provided a requested evidential document to eBay. &lt;br&gt;&lt;br&gt;The timestamps returned here use the ISO-8601 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO-8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
+        /// <summary>The timestamp in this field shows the date/time when the seller provided a requested evidential document to eBay. &lt;br&gt;&lt;br&gt;The timestamps returned here use the &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO 8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProvidedDate { get; set; }
@@ -69,7 +63,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string ProvidedDate { get; set; }
 #endif
-        /// <summary>The timestamp in this field shows the date/time when eBay requested the evidential document from the seller in response to a payment dispute. &lt;br&gt;&lt;br&gt;The timestamps returned here use the ISO-8601 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO-8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
+        /// <summary>The timestamp in this field shows the date/time when eBay requested the evidential document from the seller in response to a payment dispute. &lt;br&gt;&lt;br&gt;The timestamps returned here use the &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO 8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RequestDate { get; set; }
@@ -77,7 +71,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string RequestDate { get; set; }
 #endif
-        /// <summary>The timestamp in this field shows the date/time when the seller was expected to provide a requested evidential document to eBay.  &lt;br&gt;&lt;br&gt;The timestamps returned here use the ISO-8601 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO-8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
+        /// <summary>The timestamp in this field shows the date/time when the seller was expected to provide a requested evidential document to eBay.  &lt;br&gt;&lt;br&gt;The timestamps returned here use the &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO&amp;nbsp;8601&lt;/a&gt; 24-hour date and time format, and the time zone used is Universal Coordinated Time (UTC), also known as Greenwich Mean Time (GMT), or Zulu. The ISO 8601 format looks like this: &lt;em&gt;yyyy-MM-ddThh:mm.ss.sssZ&lt;/em&gt;. An example would be &lt;code&gt;2019-08-04T19:09:02.768Z&lt;/code&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RespondByDate { get; set; }
@@ -119,7 +113,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "evidenceId", n => { EvidenceId = n.GetStringValue(); } },
-                { "evidenceType", n => { EvidenceType = n.GetStringValue(); } },
+                { "evidenceType", n => { EvidenceType = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.EvidenceTypeEnum>(); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.FileInfo>(global::EBay.OrderManagement.Generated.Fulfillment.Models.FileInfo.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "lineItems", n => { LineItems = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderLineItems>(global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderLineItems.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "providedDate", n => { ProvidedDate = n.GetStringValue(); } },
@@ -136,7 +130,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("evidenceId", EvidenceId);
-            writer.WriteStringValue("evidenceType", EvidenceType);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.EvidenceTypeEnum>("evidenceType", EvidenceType);
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.FileInfo>("files", Files);
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.OrderLineItems>("lineItems", LineItems);
             writer.WriteStringValue("providedDate", ProvidedDate);

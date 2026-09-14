@@ -65,7 +65,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment
             ApiClientBuilder.RegisterDefaultDeserializer<FormParseNodeFactory>();
             if (string.IsNullOrEmpty(RequestAdapter.BaseUrl))
             {
-                RequestAdapter.BaseUrl = "https://api.ebay.com{basePath}";
+                RequestAdapter.BaseUrl = "https://apiz.ebay.com{basePath}";
             }
             PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);
         }

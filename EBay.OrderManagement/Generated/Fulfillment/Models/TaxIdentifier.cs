@@ -22,29 +22,17 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// This type is used by the &lt;strong&gt;taxIdentifier&lt;/strong&gt; container that is returned in &lt;strong&gt;getOrder&lt;/strong&gt;. The &lt;strong&gt;taxIdentifier&lt;/strong&gt; container consists of taxpayer identification information for buyers from Italy, Spain, or Guatemala. It is currently only returned for orders occurring on the eBay Italy or eBay Spain marketplaces.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Currently, the &lt;strong&gt;taxIdentifier&lt;/strong&gt; container is only returned in &lt;strong&gt;getOrder&lt;/strong&gt; and not in &lt;strong&gt;getOrders&lt;/strong&gt;. So, if a seller wanted to view a buyer&apos;s tax information for a particular order returned in &lt;strong&gt;getOrders&lt;/strong&gt;, that seller would need to use the &lt;strong&gt;orderId&lt;/strong&gt; value for that particular order, and then run a &lt;strong&gt;getOrder&lt;/strong&gt; call against that order ID. &lt;/span&gt;
+    /// This type is used by the &lt;strong&gt;taxIdentifier&lt;/strong&gt; container that is returned in &lt;strong&gt;getOrder&lt;/strong&gt;. The &lt;strong&gt;taxIdentifier&lt;/strong&gt; container consists of taxpayer identification information for buyers from Italy, Spain, or Guatemala. It is currently only returned for orders occurring on the eBay Italy or eBay Spain marketplaces.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Currently, the &lt;strong&gt;taxIdentifier&lt;/strong&gt; container is only returned in &lt;strong&gt;getOrder&lt;/strong&gt; and not in &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorders&quot; target=&quot;_blank&quot;&gt;getOrders&lt;/a&gt;. So, if a seller wanted to view a buyer&apos;s tax information for a particular order returned in &lt;strong&gt;getOrders&lt;/strong&gt;, that seller would need to use the &lt;strong&gt;orderId&lt;/strong&gt; value for that particular order, and then run a &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-order-getorder&quot; target=&quot;_blank&quot;&gt;getOrder&lt;/a&gt; call against that order ID. &lt;/span&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TaxIdentifier : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This two-letter code indicates the country that issued the buyer&apos;s tax ID. The country that the two-letter code represents can be found in the &lt;strong&gt;CountryCodeEnum&lt;/strong&gt; type, or in the  &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html &quot;&gt;ISO 3166&lt;/a&gt; standard. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? IssuingCountry { get; set; }
-#nullable restore
-#else
-        public string IssuingCountry { get; set; }
-#endif
-        /// <summary>This enumeration value indicates the type of tax identification being used for the buyer. The different tax types are defined in the &lt;strong&gt;TaxIdentifierTypeEnum&lt;/strong&gt; type. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/sel:TaxIdentifierTypeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TaxIdentifierType { get; set; }
-#nullable restore
-#else
-        public string TaxIdentifierType { get; set; }
-#endif
+        /// <summary>This two-letter code indicates the country that issued the buyer&apos;s tax ID. The country that the two-letter code represents can be found in the &lt;strong&gt;CountryCodeEnum&lt;/strong&gt; type or in the  &lt;a href=&quot;https://www.iso.org/iso-3166-country-codes.html&quot; target=&quot;_blank&quot;&gt;ISO 3166&lt;/a&gt; standard.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum? IssuingCountry { get; set; }
+        /// <summary>This enumeration value indicates the type of tax identification being used for the buyer. The different tax types are defined in the &lt;strong&gt;TaxIdentifierTypeEnum&lt;/strong&gt; type.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.TaxIdentifierTypeEnum? TaxIdentifierType { get; set; }
         /// <summary>This value is the unique tax ID associated with the buyer. The type of tax identification is shown in the &lt;strong&gt;taxIdentifierType&lt;/strong&gt; field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,8 +66,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "issuingCountry", n => { IssuingCountry = n.GetStringValue(); } },
-                { "taxIdentifierType", n => { TaxIdentifierType = n.GetStringValue(); } },
+                { "issuingCountry", n => { IssuingCountry = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum>(); } },
+                { "taxIdentifierType", n => { TaxIdentifierType = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.TaxIdentifierTypeEnum>(); } },
                 { "taxpayerId", n => { TaxpayerId = n.GetStringValue(); } },
             };
         }
@@ -90,8 +78,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("issuingCountry", IssuingCountry);
-            writer.WriteStringValue("taxIdentifierType", TaxIdentifierType);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum>("issuingCountry", IssuingCountry);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.TaxIdentifierTypeEnum>("taxIdentifierType", TaxIdentifierType);
             writer.WriteStringValue("taxpayerId", TaxpayerId);
             writer.WriteAdditionalData(AdditionalData);
         }

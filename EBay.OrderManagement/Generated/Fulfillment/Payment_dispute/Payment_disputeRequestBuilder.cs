@@ -30,7 +30,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Payment_dispute
     public partial class Payment_disputeRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the EBay.OrderManagement.Generated.Fulfillment.payment_dispute.item collection</summary>
-        /// <param name="position">This parameter is used to specify the unique identifier of the payment dispute being retrieved.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/api-docs/sell/fulfillment/resources/payment_dispute/methods/getPaymentDisputeSummaries&quot; target=&quot;_blank &quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; method to retrieve payment dispute IDs.</param>
+        /// <param name="position">This parameter is used to specify the unique identifier of the payment dispute being retrieved.&lt;br&gt;&lt;br&gt; Use the &lt;a href=&quot;/develop/api/sell/fulfillment_api#sell-fulfillment_api-payment_dispute-getpaymentdisputesummaries&quot; target=&quot;_blank &quot;&gt;getPaymentDisputeSummaries&lt;/a&gt; method to retrieve payment dispute IDs.</param>
         /// <returns>A <see cref="global::EBay.OrderManagement.Generated.Fulfillment.Payment_dispute.Item.WithPayment_dispute_ItemRequestBuilder"/></returns>
         public global::EBay.OrderManagement.Generated.Fulfillment.Payment_dispute.Item.WithPayment_dispute_ItemRequestBuilder this[string position]
         {

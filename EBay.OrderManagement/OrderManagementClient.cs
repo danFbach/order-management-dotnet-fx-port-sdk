@@ -19,6 +19,7 @@ using EBay.OrderManagement.Extensions;
 using EBay.OrderManagement.Generated.Fulfillment;
 using EBay.OrderManagement.Generated.GraphQL;
 using EBay.OrderManagement.Generated.Logistics;
+using EBay.OrderManagement.Generated.PostOrderApi;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Kiota.Abstractions.Authentication;
 using Microsoft.Kiota.Http.HttpClientLibrary;
@@ -32,12 +33,14 @@ public class OrderManagementClient : IDisposable
 {
     internal const string FulfillmentClientName = "OrderManagementClient.Fulfillment";
     internal const string LogisticsClientName = "OrderManagementClient.Logistics";
+    internal const string PostOrderApiClientName = "OrderManagementClient.PostOrderApi";
     internal const string GraphQLClientName = "OrderManagementGraphQLClient";
 
     private readonly HttpClient[] _ownedClients;
 
     public FulfillmentClient Fulfillment { get; private set; } = null!;
     public LogisticsClient Logistics { get; private set; } = null!;
+    public PostOrderApiClient PostOrderApi { get; private set; } = null!;
 
     public OrderGraphQLClient GraphQL { get; }
 
@@ -105,7 +108,8 @@ public class OrderManagementClient : IDisposable
     internal static IReadOnlyList<(string ApiId, string HttpClientName)> RestEndpointNames { get; } =
     [
         ("fulfillment", FulfillmentClientName),
-        ("logistics", LogisticsClientName)
+        ("logistics", LogisticsClientName),
+        ("post-order-api", PostOrderApiClientName)
     ];
 
     internal static IReadOnlyList<RestEndpoint> RestEndpoints(OrderManagementConfiguration config) =>
@@ -122,6 +126,8 @@ public class OrderManagementClient : IDisposable
         Fulfillment = new FulfillmentClient(new FulfillmentApiClient(fulfillmentAdapter), config, tokenContext, fulfillmentAdapter);
         var logisticsAdapter = new HttpClientRequestAdapter(auth, httpClient: httpClientFor(endpoints.First(endpoint => endpoint.ApiId == "logistics")));
         Logistics = new LogisticsClient(new LogisticsApiClient(logisticsAdapter), config, tokenContext, logisticsAdapter);
+        var postOrderApiAdapter = new HttpClientRequestAdapter(auth, httpClient: httpClientFor(endpoints.First(endpoint => endpoint.ApiId == "post-order-api")));
+        PostOrderApi = new PostOrderApiClient(new PostOrderApiApiClient(postOrderApiAdapter), config, tokenContext, postOrderApiAdapter);
     }
 
     public void Dispose()

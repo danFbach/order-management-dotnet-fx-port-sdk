@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This container shows the total amount of any adjustments that were applied to the cost of the item(s) in the order. This amount does not include shipping, discounts, fixed fees, or taxes.&lt;br&gt;&lt;br&gt;This container is only returned if price adjustments were made to the order after the initial transaction/commitment to buy occurred.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? Adjustment { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount Adjustment { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This container shows the total cost of delivering the order to the buyer before any shipping/delivery discount is applied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? DeliveryCost { get; set; }
@@ -45,7 +45,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount DeliveryCost { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This container shows the total amount of delivery discounts (including shipping discounts) that apply to the order. This should be a negative real number.&lt;br&gt;&lt;br&gt;This container is only returned if delivery discounts are being applied to the order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? DeliveryDiscount { get; set; }
@@ -53,7 +53,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount DeliveryDiscount { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This container shows the total amount of any special fees applied to the order, such as a tire recycling fee or an electronic waste fee. &lt;br&gt;&lt;br&gt;This container is returned if special fees are being applied to the order and if the &lt;strong&gt;fieldGroups&lt;/strong&gt; is set to &lt;code&gt;TAX_BREAKDOWN&lt;/code&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? Fee { get; set; }
@@ -61,7 +61,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount Fee { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This container shows the total amount of all item price discounts (including promotions) that apply to the order and reduce its cost to the buyer. This should be a negative real number. &lt;br&gt;&lt;br&gt;This container is only returned if special discounts are being applied to the order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? PriceDiscount { get; set; }
@@ -69,7 +69,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount PriceDiscount { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This container shows the cumulative costs of of all units of all line items in the order before any discount is applied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? PriceSubtotal { get; set; }
@@ -77,7 +77,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount PriceSubtotal { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>This container shows the total amount of tax for the order. To calculate the tax percentage rate, divide this value by the value of the &lt;strong&gt;total&lt;/strong&gt; field. &lt;br&gt;&lt;br&gt;This container is only returned if any type of tax (sales tax, tax on shipping, tax on handling, import tax, etc.) is applied to the order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? Tax { get; set; }
@@ -85,7 +85,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount Tax { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of an amount. It can provide the amount in both the currency used on the eBay site where an item is being offered and the conversion of that value into another currency, if applicable.</summary>
+        /// <summary>The total cost of the order after adding all line item costs, delivery costs, sales tax, and special fees and then subtracting all special discounts and price adjustments.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; For orders that are subject to eBay &apos;Collect and Remit&apos; tax, the &apos;Collect and Remit&apos; tax amount for the order will be included in this &lt;strong&gt;total&lt;/strong&gt; value only when the &lt;strong&gt;fieldGroups&lt;/strong&gt; query parameter is set to &lt;code&gt;TAX_BREAKDOWN&lt;/code&gt;. If the &lt;strong&gt;fieldGroups&lt;/strong&gt; query parameter is not set to &lt;code&gt;TAX_BREAKDOWN&lt;/code&gt;, &apos;Collect and Remit&apos; will not be added into this &lt;strong&gt;total&lt;/strong&gt; value.&lt;br&gt;&lt;br&gt;To determine if &apos;Collect and Remit&apos; taxes were added into this &lt;strong&gt;total&lt;/strong&gt; value, the user can check for the corresponding &lt;strong&gt;lineItems.ebayCollectAndRemitTaxes&lt;/strong&gt; and the &lt;strong&gt;lineItems.taxes&lt;/strong&gt; containers in the response. If both of these containers appear for one or more line items in the response with the following &lt;strong&gt;taxType&lt;/strong&gt; values, the &apos;Collect and Remit&apos; tax amount that the buyer paid is included in this amount:&lt;ul&gt;&lt;li&gt;&lt;code&gt;STATE_SALES_TAX&lt;/code&gt;: US state-mandated sales tax&lt;/li&gt;&lt;li&gt;&lt;code&gt;PROVINCE_SALES_TAX&lt;/code&gt;: Provincial Sales Tax in Canada&lt;/li&gt;&lt;li&gt;&lt;code&gt;GST&lt;/code&gt;: &apos;Good and Services&apos; tax in Canada, Australia, and New Zealand&lt;/li&gt;&lt;li&gt;&lt;code&gt;VAT&lt;/code&gt;: VAT collected for UK and EU countries&lt;/li&gt;&lt;/ul&gt;&lt;/span&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Amount? Total { get; set; }

@@ -22,14 +22,14 @@ using System;
 namespace EBay.OrderManagement.Generated.Fulfillment.Models
 {
     /// <summary>
-    /// The base type used by the request payload of the &lt;b&gt;issueRefund&lt;/b&gt; method.
+    /// The base type used by the request payload of the issueRefund method.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IssueRefundRequest : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This free-text field allows the seller to clarify why the refund is being issued to the buyer.&lt;br&gt;&lt;br&gt;&lt;b&gt;Max Length&lt;/b&gt;: 100</summary>
+        /// <summary>This free-text field allows the seller to clarify why the refund is being issued to the buyer. Max Length: 1000</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Comment { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string Comment { get; set; }
 #endif
-        /// <summary>This type defines the monetary value of the payment dispute, and the currency used.</summary>
+        /// <summary>This container is used to specify the amount of the refund for the entire order. If a seller wants to issue a refund for an individual line item within a multiple line item order, the seller would use the &lt;strong&gt;refundItems&lt;/strong&gt; array instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount? OrderLevelRefundAmount { get; set; }
@@ -45,15 +45,9 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount OrderLevelRefundAmount { get; set; }
 #endif
-        /// <summary>The enumeration value passed into this field indicates the reason for the refund. One of the defined enumeration values in the &lt;b&gt;ReasonForRefundEnum&lt;/b&gt; type must be used.&lt;br&gt;&lt;br&gt;This field is required, and it is highly recommended that sellers use the correct refund reason, especially in the case of a buyer-requested cancellation or &apos;buyer remorse&apos; return to indicate that there was nothing wrong with the item(s) or with the shipment of the order.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If issuing refunds for more than one order line item, keep in mind that the refund reason must be the same for each of the order line items. If the refund reason is different for one or more order line items in an order, the seller would need to make separate &lt;b&gt;issueRefund&lt;/b&gt; calls, one for each refund reason. &lt;/span&gt; For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/api:ReasonForRefundEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ReasonForRefund { get; set; }
-#nullable restore
-#else
-        public string ReasonForRefund { get; set; }
-#endif
-        /// <summary>The &lt;b&gt;refundItems&lt;/b&gt; array is only required if the seller is issuing a refund for one or more individual order line items in a multiple line item order. Otherwise, the seller just uses the &lt;b&gt;orderLevelRefundAmount&lt;/b&gt; container to specify the amount of the refund for the entire order.</summary>
+        /// <summary>The enumeration value passed in this field indicates the reason for the refund. One of the defined enumeration values in the &lt;strong&gt;ReasonForRefundEnum&lt;/strong&gt; type must be used.&lt;br&gt;&lt;br&gt;This field is required, and it is highly recommended that sellers use the correct refund reason, especially in the case of a buyer-requested cancellation or &apos;buyer remorse&apos; return to indicate that there was nothing wrong with the item(s) or with the shipment of the order.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;tablenote&quot;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If issuing refunds for more than one order line item, keep in mind that the refund reason must be the same for each of the order line items. If the refund reason is different for one or more order line items in an order, the seller would need to make separate &lt;strong&gt;issueRefund&lt;/strong&gt; calls, one for each refund reason. &lt;/span&gt;</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.ReasonForRefundEnum? ReasonForRefund { get; set; }
+        /// <summary>The refundItems array is only required if the seller is issuing a refund for one or more individual order line items in a multiple line item order. Otherwise, the seller just uses the orderLevelRefundAmount container to specify the amount of the refund for the entire order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::EBay.OrderManagement.Generated.Fulfillment.Models.RefundItem>? RefundItems { get; set; }
@@ -88,7 +82,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             {
                 { "comment", n => { Comment = n.GetStringValue(); } },
                 { "orderLevelRefundAmount", n => { OrderLevelRefundAmount = n.GetObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>(global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount.CreateFromDiscriminatorValue); } },
-                { "reasonForRefund", n => { ReasonForRefund = n.GetStringValue(); } },
+                { "reasonForRefund", n => { ReasonForRefund = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.ReasonForRefundEnum>(); } },
                 { "refundItems", n => { RefundItems = n.GetCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.RefundItem>(global::EBay.OrderManagement.Generated.Fulfillment.Models.RefundItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -101,7 +95,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("comment", Comment);
             writer.WriteObjectValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.SimpleAmount>("orderLevelRefundAmount", OrderLevelRefundAmount);
-            writer.WriteStringValue("reasonForRefund", ReasonForRefund);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.ReasonForRefundEnum>("reasonForRefund", ReasonForRefund);
             writer.WriteCollectionOfObjectValues<global::EBay.OrderManagement.Generated.Fulfillment.Models.RefundItem>("refundItems", RefundItems);
             writer.WriteAdditionalData(AdditionalData);
         }

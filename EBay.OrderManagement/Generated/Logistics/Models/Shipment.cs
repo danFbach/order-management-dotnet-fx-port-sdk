@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>This type defines a shipment cancellation by the date and time the cancellation request was made and the current status of the request.</summary>
+        /// <summary>Cancellation status for the package, if one exists.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.ShipmentCancellation? Cancellation { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public global::EBay.OrderManagement.Generated.Logistics.Models.ShipmentCancellation Cancellation { get; set; }
 #endif
-        /// <summary>The date and time the shipment was created, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Format:&lt;/b&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;2018-08-20T07:09:00.000Z&lt;/code&gt;</summary>
+        /// <summary>The date and time the shipment was created, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org&quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; string, which is based on the 24-hour Coordinated Universal Time (UTC) clock.  &lt;br&gt;&lt;br&gt;&lt;strong&gt;Format:&lt;/strong&gt; &lt;code&gt;[YYYY]-[MM]-[DD]T[hh]:[mm]:[ss].[sss]Z&lt;/code&gt; &lt;br&gt;&lt;strong&gt;Example:&lt;/strong&gt; &lt;code&gt;2018-08-20T07:09:00.000Z&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CreationDate { get; set; }
@@ -61,7 +61,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string LabelDownloadUrl { get; set; }
 #endif
-        /// <summary>The seller&apos;s desired label size. The support for multi-sized labels is shipping-carrier specific and if the size requested in the &lt;b&gt;creaateFromShippingQuote&lt;/b&gt; call matches a size the carrier supports, the value will be represented here in the shipment. &lt;br&gt;&lt;br&gt;Currently, the only valid value is: &lt;code&gt;4&quot;x6&quot;&lt;/code&gt;</summary>
+        /// <summary>The seller&apos;s desired label size. The support for multi-sized labels is shipping-carrier specific and if the size requested in the &lt;strong&gt;createFromShippingQuote&lt;/strong&gt; call matches a size the carrier supports, the value will be represented here in the shipment. &lt;br&gt;&lt;br&gt;Currently, the only valid value is: &lt;code&gt;4&quot;x6&quot;&lt;/code&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LabelSize { get; set; }
@@ -77,7 +77,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public List<global::EBay.OrderManagement.Generated.Logistics.Models.Order> Orders { get; set; }
 #endif
-        /// <summary>This complex type specifies the dimensions and weight of a package.</summary>
+        /// <summary>The weight and dimensions of the package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.PackageSpecification? PackageSpecification { get; set; }
@@ -85,7 +85,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public global::EBay.OrderManagement.Generated.Logistics.Models.PackageSpecification PackageSpecification { get; set; }
 #endif
-        /// <summary>The &quot;rate&quot; that has been selected and purchased for the shipment, as referenced by the &lt;b&gt;rateId&lt;/b&gt; value.</summary>
+        /// <summary>The shipping rate that the seller has chosen to purchase for this shipment. Each rate, identified by a &lt;strong&gt;rateId&lt;/strong&gt;, contains the offered base service, options, and shipping parameters that were selected for the package shipment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.PurchasedRate? Rate { get; set; }
@@ -93,7 +93,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public global::EBay.OrderManagement.Generated.Logistics.Models.PurchasedRate Rate { get; set; }
 #endif
-        /// <summary>This complex type contains contact information for an individual buyer or seller.</summary>
+        /// <summary>The address and contact details that should be used for item returns. Sellers have the option to define a return address that is different from their &lt;strong&gt;shipFrom&lt;/strong&gt; address. If not specified, the return address defaults to the &lt;strong&gt;shipFrom&lt;/strong&gt; address in the shipping quote.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Contact? ReturnTo { get; set; }
@@ -101,7 +101,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public global::EBay.OrderManagement.Generated.Logistics.Models.Contact ReturnTo { get; set; }
 #endif
-        /// <summary>This complex type contains contact information for an individual buyer or seller.</summary>
+        /// <summary>The address and contact details for the origin of the package shipment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Contact? ShipFrom { get; set; }
@@ -109,7 +109,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public global::EBay.OrderManagement.Generated.Logistics.Models.Contact ShipFrom { get; set; }
 #endif
-        /// <summary>The unique eBay-assigned ID for the shipment. The ID is generated when the shipment is created by a call to &lt;b&gt;createFromShippingQuote&lt;/b&gt;.</summary>
+        /// <summary>The unique eBay-assigned ID for the shipment. The ID is generated when the shipment is created by a call to &lt;strong&gt;createFromShippingQuote&lt;/strong&gt;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ShipmentId { get; set; }
@@ -125,7 +125,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string ShipmentTrackingNumber { get; set; }
 #endif
-        /// <summary>This complex type contains contact information for an individual buyer or seller.</summary>
+        /// <summary>The address and contact details for the destination of the shipment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Logistics.Models.Contact? ShipTo { get; set; }

@@ -53,14 +53,8 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string City { get; set; }
 #endif
-        /// <summary>The country&apos;s two-letter, ISO 3166-1 country code. See the enumeration type for a country&apos;s value. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/fulfillment/types/ba:CountryCodeEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Country { get; set; }
-#nullable restore
-#else
-        public string Country { get; set; }
-#endif
+        /// <summary>The country&apos;s two-letter, ISO 3166-1 country code. See the enumeration type for a country&apos;s value.</summary>
+        public global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum? Country { get; set; }
         /// <summary>The county of the return address. Counties are not applicable to all countries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +79,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
 #else
         public string PostalCode { get; set; }
 #endif
-        /// <summary>This type is used by the &lt;strong&gt;returnAddress&lt;/strong field that is used by the payment dispute methods. If a buyer is returning the item (under payment dispute) to the seller, a primary phone number for the seller must be provided.</summary>
+        /// <summary>This container shows the seller&apos;s primary phone number associated with the return address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::EBay.OrderManagement.Generated.Fulfillment.Models.Phone? PrimaryPhone { get; set; }
@@ -129,7 +123,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
                 { "addressLine1", n => { AddressLine1 = n.GetStringValue(); } },
                 { "addressLine2", n => { AddressLine2 = n.GetStringValue(); } },
                 { "city", n => { City = n.GetStringValue(); } },
-                { "country", n => { Country = n.GetStringValue(); } },
+                { "country", n => { Country = n.GetEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum>(); } },
                 { "county", n => { County = n.GetStringValue(); } },
                 { "fullName", n => { FullName = n.GetStringValue(); } },
                 { "postalCode", n => { PostalCode = n.GetStringValue(); } },
@@ -147,7 +141,7 @@ namespace EBay.OrderManagement.Generated.Fulfillment.Models
             writer.WriteStringValue("addressLine1", AddressLine1);
             writer.WriteStringValue("addressLine2", AddressLine2);
             writer.WriteStringValue("city", City);
-            writer.WriteStringValue("country", Country);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Fulfillment.Models.CountryCodeEnum>("country", Country);
             writer.WriteStringValue("county", County);
             writer.WriteStringValue("fullName", FullName);
             writer.WriteStringValue("postalCode", PostalCode);

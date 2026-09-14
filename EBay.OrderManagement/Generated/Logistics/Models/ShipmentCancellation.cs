@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The time and date the request was made to cancel the shipment, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html &quot; title=&quot;https://www.iso.org &quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; UTC string.</summary>
+        /// <summary>The time and date the request was made to cancel the shipment, formatted as an &lt;a href=&quot;https://www.iso.org/iso-8601-date-and-time-format.html&quot; title=&quot;https://www.iso.org&quot; target=&quot;_blank&quot;&gt;ISO 8601&lt;/a&gt; UTC string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CancellationRequestedDate { get; set; }
@@ -37,14 +37,8 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string CancellationRequestedDate { get; set; }
 #endif
-        /// <summary>This enum specifies the current cancellation status of a shipment, if a cancellation request has been made. For implementation help, refer to &lt;a href=&apos;https://developer.ebay.com/api-docs/sell/logistics/types/api:ShipmentCancellationStatusEnum&apos;&gt;eBay API documentation&lt;/a&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CancellationStatus { get; set; }
-#nullable restore
-#else
-        public string CancellationStatus { get; set; }
-#endif
+        /// <summary>This enum specifies the current cancellation status of a shipment, if a cancellation request has been made.</summary>
+        public global::EBay.OrderManagement.Generated.Logistics.Models.ShipmentCancellationStatusEnum? CancellationStatus { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::EBay.OrderManagement.Generated.Logistics.Models.ShipmentCancellation"/> and sets the default values.
         /// </summary>
@@ -71,7 +65,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "cancellationRequestedDate", n => { CancellationRequestedDate = n.GetStringValue(); } },
-                { "cancellationStatus", n => { CancellationStatus = n.GetStringValue(); } },
+                { "cancellationStatus", n => { CancellationStatus = n.GetEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.ShipmentCancellationStatusEnum>(); } },
             };
         }
         /// <summary>
@@ -82,7 +76,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("cancellationRequestedDate", CancellationRequestedDate);
-            writer.WriteStringValue("cancellationStatus", CancellationStatus);
+            writer.WriteEnumValue<global::EBay.OrderManagement.Generated.Logistics.Models.ShipmentCancellationStatusEnum>("cancellationStatus", CancellationStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

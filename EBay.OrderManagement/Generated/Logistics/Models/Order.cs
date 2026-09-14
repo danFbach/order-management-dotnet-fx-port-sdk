@@ -29,7 +29,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The marketplace where the order was created.&lt;br&gt;&lt;br&gt;Use the value &lt;code&gt;EBAY&lt;/code&gt; to get the rates available for eBay orders.</summary>
+        /// <summary>The marketplace where the order was created.&lt;br&gt;&lt;br&gt;Currently, only &lt;code&gt;EBAY&lt;/code&gt; is supported. This value can be used to retrieve rates available for eBay orders.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Channel { get; set; }
@@ -37,7 +37,7 @@ namespace EBay.OrderManagement.Generated.Logistics.Models
 #else
         public string Channel { get; set; }
 #endif
-        /// <summary>The unique identifier of the order. The &lt;a href=/api-docs/sell/fulfillment/resources/order/methods/getOrders&quot; target=&quot;_blank&quot;&gt;getOrders&lt;/a&gt; method of the &lt;b&gt;Fulfillment API&lt;/b&gt; can be used to retrieve order IDs.</summary>
+        /// <summary>The unique identifier of the order. The &lt;a href=&quot;/api-docs/sell/fulfillment/resources/order/methods/getOrders&quot; target=&quot;_blank&quot;&gt;getOrders&lt;/a&gt; method of the &lt;strong&gt;Fulfillment API&lt;/strong&gt; can be used to retrieve order IDs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrderId { get; set; }
