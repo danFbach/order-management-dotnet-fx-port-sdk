@@ -1,32 +1,12 @@
 # ChangeLog
 
-## 1.1.0 (09/14/2026)
+## 0.2.0 (09/14/2026)
 
-- The following clients were added:
-  - `PostOrderApiClient`
-- The following members were added to `OrderManagementClient`:
-  - `PostOrderApi`
-- The following members were added to `OrderManagementConfiguration`:
-  - `PostOrderApiBaseUrl`
+Consolidated experimental release.
 
-## 1.0.0 (09/14/2026)
+- REST clients: `FulfillmentClient`, `LogisticsClient`, `PostOrderApiClient`.
+- GraphQL support for 56 checked-in operations.
+- Includes the current API definitions, regenerated clients, and wrapper updates.
+- Preserves existing wrapper parameter order where signatures allow it.
 
-**Breaking changes**
-- The following operations were removed from `FulfillmentClient`:
-  - `GetPaymentDisputeActivityAsync(string, string?, RequestOptions?, CancellationToken)`
-- The following operations were removed from `LogisticsClient`:
-  - `CreateShipmentFromQuoteAsync(CreateShipmentFromQuoteRequest, string?, RequestOptions?, CancellationToken)`
-  - `DownloadShipmentLabelAsync(string, string?, RequestOptions?, CancellationToken)`
-- The following operations changed signature on `FulfillmentClient`:
-  - `GetOrderAsync`: `(string, string?, RequestOptions?, CancellationToken)` → `(string, string?, string?, RequestOptions?, CancellationToken)`
-  - `GetOrdersAsync`: `(string?, int?, int?, string?, string?, string?, RequestOptions?, CancellationToken)` → `(string?, string?, string?, string?, string?, string?, RequestOptions?, CancellationToken)`
-  - `GetPaymentDisputeSummariesAsync`: `(string?, int?, int?, string?, string?, string?, string?, string?, RequestOptions?, CancellationToken)` → `(string?, string?, string?, string?, string?, string?, string?, string?, RequestOptions?, CancellationToken)`
-  - `UploadEvidenceFileAsync`: `(string, string?, RequestOptions?, CancellationToken)` → `(string, Stream, string, string?, RequestOptions?, CancellationToken)`
-- The following operations changed signature on `LogisticsClient`:
-  - `CreateShippingQuoteAsync`: `(ShippingQuoteRequest, string?, RequestOptions?, CancellationToken)` → `(string, ShippingQuoteRequest, string?, RequestOptions?, CancellationToken)`
-
-- The following operations were added to `FulfillmentClient`:
-  - `GetActivitiesAsync(string, string?, RequestOptions?, CancellationToken)`
-- The following operations were added to `LogisticsClient`:
-  - `CreateFromShippingQuoteAsync(string, CreateShipmentFromQuoteRequest, string?, RequestOptions?, CancellationToken)`
-  - `DownloadLabelFileAsync(string, string?, RequestOptions?, CancellationToken)`
+This entry establishes the consolidated experimental baseline.
