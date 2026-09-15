@@ -1,32 +1,41 @@
 # ChangeLog
 
-## 1.1.0 (09/14/2026)
+## 0.2.0 (09/14/2026)
 
-- The following clients were added:
-  - `PostOrderApiClient`
-- The following members were added to `OrderManagementClient`:
-  - `PostOrderApi`
-- The following members were added to `OrderManagementConfiguration`:
-  - `PostOrderApiBaseUrl`
+### Breaking changes
 
-## 1.0.0 (09/14/2026)
+#### Renamed operations
 
-**Breaking changes**
-- The following operations were removed from `FulfillmentClient`:
-  - `GetPaymentDisputeActivityAsync(string, string?, RequestOptions?, CancellationToken)`
-- The following operations were removed from `LogisticsClient`:
-  - `CreateShipmentFromQuoteAsync(CreateShipmentFromQuoteRequest, string?, RequestOptions?, CancellationToken)`
-  - `DownloadShipmentLabelAsync(string, string?, RequestOptions?, CancellationToken)`
-- The following operations changed signature on `FulfillmentClient`:
-  - `GetOrderAsync`: `(string, string?, RequestOptions?, CancellationToken)` → `(string, string?, string?, RequestOptions?, CancellationToken)`
-  - `GetOrdersAsync`: `(string?, int?, int?, string?, string?, string?, RequestOptions?, CancellationToken)` → `(string?, string?, string?, string?, string?, string?, RequestOptions?, CancellationToken)`
-  - `GetPaymentDisputeSummariesAsync`: `(string?, int?, int?, string?, string?, string?, string?, string?, RequestOptions?, CancellationToken)` → `(string?, string?, string?, string?, string?, string?, string?, string?, RequestOptions?, CancellationToken)`
-  - `UploadEvidenceFileAsync`: `(string, string?, RequestOptions?, CancellationToken)` → `(string, Stream, string, string?, RequestOptions?, CancellationToken)`
-- The following operations changed signature on `LogisticsClient`:
-  - `CreateShippingQuoteAsync`: `(ShippingQuoteRequest, string?, RequestOptions?, CancellationToken)` → `(string, ShippingQuoteRequest, string?, RequestOptions?, CancellationToken)`
+| Client | Previous | Current |
+| --- | --- | --- |
+| `LogisticsClient` | `CreateShipmentFromQuoteAsync` | `CreateFromShippingQuoteAsync` |
+| `LogisticsClient` | `DownloadShipmentLabelAsync` | `DownloadLabelFileAsync` |
 
-- The following operations were added to `FulfillmentClient`:
-  - `GetActivitiesAsync(string, string?, RequestOptions?, CancellationToken)`
-- The following operations were added to `LogisticsClient`:
-  - `CreateFromShippingQuoteAsync(string, CreateShipmentFromQuoteRequest, string?, RequestOptions?, CancellationToken)`
-  - `DownloadLabelFileAsync(string, string?, RequestOptions?, CancellationToken)`
+#### Removed operations
+
+- `FulfillmentClient.GetPaymentDisputeActivityAsync(string paymentDisputeId, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)`
+
+#### Changed signatures
+
+`FulfillmentClient`:
+
+| Operation | Previous parameters | Current parameters |
+| --- | --- | --- |
+| `GetOrderAsync` | `(string orderId, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` | `(string orderId, string? fieldGroups, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` |
+| `GetOrdersAsync` | `(string? filter, int? limit, int? offset, string? fieldGroups, string? orderIds, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` | `(string? fieldGroups, string? filter, string? limit, string? offset, string? orderIds, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` |
+| `GetPaymentDisputeSummariesAsync` | `(string? buyerUsername, int? limit, int? offset, string? openDateFrom, string? openDateTo, string? orderId, string? paymentDisputeStatus, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` | `(string? orderId, string? buyerUsername, string? openDateFrom, string? openDateTo, string? paymentDisputeStatus, string? limit, string? offset, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` |
+| `UploadEvidenceFileAsync` | `(string paymentDisputeId, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` | `(string paymentDisputeId, Stream fileContent, string fileName, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` |
+
+`LogisticsClient`:
+
+| Operation | Previous parameters | Current parameters |
+| --- | --- | --- |
+| `CreateShippingQuoteAsync` | `(ShippingQuoteRequest body, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` | `(string xEBAYCMARKETPLACEID, ShippingQuoteRequest body, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` |
+| `CreateFromShippingQuoteAsync` | `(CreateShipmentFromQuoteRequest body, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` | `(string xEBAYCMARKETPLACEID, CreateShipmentFromQuoteRequest body, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)` |
+
+### Added
+
+- `FulfillmentClient.GetActivitiesAsync(string paymentDisputeId, string? accessToken, RequestOptions? requestOptions, CancellationToken ct)`
+- Client `PostOrderApiClient`
+- Member `OrderManagementClient.PostOrderApi`
+- Member `OrderManagementConfiguration.PostOrderApiBaseUrl`
