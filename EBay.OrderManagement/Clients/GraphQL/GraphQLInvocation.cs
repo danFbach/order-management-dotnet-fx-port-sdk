@@ -12,11 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System.Linq;
+using EBay.OrderManagement.Exceptions;
+
+using StrawberryShake;
+
 using System.Net;
 using System.Net.Http;
-using EBay.OrderManagement.Exceptions;
-using StrawberryShake;
 
 #nullable enable
 
@@ -39,8 +40,8 @@ internal static class GraphQLInvocation
 
     internal static SdkException WrapException(Exception ex) => ex switch
     {
-        HttpRequestException { StatusCode: HttpStatusCode.Unauthorized } => new UnauthorizedException(ex),
-        HttpRequestException { StatusCode: { } code } http =>
+        GraphQLHttpException { StatusCode: HttpStatusCode.Unauthorized } => new UnauthorizedException(ex),
+        GraphQLHttpException { StatusCode: var code } http =>
             new SdkException($"GraphQL request failed with HTTP {(int)code}: {http.Message}", ex),
         HttpRequestException http =>
             new SdkException($"GraphQL request failed (network error): {http.Message} — check that GraphQLBaseUrl is reachable.", ex),

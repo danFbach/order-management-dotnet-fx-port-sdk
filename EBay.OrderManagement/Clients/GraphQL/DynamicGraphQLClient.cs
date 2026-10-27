@@ -15,6 +15,7 @@
 using EBay.OrderManagement.Configuration;
 using EBay.OrderManagement.Exceptions;
 using System.Net;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -65,7 +66,7 @@ internal sealed class DynamicGraphQLClient
             Encoding.UTF8, "application/json");
 
         using var resp = await _http.SendAsync(req, ct).ConfigureAwait(false);
-        var body = await resp.Content.ReadAsStringAsync(ct).ConfigureAwait(false);
+        var body = await resp.Content.ReadAsStringAsync().ConfigureAwait(false);
 
         if (_config.DiagnosticLogging && !resp.IsSuccessStatusCode)
         {

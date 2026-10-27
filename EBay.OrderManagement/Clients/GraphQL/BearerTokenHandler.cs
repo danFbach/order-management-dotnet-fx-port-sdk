@@ -13,6 +13,8 @@
 // limitations under the License.
 
 using EBay.OrderManagement.Configuration;
+
+using System.Net.Http;
 using System.Net.Http.Headers;
 
 namespace EBay.OrderManagement.Clients.GraphQL;

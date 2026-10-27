@@ -98,9 +98,13 @@ public class OrderManagementClient : IDisposable
 
     private static HttpClient BuildStandaloneHttpClient(OrderManagementConfiguration config, string baseUrl)
     {
+        // .NET Framework equivalent of SocketsHttpHandler.PooledConnectionLifetime (recycles connections to pick up DNS changes)
+        System.Net.ServicePointManager.FindServicePoint(new Uri(baseUrl)).ConnectionLeaseTimeout =
+            (int)TimeSpan.FromMinutes(2).TotalMilliseconds;
+
         var handler = new DiagnosticLoggingHandler(config)
         {
-            InnerHandler = new SocketsHttpHandler { PooledConnectionLifetime = TimeSpan.FromMinutes(2) }
+            InnerHandler = new HttpClientHandler()
         };
         return new HttpClient(handler) { BaseAddress = new Uri(baseUrl), Timeout = config.HttpTimeout };
     }

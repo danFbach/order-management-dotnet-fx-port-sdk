@@ -18,6 +18,8 @@ using EBay.OrderManagement.Configuration;
 using EBay.OrderManagement.Generated.GraphQL;
 using Microsoft.Extensions.DependencyInjection;
 
+using System.Net.Http;
+
 namespace EBay.OrderManagement.Extensions;
 
 public static class ServiceCollectionExtensions

@@ -62,17 +62,17 @@ internal static class RestInvocation
         OrderManagementConfiguration config,
         RequestOptions? callOptions)
     {
-        foreach (var (k, v) in config.DefaultRequestOptions.Headers)
+        foreach (var header in config.DefaultRequestOptions.Headers)
         {
-            headers.TryAdd(k, v);
+            headers.TryAdd(header.Key, header.Value);
         }
         if (callOptions is null)
         {
             return;
         }
-        foreach (var (k, v) in callOptions.Headers)
+        foreach (var header in callOptions.Headers)
         {
-            headers[k] = new[] { v };
+            headers[header.Key] = new[] { header.Value };
         }
     }
 
@@ -111,7 +111,7 @@ internal static class RestInvocation
         using var multipart = new MultipartFormDataContent();
         multipart.Add(new StreamContent(fileContent), partName, fileName);
         var memStream = new MemoryStream();
-        await multipart.CopyToAsync(memStream, ct);
+        await multipart.CopyToAsync(memStream);
         memStream.Position = 0;
         requestInfo.SetStreamContent(memStream, multipart.Headers.ContentType!.ToString());
     }

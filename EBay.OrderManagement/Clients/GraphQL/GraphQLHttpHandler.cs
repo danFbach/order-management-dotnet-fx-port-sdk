@@ -13,13 +13,15 @@
 // limitations under the License.
 
 using EBay.OrderManagement.Configuration;
+
+using System.Net.Http;
 using System.Text;
 
 namespace EBay.OrderManagement.Clients.GraphQL;
 
 /// <summary>
 /// Delegating handler for the StrawberryShake GraphQL HTTP pipeline.
-/// Ensures non-2xx responses throw <see cref="HttpRequestException"/> (with status code) instead of
+/// Ensures non-2xx responses throw <see cref="GraphQLHttpException"/> (with status code) instead of
 /// silently yielding zero results, and logs requests/responses when DiagnosticLogging is enabled.
 /// </summary>
 internal sealed class GraphQLHttpHandler(OrderManagementConfiguration config) : DelegatingHandler
@@ -37,7 +39,7 @@ internal sealed class GraphQLHttpHandler(OrderManagementConfiguration config) : 
 
         if (config.DiagnosticLogging)
         {
-            var body = await response.Content.ReadAsStringAsync(ct).ConfigureAwait(false);
+            var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             Console.Error.WriteLine($"[SDK GraphQL] Body: {body}");
             var bytes = Encoding.UTF8.GetBytes(body);
             var replaced = new ByteArrayContent(bytes);
@@ -47,7 +49,9 @@ internal sealed class GraphQLHttpHandler(OrderManagementConfiguration config) : 
         }
 
         if (!response.IsSuccessStatusCode)
-            response.EnsureSuccessStatusCode();
+            throw new GraphQLHttpException(
+                response.StatusCode,
+                $"Response status code does not indicate success: {(int)response.StatusCode} ({response.ReasonPhrase}).");
 
         return response;
     }
