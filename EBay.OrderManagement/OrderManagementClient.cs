@@ -126,11 +126,11 @@ public class OrderManagementClient : IDisposable
         RestHttpClientProvider httpClientFor)
     {
         var endpoints = RestEndpoints(config);
-        var fulfillmentAdapter = new HttpClientRequestAdapter(auth, httpClient: httpClientFor(endpoints.First(endpoint => endpoint.ApiId == "fulfillment")));
+        var fulfillmentAdapter = new HttpClientRequestAdapter(auth, httpClient: httpClientFor(endpoints.First(endpoint => endpoint.ApiId == "fulfillment"))) { BaseUrl = config.FulfillmentBaseUrl };
         Fulfillment = new FulfillmentClient(new FulfillmentApiClient(fulfillmentAdapter), config, tokenContext, fulfillmentAdapter);
-        var logisticsAdapter = new HttpClientRequestAdapter(auth, httpClient: httpClientFor(endpoints.First(endpoint => endpoint.ApiId == "logistics")));
+        var logisticsAdapter = new HttpClientRequestAdapter(auth, httpClient: httpClientFor(endpoints.First(endpoint => endpoint.ApiId == "logistics"))) { BaseUrl = config.LogisticsBaseUrl };
         Logistics = new LogisticsClient(new LogisticsApiClient(logisticsAdapter), config, tokenContext, logisticsAdapter);
-        var postOrderApiAdapter = new HttpClientRequestAdapter(auth, httpClient: httpClientFor(endpoints.First(endpoint => endpoint.ApiId == "post-order-api")));
+        var postOrderApiAdapter = new HttpClientRequestAdapter(auth, httpClient: httpClientFor(endpoints.First(endpoint => endpoint.ApiId == "post-order-api"))) { BaseUrl = config.PostOrderApiBaseUrl };
         PostOrderApi = new PostOrderApiClient(new PostOrderApiApiClient(postOrderApiAdapter), config, tokenContext, postOrderApiAdapter);
     }
 
