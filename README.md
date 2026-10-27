@@ -1,3 +1,5 @@
+unofficial backport to net framework 472
+
 # Order Management .NET SDK
 
 A production-ready .NET SDK for eBay Order Management APIs, combining REST and GraphQL clients with a unified facade.
