@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net472</TargetFrameworks>
@@ -18,16 +18,16 @@
 
   <ItemGroup>
     <!-- REST: Kiota runtime -->
-    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.*" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.*" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.*" />
+    <PackageReference Include="Microsoft.Kiota.Bundle" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="11.0.0" />
     <!-- StrawberryShake 15+ dropped netstandard2.0; 14.3.x is the last line usable from net472 -->
-    <PackageReference Include="StrawberryShake" Version="14.3.3" />
-    <PackageReference Include="StrawberryShake.Transport.Http" Version="14.3.3" />
-    <PackageReference Include="StrawberryShake.Transport.WebSockets" Version="14.3.3" />
+    <PackageReference Include="StrawberryShake" Version="14.3.5" />
+    <PackageReference Include="StrawberryShake.Transport.Http" Version="14.3.5" />
+    <PackageReference Include="StrawberryShake.Transport.WebSockets" Version="14.3.5" />
 
     <!-- GraphQL: StrawberryShake runtime + Roslyn source generator -->
-    <PackageReference Include="StrawberryShake.Server" Version="14.3.3" />
+    <PackageReference Include="StrawberryShake.Server" Version="14.3.5" />
   </ItemGroup>
 
 </Project>

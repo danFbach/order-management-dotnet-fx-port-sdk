@@ -20,11 +20,11 @@ using EBay.OrderManagement.Generated.Fulfillment;
 using EBay.OrderManagement.Generated.GraphQL;
 using EBay.OrderManagement.Generated.Logistics;
 using EBay.OrderManagement.Generated.PostOrderApi;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Kiota.Abstractions.Authentication;
 using Microsoft.Kiota.Http.HttpClientLibrary;
-using System.Collections.Generic;
-using System.Linq;
+
 using System.Net.Http;
 
 namespace EBay.OrderManagement;
